@@ -1,0 +1,7 @@
+Létrehozni a "manager.html"-t.
+    Benne a "menü-sort".
+    A "canvas"-t.
+    A pozícionálást. JS.
+Létrehozni a Gif-kezelő PHP class-t.
+Létrehozni a Gif animáció megtervezését.
+    Ez szerint beállítani a PHP GifManager class-t.
