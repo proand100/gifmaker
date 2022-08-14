@@ -11,14 +11,14 @@
   .cl_fSaav {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
+   
+    
 
-
-    /*
+    /**/ 
     display: inline-block;
       padding: 7px;
-   position: fixed; ///
-   background-color: aqua;
+   position: fixed; 
+   background-color: rgba(68, 25, 12, 1.0);
    border: 1px solid #000;
 
    top: 0px;
@@ -29,7 +29,7 @@
    right: 0px;
   
   z-index: 10;
- */ 
+ 
 }
 
   
@@ -61,8 +61,9 @@
   }
   
   /* Create an active/current tablink class */
-  .cl_fSaav div.active {
-    background-color: #ccc;
+  .cl_fSaav button.active {
+    background-color: #555;
+    color: rgb(219, 243, 132);
   }
   
   /* Style the tab content */
