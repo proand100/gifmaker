@@ -9,8 +9,8 @@ function openCity(evt, cityName) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
   //document.getElementById(cityName).style.display = "block";
-  if(cityName === "1. kép"){
-    document.write(" <p>1. kép display!</p>");
+  if(cityName === "1.picture"){
+    document.write(" <p>1. picture display!</p>");
   }
   if(cityName === "Paris"){
     document.write(" <p>EZ PARIS</p>");
