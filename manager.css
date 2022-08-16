@@ -16,9 +16,9 @@
 
     /**/ 
     display: inline-block;
-      padding: 7px;
+      padding: 5px;
    position: fixed; 
-   background-color: rgba(68, 25, 12, 1.0);
+   background-color: rgba(68, 25, 12, 0.3);
    border: 1px solid #000;
 
    top: 0px;
@@ -33,16 +33,16 @@
 }
 
   
-  .cl_fSaav div{
+  .cl_fSaav form{
     background-color: inherit;
     float: left;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 2px 4px;
     transition: 0.3s;
-    font-size: 17px;
-
+    font-size: 7px;
+margin-top: 0px;
 
 /*
     position: relative;
@@ -61,7 +61,7 @@
   }
   
   /* Create an active/current tablink class */
-  .cl_fSaav button.active {
+  .cl_fSaav input.active {
     background-color: #555;
     color: rgb(219, 243, 132);
   }
