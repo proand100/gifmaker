@@ -24,6 +24,7 @@
  </div>
 
 
+
     <div class="cikkek">
         <div class="col1Cikkek">   
             <div class="cikk_1">Tulajdonképpen 
@@ -33,6 +34,14 @@
         </div>
     <div class="cikk_2">b</div> <!---->
     <div class="col3Cikkek">
+
+    <?php include_once 'picsUpload.php'; 
+    $images = new pictureLoad("images");
+  
+  
+  
+    ?>
+
         <div class="cikk_3"> A programozás témájáról
         </div>
         <div class="cikk_4"> A programozás témájáról. 
