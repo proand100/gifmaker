@@ -1,7 +1,8 @@
 <?php
-class pictureLoad{
+class pictureLoad {
 public $imageDir;
 public $dirArray;
+public $indexCount;
 
 function __construct($imageDir){
 // open this directory 
@@ -19,20 +20,23 @@ closedir($myDirectory);
 $indexCount	= count($dirArray);
 
 
-} // function __construct($imageDir){
 
-    function drawImages(){
+
+   // function drawImages(){
   
     // loop through the array of files and print them all in a list
     for($index=0; $index < $indexCount; $index++) {
         $extension = substr($dirArray[$index], -3);
         if ($extension == 'png'){ // list only pngs
-            echo '<li><img src="images/' . $dirArray[$index] . '" alt="Image" /><span>' . $dirArray[$index] . '</span>';
+            $gRowIndex = $index + 1;
+          //  echo '<li><img src="images/' . $dirArray[$index] . '" alt="Image" /><span>' . $dirArray[$index] . '</span>';
+          echo ' <div><img class= "cikk_3" style=" grid-row:' . $index  . '; " src="images/' . $dirArray[$index] . '" alt="Image" />
+          <span>' . $dirArray[$index] . '</span></div>';
         }	
     }
   
-    } //function drawImages(){
-
+   // } //function drawImages(){
+    } // function __construct($imageDir){
 }
 
 

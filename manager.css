@@ -110,20 +110,22 @@ margin-top: 0px;
   
   
   .cikk_3{
-    background-color: rgb(228, 138, 11);
+   /* background-color: rgb(228, 138, 11);*/
     /*grid-column: 3;
     grid-row: 1/2;*/
     grid-column: 1;
-    grid-row: 1;
-  
-  
+   /* grid-row: 1;*/
   }
+
+  .cikk_3:hover {
+    background-color: #ddd;
+    border: 3px solid rgb(42, 3, 3);
+  }
+  
+  /*
   .cikk_4{
     background-color: rgb(198, 224, 235);
-    /*grid-column: 3;
-    grid-row: 1/2;*/
     grid-column: 1;
     grid-row: 2;
-  
-  
   }
+*/

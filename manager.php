@@ -37,15 +37,16 @@
 
     <?php include_once 'picsUpload.php'; 
     $images = new pictureLoad("images");
-  
+    //$images->drawImages();
   
   
     ?>
-
+<!--
         <div class="cikk_3"> A programozás témájáról
         </div>
         <div class="cikk_4"> A programozás témájáról. 
         </div>
+-->
 </div>
 </div>
 
