@@ -20,32 +20,8 @@
       <form id="menu3" action="PHP_IM/gifManager.php" method="GET" class="tablinks">
         <input name="menu_1" type="submit" value="menu3">
       </form>      
-      <!--
-        <button class="tablinks" onclick="openCity(event, '1.picture')">1. picture</button>
- 
-        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-  -->      
+    
  </div>
-
-
-    <div id="1.picture" class="tabcontent">
-        <h3>1. picture</h3>
-        <p>1. picture megjelenítése.</p>
-      </div>
-      
-    <div id="Paris" class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p> 
-      </div>
-      
-      <div id="Tokyo" class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
-      </div>
-
-
-
 
 
     <div class="cikkek">

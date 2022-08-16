@@ -44,15 +44,7 @@
     font-size: 7px;
 margin-top: 0px;
 
-/*
-    position: relative;
-    display: inline-block;
-    width: 30px;
-    height: 20px;
-    margin-left: 20px;
-    text-align:center;
-  */
-   
+ 
   }
 
 /* Change background color of buttons on hover */
@@ -74,10 +66,6 @@ margin-top: 0px;
     border-top: none;
   }
 
-
-
-
-  
   .cikkek{
     display: grid;
     margin-top: 40px;
