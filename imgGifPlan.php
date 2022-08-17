@@ -10,7 +10,7 @@ public $delay;  // array is lehet
     public $endY; // array is lehet
     public $startFrame; // array is lehet
     public $endFrame;  // array is lehet
-    public $alakitasMod;  // array is lehet, 1=mozgat, 2=light, 3=opacity
+    public $alakitasMod;  // array is lehet, 0= nem valtozi(hatter), 1=mozgat, 2=light, 3=opacity
     public $startOPacity;  // array is lehet
     public $endOpacity;  // array is lehet
     public $startLight;  // array is lehet
