@@ -7,13 +7,9 @@ public $SubImg;
     $this->MainImg = new gifPlan();
     $this->SubImg = new gifPlan();
 
+} 
 
 
-
-
-  } 
-
-public $mainImg= 0;
 
 
 

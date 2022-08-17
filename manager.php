@@ -10,7 +10,7 @@
 </head>
 <body>
   
-    <div class="cl_fSaav">
+    <div class="cl_fSaav">  Kattints a Main képen!
       <form id="menu1" action="PHP_IM/gifManager.php" method="GET" class="tablinks">
         <input name="menu_1" type="submit" value="menu1">
       </form>
@@ -25,7 +25,7 @@
 
 
 
-    <div class="cikkek">
+    <div class="cikkek"> 
         <div class="col1Cikkek">   
             <div class="cikk_1">Tulajdonképpen 
             </div>

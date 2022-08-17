@@ -12,9 +12,6 @@
     overflow: hidden;
     border: 1px solid #ccc;
    
-    
-
-    /**/ 
     display: inline-block;
       padding: 5px;
    position: fixed; 
@@ -23,8 +20,8 @@
 
    top: 0px;
 
-   width: 100vw;
-
+   width: 500vw;
+height: 300px;
   left: 0px;
    right: 0px;
   
@@ -68,7 +65,7 @@ margin-top: 0px;
 
   .cikkek{
     display: grid;
-    margin-top: 40px;
+    margin-top: 300px;
     grid: auto-flow/1fr 1fr 1fr;
   }
   .col1Cikkek{
