@@ -28,8 +28,8 @@
      <span style="font-size: 17px;">   Kattints a Main képen! </span>
         <input id="gifForm" name="gifForm1" type="text" value="A Main picture src">
       </form>
-      <button onclick="textChange()">click to change</button>
-      <button onclick="textChange2()">click to 2. change</button>
+      <button onclick="textChange('Parameter')">click to change</button>
+      <button onclick="textChange2('Parameter2')">click to 2. change</button>
  </div>
 
 
@@ -52,11 +52,14 @@
     ?>
     <script>
         var img=document.getElementById("gifForm");
-function textChange(){
-img.value="textvalue";
+function textChange(be1){
+img.value=be1;
 }
-function textChange2(){
-img.value="textvalue2";
+function textChange2(be2){
+img.value=be2;
+}
+function textImgSrc(be){
+ img.value=be;
 }
         </script>
 <!--
