@@ -10,7 +10,9 @@
 </head>
 <body>
   
-    <div class="cl_fSaav">  Kattints a Main képen!
+    <div class="cl_fSaav">  
+
+
       <form id="menu1" action="PHP_IM/gifManager.php" method="GET" class="tablinks">
         <input name="menu_1" type="submit" value="menu1">
       </form>
@@ -19,8 +21,15 @@
       </form>
       <form id="menu3" action="PHP_IM/gifManager.php" method="GET" class="tablinks">
         <input name="menu_1" type="submit" value="menu3">
-      </form>      
-    
+      </form>  
+      
+      
+      <form  action="PHP_IM/gifManager.php" method="GET" class="tablinks">
+     <span style="font-size: 17px;">   Kattints a Main képen! </span>
+        <input id="gifForm" name="gifForm1" type="text" value="A Main picture src">
+      </form>
+      <button onclick="textChange()">click to change</button>
+      <button onclick="textChange2()">click to 2. change</button>
  </div>
 
 
@@ -41,6 +50,15 @@
   
   
     ?>
+    <script>
+        var img=document.getElementById("gifForm");
+function textChange(){
+img.value="textvalue";
+}
+function textChange2(){
+img.value="textvalue2";
+}
+        </script>
 <!--
         <div class="cikk_3"> A programozás témájáról
         </div>
@@ -52,5 +70,6 @@
 
   </div>
   <!--<script src="manager.js"></script> -->
+
 </body>
 </html>

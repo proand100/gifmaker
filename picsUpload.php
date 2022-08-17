@@ -1,8 +1,9 @@
 <?php
-class pictureLoad {
-public $imageDir;
-public $dirArray;
-public $indexCount;
+
+class pictureLoad{
+//public $imageDir;
+//public $dirArray;
+//public $indexCount;
 
 function __construct($imageDir){
 // open this directory 
