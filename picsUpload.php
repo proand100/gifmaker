@@ -30,12 +30,7 @@ $indexCount	= count($dirArray);
         $extension = substr($dirArray[$index], -3);
         if ($extension == 'png'){ // list only pngs
             $imgTitle = $dirArray[$index];
-          //  echo '<li><img src="images/' . $dirArray[$index] . '" alt="Image" /><span>' . $dirArray[$index] . '</span>';
-          /*
-          echo ' <div><img class= "cikk_3" style=" grid-row:' . $index  . '; " src="images/' . $dirArray[$index] . '" alt="Image" 
-          onclick="textImgSrc()"/>
-          <span>' . $dirArray[$index] . '</span></div>';
-          */
+ 
           echo ' <div><img class= "cikk_3" style=" grid-row:' . $index  . '; " src="images/' . $imgTitle . '" alt="Image" 
           onclick="textImgSrc(\'' . $imgTitle . '\')"/>
           <span>' . $imgTitle . '</span></div>';
