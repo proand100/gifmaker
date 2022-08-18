@@ -31,9 +31,10 @@ $indexCount	= count($dirArray);
         if ($extension == 'png'){ // list only pngs
             $imgTitle = $dirArray[$index];
  
-          echo ' <div><img class= "cikk_3" style=" grid-row:' . $index  . '; " src="images/' . $imgTitle . '" alt="Image" 
+          echo ' <div><p style="margin-left: 50px;">' . $imgTitle . '</p><img class= "cikk_3" style=" grid-row:' . $index  . '; " src="images/' . $imgTitle . '" alt="Image" 
           onclick="textImgSrc(\'' . $imgTitle . '\')"/>
-          <span>' . $imgTitle . '</span></div>';
+          
+          </div>';
 
         }	
     }
