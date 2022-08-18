@@ -1,6 +1,6 @@
 I'm currently learning web programming so this gif-making 
 project is a client-server programming exercise for me.
-It builded by HTML, CSS, PHP, JavaScript codes.
+It is make with HTML, CSS, PHP, JavaScript and XAMPP server.
 
 This project uses the imagick library of PHP.
 The first goal is to create a minimally animated GIF with 
