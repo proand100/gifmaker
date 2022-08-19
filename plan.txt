@@ -5,3 +5,13 @@ Létrehozni a "manager.html"-t.
 Létrehozni a Gif-kezelő PHP class-t.
 Létrehozni a Gif animáció megtervezését.
     Ez szerint beállítani a PHP GifManager class-t.
+---
+Minden picture-hez létrehozni egy "gif alakítás" struktúrát.Vagy változatlan (háttér).
+- In case of 2 pictures is the same with only one different: to assign  title of the 
+  Main picture  also.
+  But in this case the object is not a picture but it is a picture array (of the Main 
+  at least).
+  - A PHP Class takes up this structure, executes the GIF operations and at last save 
+    into an XML file.
+
+

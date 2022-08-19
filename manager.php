@@ -13,37 +13,46 @@
     <div class="cl_fSaav">  
     <section id="gimForm">
 <form action="gifProject.php">
-  <fieldset>
+  <fieldset id="fieldSet">
     <legend>Gif setup for image:</legend>
     <label for="imgMainSrc"> Main image:</label>
-    <input id="mainImg" name="mainImg" type="text" value="Kattints a MAIN képen!">
+    <input style="width: auto"; id="mainImg" name="mainImg" type="text" value="Kattints a MAIN képen!"><br>
 
 
     <label for="height">Height (px) :</label>
     <input id="height" name="height" type="text" value="">
     <label for="width">Width (px) :</label>
     <input id="width" name="width" type="text" value="">
-    <label for="alakitasMod">Alakitas :</label>
 
+
+<label for="tartam">Tartam (mp):</label>
+<input id="tartam" name="tartam" type="text" value="">
+<label for="delay">Delay:</label>
+<input id="delay" name="delay" type="text" value="">
+
+<label for="szakasz">Szakasz:</label>
+<input id="szakasz" name="szakasz" type="text" value="">
+
+
+<label for="alakitasMod">Alakitas :</label>
 <select name="alakitasMod" id="mod">
   <option value="0">Változatlan</option>
   <option value="1">Mozgatás</option>
   <option value="2">Fényerő</option>
   <option value="3">Átlátszóság</option>
 </select>
-<br><br><br>
+<br>
 
 
-<label for="tartam">Tartam (mp):</label>
-<input id="tartam" name="tartam" type="text" value="">
-<label for="delay">Delay:</label>
-<input id="delay" name="delay" type="text" value=""><br><br>
 
-<label for="szakasz">Szakasz:</label>
-<input id="szakasz" name="szakasz" type="text" value=""><br>
 
 <label for="startFr">Start frame :</label>
 <input id="startFr" name="startFr" type="text" value=""><br>
+
+
+
+
+
 <label for="endFr>">End frame :</label>
 <input id="endFr" name="endFr" type="text" value=""><br>
 
@@ -80,7 +89,9 @@
 
 
 <label for="endLight>">End Light :</label>
-<input id="endLight" name="endLight" type="text" value=""><br>
+<input id="endLight" name="endLight" type="text" value="">
+
+<input id="setSend0" type="submit" value="Send">
 
   </fieldset>
 </form>
