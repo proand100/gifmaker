@@ -12,7 +12,10 @@
   
     <div class="cl_fSaav">  
     <section id="gimForm">
-<form action="gifProject.php">
+
+
+
+<form action="gifProject.php" method="get">
   <fieldset id="fieldSet">
     <legend>Gif setup for image:</legend>
     <label for="imgMainSrc"> Main image:</label>
@@ -90,51 +93,19 @@
 
 <label for="endLight>">End Light :</label>
 <input id="endLight" name="endLight" type="text" value="">
-
-<input id="setSend0" type="submit" value="Send">
-
+<!--
+<button id="setSend0" onclick="readyGifSet()">OK</button>
+-->
+<input id="setSend0" type="submit" value="OK submit">
   </fieldset>
 </form>
 </section>
-<!--
-      <form id="menu1" action="PHP_IM/gifManager.php" method="GET" class="tablinks">
-        <input name="menu_1" type="submit" value="menu1">
-      </form>
-      <form id="menu2" action="PHP_IM/gifManager.php" method="GET" class="tablinks">
-        <input name="menu_1" type="submit" value="menu2">
-      </form>
-      <form id="menu3" action="PHP_IM/gifManager.php" method="GET" class="tablinks">
-        <input name="menu_1" type="submit" value="menu3">
-      </form>  
--->
- <!--     
-      <form  action="PHP_IM/gifManager.php" method="GET" class="tablinks">
-     <span style="font-size: 17px; color: white;">   Main image:  </span>
-        <input id="mainImg" name="mainImg" type="text" value="Kattints a MAIN képen!">
-      </form>
-
-      <form  action="PHP_IM/gifManager.php" method="GET" class="tablinks">
-     <span style="font-size: 17px; color: white;">   Sub image:  </span>
-        <input id="subImg" name="subImg" type="text" value="Kattints a SUB képen!">
-      </form>
-
-      <button onclick="textChange('Parameter')">click to change</button>
-      <button onclick="textChange2('Parameter2')">click to 2. change</button>
--->
-
-
  </div>
 
 
 
     <div class="cikkek"> 
         <div class="col1Cikkek">   
-           
-
-
-
-
-   
             <div class="cikk_5">Tulajdonképpen
             </div>
         </div>
@@ -157,6 +128,10 @@ function textChange2(be2){
 }
 function textImgSrc(be){
   mainImg.value=be;
+}
+function readyGifSet(){
+
+
 }
         </script>
 <!--
