@@ -111,7 +111,7 @@
 
  <div class="imgArea">
 
-<div id="menu0" style="font-size:20px;margin-top: 15px;cursor:pointer" onclick="openImgSet()">&#9776; Set</div>
+<div id="menu0" style="font-size:20px;margin-top: 270px;cursor:pointer" onclick="openImgSet()">&#9776; Set open</div>
 <!--
 <button type="button"  onclick="openImgSet()">Set</button>
 -->
