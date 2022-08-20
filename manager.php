@@ -10,7 +10,10 @@
 </head>
 <body>
   
-    <div class="cl_fSaav">  
+    <div class="cl_fSaav" id="setSaav">
+      
+    
+
     <section id="gimForm">
 
 
@@ -100,6 +103,18 @@
   </fieldset>
 </form>
 </section>
+<!--
+<a href="javascript.void(0)" class="closeSetImg" onclick="closeImgSet()">&times;</a>-->
+<div class="closeSetImg" onclick="closeImgSet()">&#9776; Set close</div>
+
+ </div>
+
+ <div class="imgArea">
+
+<div id="menu0" style="font-size:20px;margin-top: 15px;cursor:pointer" onclick="openImgSet()">&#9776; Set</div>
+<!--
+<button type="button"  onclick="openImgSet()">Set</button>
+-->
  </div>
 
 
@@ -129,10 +144,26 @@ function textChange2(be2){
 function textImgSrc(be){
   mainImg.value=be;
 }
-function readyGifSet(){
+/*function readyGifSet(){
+
+}
+*/
+function openImgSet(){
+ // dovument.write("openImgSet()-ben")
+
+  document.getElementById("setSaav").style.height = "300px"; // "menu0"
+  document.getElementById("menu0").style.opacity= "0.0";
+}
+
+function closeImgSet(){
+  document.getElementById("setSaav").style.height = "0px"; // "menu0"
+  document.getElementById("menu0").style.opacity= "1.0";
 
 
 }
+
+
+
         </script>
 <!--
         <div class="cikk_3"> A programozás témájáról
