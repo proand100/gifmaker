@@ -13,5 +13,9 @@ Minden picture-hez létrehozni egy "gif alakítás" struktúrát.Vagy változatl
   at least).
   - A PHP Class takes up this structure, executes the GIF operations and at last save 
     into an XML file.
+    ---220826
+    A picsUpload.php 36. sorban ' onclick="textImgSrc(\'' . $imgTitle . '\')"/> '
+    javaScript function tölti be a MainPicture-t a MainCanvas-ba. Itt lehet a 
+    imgGifPlan.php felé indulni.
 
 

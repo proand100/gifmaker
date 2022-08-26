@@ -12,9 +12,9 @@
   
     <div class="cl_fSaav" id="setSaav">
       
-    
 
-    <section id="gimForm">
+
+    <section id="gimForm"> 
 
 
 
@@ -39,7 +39,6 @@
 <label for="szakasz">Szakasz:</label>
 <input id="szakasz" name="szakasz" type="text" value="">
 
-
 <label for="alakitasMod">Alakitas :</label>
 <select name="alakitasMod" id="mod">
   <option value="0">Változatlan</option>
@@ -49,25 +48,13 @@
 </select>
 <br>
 
-
-
-
 <label for="startFr">Start frame :</label>
 <input id="startFr" name="startFr" type="text" value=""><br>
-
-
-
-
 
 <label for="endFr>">End frame :</label>
 <input id="endFr" name="endFr" type="text" value=""><br>
 
-
 <br>
-
-
-
-
 
 <label for="startX">Start X :</label>
 <input id="startX" name="startX" type="text" value="">
@@ -80,8 +67,6 @@
 <label for="startLight">Start Light :</label>
 <input id="startLight" name="startLight" type="text" value=""><br>
 
-
-
 <label for="endX">End X :</label>
 <input id="endX" name="endX" type="text" value="">
 <label for="endY>">End Y :</label>
@@ -89,10 +74,6 @@
 
 <label for="endOp>">End opacity :</label>
 <input id="endOp" name="endOp" type="text" value="">
-
-
-
-
 
 <label for="endLight>">End Light :</label>
 <input id="endLight" name="endLight" type="text" value="">
@@ -110,11 +91,14 @@
  </div>
 
  <div class="imgArea">
+ <canvas id="MainCanvas" width="340px" height="220px" >
+    Your browser not supported HTML Canvas tag.
+  </canvas>
+  <canvas id="SubCanvas" width="340px" height="220px" >
+    Your browser not supported HTML Canvas tag.
+  </canvas>
+<div id="menu0" style="font-size:20px;margin-top: 10px;cursor:pointer" onclick="openImgSet()">&#9776; Set open</div>
 
-<div id="menu0" style="font-size:20px;margin-top: 270px;cursor:pointer" onclick="openImgSet()">&#9776; Set open</div>
-<!--
-<button type="button"  onclick="openImgSet()">Set</button>
--->
  </div>
 
 
@@ -124,7 +108,6 @@
             <div class="cikk_5">Tulajdonképpen
             </div>
         </div>
-    <!--<div class="cikk_2">b</div> -->
     <div class="col3Cikkek">
 
     <?php include_once 'picsUpload.php'; 
@@ -133,8 +116,14 @@
   
   
     ?>
-    <script>
-       // var img=document.getElementById("gifForm");
+<script>
+ var canvas=document.getElementById("MainCanvas");
+var ctx=canvas.getContext("2d");
+ctx.font="20px Arial";
+ctx.globalAlpha= 0.1;
+ctx.fillText("Click on the Main picture!", 10, 30);
+
+
 function textChange(be1){
   mainImg.value=be1;
 }
@@ -143,6 +132,12 @@ function textChange2(be2){
 }
 function textImgSrc(be){
   mainImg.value=be;
+ctx.globalAlpha= 1.0;
+  var a = document.createElement("img");
+  a.src="images/" + be;
+ctx.drawImage(a, 5, 5);
+
+
 }
 /*function readyGifSet(){
 
@@ -161,21 +156,13 @@ function closeImgSet(){
 
 
 }
+</script>
 
-
-
-        </script>
-<!--
-        <div class="cikk_3"> A programozás témájáról
-        </div>
-        <div class="cikk_4"> A programozás témájáról. 
-        </div>
--->
 </div>
 </div>
 
   </div>
-  <!--<script src="manager.js"></script> -->
+
 
 </body>
 </html>
