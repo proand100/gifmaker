@@ -117,7 +117,7 @@ echo "<br>";
    <span style="display: inline;"> sec</span>
    <?php
      if($isempty == 1){
-      echo '<input id="lengthSend" type="submit" value="Lenght OK">';
+      echo '<input id="lengthSend" type="submit" value="Length OK">';
      }
    ?>
    
