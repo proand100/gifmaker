@@ -15,13 +15,11 @@ $isempty = isEmpty();
 //echo " " . $isempty;
 ?>
 
+    <div class="cl_fSaav" id="setSaav">
+      
 
 
-    <div class="cikkek"> 
-        <div class="col1Cikkek">   
-            <div class="cikk_5">Tulajdonképpen
-
-            <section id="gimForm"> 
+    <section id="gimForm"> 
 
 <form action="gifProject.php" method="get">
   <fieldset id="fieldSet">
@@ -59,18 +57,53 @@ $isempty = isEmpty();
   </fieldset>
 </form>
 </section>
+<!--
+<a href="javascript.void(0)" class="closeSetImg" onclick="closeImgSet()">&times;</a>-->
+<div class="closeSetImg" onclick="closeImgSet()">&#9776; Set close</div>
+
+ </div>
+  
+ <div class="imgArea"> 
+ <span id="w_h" >Canvas width=400px, height=220px; Animated Gif long= 
+ <form id="prLength"  action="gifProject.php" method="get">
+
+ <input id="projLength" name="projLength" type="text" value="">
+
+   <span style="display: inline;"> sec</span>
+   <?php
+     if($isempty == 1){
+      echo '<input id="lengthSend" type="submit" value="Length OK">';
+     }
+   ?>
+   
+</form>
+ </span>
+
+ <canvas id="MainCanvas" width="400px" height="220px" >
+    Your browser not supported HTML Canvas tag.
+  </canvas>
+
+<div id="menu0"  onclick="openImgSet()">&#9776; Set open</div>
+
+ </div>
+
+
+
+    <div class="cikkek"> 
+        <div class="col1Cikkek">   
+            <div class="cikk_5">Tulajdonképpen
             <?php
 
 require_once "szakaszManager.php";
 $szM = new szakaszManager;
 $szM->newSzakasz();
 //echo '<br>';
-/*$szM->newSzakasz();
-$szM->newSzakasz();*/
-/*$szM->newSzakasz();
+$szM->newSzakasz();
+$szM->newSzakasz();/**/
+$szM->newSzakasz();
 //echo '<br>';
 $szM->newSzakasz();
-$szM->newSzakasz();*/
+$szM->newSzakasz();/**/
 ?>
 
 
@@ -80,32 +113,7 @@ $szM->newSzakasz();*/
 
             
         </div>
-<div class="col3Cikkek">
-
-<div class="imgArea"> 
-
- <span id="w_h" >
-  <form id="prLength"  action="gifProject.php" method="get">
-  <span style="margin-left: 10px; display: inline-flex; font-size: 13px;"> Canvas width=400px, height=220px; Animated Gif long=  </span>
-   <input id="projLength" name="projLength" type="text" value="">
-
-   <span style="display: inline;"> sec</span>
-   <?php
-     if($isempty == 1){
-      echo '<input id="lengthSend" type="submit" value="Length OK">';
-     }
-   ?>
-   
-  </form>
- </span>
-
-  <canvas id="MainCanvas" width="400px" height="220px" >
-    Your browser not supported HTML Canvas tag.
-  </canvas>
-
- 
-</div>
-
+    <div class="col3Cikkek">
 
     <?php include_once 'picsUpload.php'; 
     $images = new pictureLoad("GIFproject/images");
@@ -113,8 +121,6 @@ $szM->newSzakasz();*/
   
   
     ?>
-
-
 <script>
  var canvas=document.getElementById("MainCanvas");
 var ctx=canvas.getContext("2d");

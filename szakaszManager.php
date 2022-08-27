@@ -12,8 +12,12 @@ class szakaszManager{
 
 
 function newSzakasz(){
-    echo '<br><label style="display: box; margin-top: 100px;" " for="tartam">Tartam (mp):</label>
-
+   // <fieldset id="pictRange" style="box-sizing: border-box; border: 1px solid #000000;">
+ //<br><label style="display: box; margin-top: 100px;" " for="tartam">Tartam (mp):</label>
+    echo '
+    <div id="pictRange" >
+   
+    <br><label  " for="tartam">Tartam (mp):</label>
 
     <input id="tartam" name="tartam" type="text" value="">
     <label for="delay">Delay:</label>
@@ -49,7 +53,8 @@ function newSzakasz(){
     <label for="endLight>">End Light :</label>
     <input id="endLight" name="endLight" type="text" value="">
     
-    <input id="setSend0" type="submit" value="OK submit">';
+    <input id="setSend0" type="submit" value="OK submit">
+    </div>';
 }
 
 

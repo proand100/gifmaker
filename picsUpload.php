@@ -32,7 +32,7 @@ $indexCount	= count($dirArray);
             $imgTitle = $dirArray[$index];
  
          
-            echo ' <div><p style="margin-left: 50px;">' . $imgTitle . '</p><img class= "cikk_3" style=" grid-row:' . $index  . '; " src="images/' . $imgTitle . '" alt="Image" 
+            echo ' <div><p style="margin-left: calc(50% + 50px);">' . $imgTitle . '</p><img class= "cikk_3" style=" grid-row:' . $index  . '; " src="images/' . $imgTitle . '" alt="Image" 
           onclick="textImgSrc(\'' . $imgTitle . '\')"/>
           
           </div>';
