@@ -9,20 +9,24 @@
     <link rel="stylesheet" href="manager.css"> <!-- -->
 </head>
 <body>
-  
+
+<?php require_once 'isEmpty.php';
+$isempty = isEmpty();
+echo " " . $isempty;
+?>
+
     <div class="cl_fSaav" id="setSaav">
       
 
 
     <section id="gimForm"> 
 
-
-
 <form action="gifProject.php" method="get">
   <fieldset id="fieldSet">
     <legend>Gif setup for image:</legend>
     <label for="imgMainSrc"> Main image:</label>
-    <input style="width: auto"; id="mainImg" name="mainImg" type="text" value="Kattints a MAIN képen!"><br>
+    <input style="width: auto"; id="mainImg" name="mainImg" type="text" 
+    value="Kattints a MAIN képen! "><br>
 
 
     <label for="height">Height (px) :</label>
@@ -31,28 +35,43 @@
     <input id="width" name="width" type="text" value="">
 
 
+
+
+
+
+<label for="alakitasMod">Alakitas :</label>
+<select name="alakitasMod" id="mod">
+  <option value="0">Change</option>
+  <option value="1">Background</option>
+  <br>
+
+
+
+
+</select>
+<br>
+<br>
+
+<?php
+echo "<br>";
+//require_once "szakaszManager.php";
+//$szM = new szakaszManager;
+//$szM->newSzakasz();
+
+?>
+<!--
+  <label for="szakasz">Szakasz:</label>
+<input id="szakasz" name="szakasz" type="text" value="">
 <label for="tartam">Tartam (mp):</label>
 <input id="tartam" name="tartam" type="text" value="">
 <label for="delay">Delay:</label>
 <input id="delay" name="delay" type="text" value="">
 
-<label for="szakasz">Szakasz:</label>
-<input id="szakasz" name="szakasz" type="text" value="">
-
-<label for="alakitasMod">Alakitas :</label>
-<select name="alakitasMod" id="mod">
-  <option value="0">Változatlan</option>
-  <option value="1">Mozgatás</option>
-  <option value="2">Fényerő</option>
-  <option value="3">Átlátszóság</option>
-</select>
-<br>
-
 <label for="startFr">Start frame :</label>
-<input id="startFr" name="startFr" type="text" value=""><br>
+<input id="startFr" name="startFr" type="text" value="">
 
 <label for="endFr>">End frame :</label>
-<input id="endFr" name="endFr" type="text" value=""><br>
+<input id="endFr" name="endFr" type="text" value="">
 
 <br>
 
@@ -77,10 +96,9 @@
 
 <label for="endLight>">End Light :</label>
 <input id="endLight" name="endLight" type="text" value="">
-<!--
-<button id="setSend0" onclick="readyGifSet()">OK</button>
--->
+
 <input id="setSend0" type="submit" value="OK submit">
+-->
   </fieldset>
 </form>
 </section>
@@ -89,14 +107,27 @@
 <div class="closeSetImg" onclick="closeImgSet()">&#9776; Set close</div>
 
  </div>
+  
+ <div class="imgArea"> 
+ <span id="w_h" >Canvas width=400px, height=220px; Animated Gif long= 
+ <form id="prLenght"  action="gifProject.php" method="get">
 
- <div class="imgArea">
- <canvas id="MainCanvas" width="340px" height="220px" >
+ <input id="projLength" name="projLength" type="text" value="">
+
+   <span style="display: inline;"> sec</span>
+   <?php
+     if($isempty == 1){
+      echo '<input id="lengthSend" type="submit" value="Lenght OK">';
+     }
+   ?>
+   
+</form>
+ </span>
+
+ <canvas id="MainCanvas" width="400px" height="220px" >
     Your browser not supported HTML Canvas tag.
   </canvas>
-  <canvas id="SubCanvas" width="340px" height="220px" >
-    Your browser not supported HTML Canvas tag.
-  </canvas>
+
 <div id="menu0" style="font-size:20px;margin-top: 10px;cursor:pointer" onclick="openImgSet()">&#9776; Set open</div>
 
  </div>
@@ -111,7 +142,7 @@
     <div class="col3Cikkek">
 
     <?php include_once 'picsUpload.php'; 
-    $images = new pictureLoad("images");
+    $images = new pictureLoad("GIFproject/images");
     //$images->drawImages();
   
   
@@ -136,6 +167,9 @@ ctx.globalAlpha= 1.0;
   var a = document.createElement("img");
   a.src="images/" + be;
 ctx.drawImage(a, 5, 5);
+height.value = a.height;
+width.value = a.width;
+
 
 
 }

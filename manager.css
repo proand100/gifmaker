@@ -33,7 +33,8 @@ height: 0px;/**/
 
   
   .cl_fSaav form{
-    background-color: inherit;
+    /*background-color: inherit;*/
+    background-color: rgba(212, 190, 111, 0.7);
     float: left;
     border: none;
     outline: none;
@@ -48,7 +49,7 @@ margin-top: 0px;
 
 /* Change background color of buttons on hover */
 .cl_fSaav div:hover {
-    background-color: #ddd;
+    background-color: rgb(155, 32, 32);
   }
   
   /* Create an active/current tablink class */
@@ -85,18 +86,37 @@ margin-top: 0px;
  */
 .imgArea{
 display: grid;
+box-sizing: border-box;
+border: 1px solid #000000;
 width: 100%;
 height: 300px;
-background-color: aqua;
+background-color: rgb(128, 198, 195);
+
 margin: auto;
 
 
 }
+#w_h{
+  display:inline-flex;
+  margin-left: calc(100% - 540px);;
+  margin-top: 10px;
+  
+}
+#projLength{
+  display: inline;
+  width: 30px;
+}
+#lengthSend{
+  background-color: rgb(236, 102, 65);
+}
+
 
 #MainCanvas{
   box-sizing: border-box;
- margin-top: 30px;
- margin-left: 200px;
+  position: relative;
+  background-color: white;
+ margin-top:3px;
+ margin-left: calc(100% - 540px);
   border: 1px solid #000000;
 }
 #SubCanvas{
