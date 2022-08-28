@@ -10,7 +10,7 @@
    
   }
   
-  .cl_fSaav {
+ /* .cl_fSaav {
     overflow: hidden;
     border: 1px solid #ccc;
    
@@ -23,7 +23,7 @@
    top: 0px;
 
    width: 500vw;
-height: 0px;/**/
+height: 0px;
   left: 0px;
    right: 0px;
   
@@ -33,7 +33,7 @@ height: 0px;/**/
 
   
   .cl_fSaav form{
-    /*background-color: inherit;*/
+    
     background-color: rgba(212, 190, 111, 0.7);
     float: left;
     border: none;
@@ -47,18 +47,57 @@ margin-top: 0px;
  
   }
 
-/* Change background color of buttons on hover */
+ Change background color of buttons on hover */
 
 
 #fieldSet input{
- background-color: aqua;
- color: rgb(4, 1, 15);
+
  font-size: 10px;
  width: 50px;
 
 
   }
+  #fieldSet input:hover{
+background-color: rgb(210, 12, 12);
+color: azure;
+  }
 
+  .setButtons{
+    display:inline;
+    position: absolute;
+      margin-top: 3px;
+      margin-left: 10px;
+      margin-bottom: 5px;
+      box-sizing: border-box;
+      border: 1px solid #1e453d;
+      height: auto;
+      padding: 3px;
+      width: auto;
+      color: white;
+  
+  
+  
+  background-color: rgb(52, 104, 99);
+  
+  }
+  .setButtons:hover{
+    background-color: rgb(52, 104, 99);
+
+  }
+
+
+ /* .setButtons input{
+    position:absolute;
+    background-color: rgb(177, 95, 95);
+  color: white;
+  position: absolute;
+  margin-left: 100px;
+  
+    
+    }*/
+ 
+  
+  /*
   #fieldSet #setSend0 {
   background-color: #555;
   color: aliceblue;
@@ -70,7 +109,7 @@ margin-top: 0px;
 
 
   
-  /* Style the tab content
+ Style the tab content
   .tabcontent {
     display: none;
     padding: 6px 12px;
@@ -170,6 +209,8 @@ width: 100px;
   */
   
 .cikk_5{
+  position: fixed;
+  width: 500px;
     background-color: rgb(215, 170, 143);
     grid-column: 1;
     grid-row: 2;
@@ -188,6 +229,7 @@ width: 100px;
     width: 90%;
     font-size: 13px;
   }
+  
   
   
   #pictRange input{
@@ -234,13 +276,7 @@ width: 100px;
   display:grid;
  margin-top: 0px;
  font-size: 13px;
-
-
-
-
 }
-
-
 
 
 
