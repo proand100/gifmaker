@@ -1,4 +1,5 @@
 <?php
+/*
 global $szakaszSum;
 if(!isset($_GET["szakaszPlus"])){$szakaszSum = 0;}
 if(isset($_GET["szakaszPlus"]))
@@ -9,14 +10,7 @@ if(isset($_GET["szakaszPlus"]))
   echo $_GET["szakaszPlus"] . $szakaszSum;
   }
 }
-  /*
-  echo "$szakaszSum = " . $szakaszSum;
-  if($szakaszSum < 5){$szakaszSum++; echo "$szakaszSum = " . $szakaszSum;}
-}
-if(isset($_GET["szakaszMinus"])){
-  if($szakaszSum > 0){ $szakaszSum--; }
-  } 
-  */
+*/ 
 ?>
 
 
@@ -44,13 +38,14 @@ $isempty = isEmpty();
             <div  style=" position: fixed; width: 480px;" class="cikk_5">Tulajdonképpen
 
   <section id="gimForm"> 
-
+<!--
 <form action="gifProject.php" method="get">
+-->
+<form action="" method="get">
   <fieldset id="fieldSet">
     <legend>Gif setup for image:</legend>
     <label for="imgMainSrc"> Main image:</label>
-    <input style="width: auto;" id="mainImg" name="mainImg" type="text" 
-    value="Kattints a MAIN képen! "><br>
+    <input style="width: auto;" id="mainImg" name="mainImg" type="text" value="Kattints a MAIN képen! "><br>
 
 
     <label for="height">Height (px) :</label>
@@ -63,37 +58,31 @@ $isempty = isEmpty();
     <option value="0">Change</option>
     <option value="1">Background</option>
     <br>
-
-
-
-
-  </select>
+</select>
 
  
-  <input class="setButtons" style="width: 40px; left: 420px; " name=\"save\" type="submit" value="SAVE"></form>
+  <input class="setButtons" style="width: 40px; left: 420px; " name=\"save\" type="submit" value="SAVE">
 </form>
 <br>
 <br>
-<?php
-echo '<form method="GET" id="szakaszPlus"  action= manager.php?szakasz='. $szakaszSum .'">
-<input class="setButtons"  name="szakaszPlus" type="submit" value="'. $szakaszSum .'"></form>'
-?>
+
+
+<button  type="button" id="szakaszPlus" class="setButtons" onclick="szakaszShow()">szakasz +</button>
+
+<button  type="button" id="szakaszMinus" class="setButtons" style="width: 80px; left: 90px; " onclick="szakaszHide()">szakasz -</button>
+
 <!--
-<form id="szakaszPlus"  action= manager.php method="GET">   method=\"POST\">
-
-<input class="setButtons"  name="szakaszPlus" type="submit" value="szakasz +"></form>
--->
-<form id="szakaszDel"  action= manager.php >
+<form id="szakaszDel"  action=  >
 <input class="setButtons" style="width: 80px; left: 90px; " name=\"szakaszMinus\" type="submit" value="lastSzakaszDel"></form>
+-->
 
 
 
-
-<form id="szakaszDel"  action= manager.php >
+<form id="szakaszDel"  action=  >
 <input class="setButtons" style="width: 50px; left: 290px; " name=\"cancel\" type="submit" value="CANCEL"></form>
 
 
-<form id="szakaszDel"  action= manager.php >
+<form id="szakaszDel"  action= >
 <input class="setButtons" style="width: 70px; left: 360px; " name=\"delete\" type="submit" value="DELETE"></form>
 <br><br>
 
@@ -101,6 +90,19 @@ echo '<form method="GET" id="szakaszPlus"  action= manager.php?szakasz='. $szaka
 </form>
 </section>
 
+<?php
+require_once "szakaszManager.php";
+$i=0;
+while($i < 5){
+echo '<div  id="szakasz_' . $i .'" style="opacity: 0.0;height: 0px">';
+//echo '<div id="szakasz_" style="opacity: 0.2;">';
+$szM = new szakaszManager;
+echo '</div>';
+$i++;
+}
+
+?>
+<!--
 <div id="szakasz_1">
 
 </div>
@@ -116,7 +118,7 @@ echo '<form method="GET" id="szakaszPlus"  action= manager.php?szakasz='. $szaka
 <div id="szakasz_5">
 
 </div>
-
+-->
 
 
 
@@ -195,11 +197,40 @@ $szM->newSzakasz();*/
 í/div>
 
 <script>
+  var szakaszSzam = -1;
+  
  var canvas=document.getElementById("MainCanvas");
 var ctx=canvas.getContext("2d");
 ctx.font="20px Arial";
 ctx.globalAlpha= 0.1;
 ctx.fillText("Click on the Main picture!", 10, 30);
+/**/
+
+
+function szakaszShow(){
+  if(szakaszSzam < 4){szakaszSzam++;}
+//var x = document.getElementById("szakasz_" + szakaszSzam.toString());
+//document.write("szakasz_" + szakaszSzam.toString());
+//ctx.globalAlpha= 1.0;
+//ctx.fillText("szakasz_" + szakaszSzam, 10, 30);
+document.getElementById("szakasz_" + szakaszSzam).style.height="100px";
+  document.getElementById("szakasz_" + szakaszSzam).style.opacity= "1.0"; // height: 0px
+  
+  
+
+}
+
+function szakaszHide(){
+  //ctx.globalAlpha= 1.0;
+//ctx.fillText("szakasz_" + szakaszSzam.toString(), 10, 30);
+document.getElementById("szakasz_" + (szakaszSzam )).style.height="0px"; 
+  document.getElementById("szakasz_" + (szakaszSzam )).style.opacity= "0.0";
+  
+  if(szakaszSzam >= 0){szakaszSzam--; }
+
+
+
+}
 
 
 function textChange(be1){
@@ -217,20 +248,7 @@ ctx.drawImage(a, 5, 5);
 
 height.value = a.height;
 width.value = a.width;
-/*
-  var a = document.createElement("img");
-  a.src="images/" + be;
-ctx.drawImage(a, 5, 5);
-height.value = a.height;
-width.value = a.width;
-*/
-
-
 }
-/*function readyGifSet(){
-
-}
-*/
 function openImgSet(){
  // dovument.write("openImgSet()-ben")
 
