@@ -34,8 +34,17 @@ $isempty = isEmpty();
 
 
     <div class="cikkek"> 
-        <div class="col1Cikkek">   
-            <div  style=" position: fixed; width: 480px;" class="cikk_5">Tulajdonképpen
+        <div class="col1Cikkek">  
+        <?php
+     if($isempty == 1){
+      echo ' <div id="loadGif" style=" position: fixed; width: 480px;" class="cikk_5">Create New Gif.';
+     }
+     else{
+      echo ' <div id="loadGif" style=" position: fixed; width: 480px;" class="cikk_5">Loaded Gif project.>';
+     }
+   ?>
+        
+    
 
   <section id="gimForm"> 
 <!--
@@ -45,9 +54,18 @@ $isempty = isEmpty();
   <fieldset id="fieldSet">
     <legend>Gif setup for image:</legend>
     <label for="imgMainSrc"> Main image:</label>
-    <input style="width: auto;" id="mainImg" name="mainImg" type="text" value="Kattints a MAIN képen! "><br>
-
-
+    <input style="width: auto;" id="mainImg" name="mainImg" type="text" value="Kattints a MAIN képen! ">
+<?php
+     if($isempty == 1){
+      echo ' <span id="kepSorszam">1</span> .';
+     }
+     else{
+      echo ' <span id="kepSorszam">0</span> .';
+     }
+    /*  echo ' <span id="kepSorszam">0</span> .';*/
+    ?>
+    
+<br>
     <label for="height">Height (px) :</label>
     <input id="height" name="height" type="text" value="">
     <label for="width">Width (px) :</label>
@@ -56,13 +74,15 @@ $isempty = isEmpty();
     <label for="alakitasMod">Alakitas :</label>
   <select name="alakitasMod" id="mod">
     <option value="0">Change</option>
-    <option value="1">Background</option>
+    <option value="1">Unchanged</option>
     <br>
 </select>
 
  
-  <input class="setButtons" style="width: 40px; left: 420px; " name=\"save\" type="submit" value="SAVE">
+  
+  
 </form>
+<button type="button" id="saveBtn" class="setButtons" style="width: 40px; left: 420px; " onclick="pictureSave()" >SAVE</button>
 <br>
 <br>
 
@@ -72,7 +92,7 @@ $isempty = isEmpty();
 <button  type="button" id="szakaszMinus" class="setButtons" style="width: 80px; left: 90px; " onclick="szakaszHide()">szakasz -</button>
 
 <!--
-<form id="szakaszDel"  action=  >
+<form id="szakaszDel"  action=  > 
 <input class="setButtons" style="width: 80px; left: 90px; " name=\"szakaszMinus\" type="submit" value="lastSzakaszDel"></form>
 -->
 
@@ -93,7 +113,7 @@ $isempty = isEmpty();
 <?php
 require_once "szakaszManager.php";
 $i=0;
-while($i < 5){
+while($i <1){
 echo '<div  id="szakasz_' . $i .'" style="opacity: 0.0;height: 0px">';
 //echo '<div id="szakasz_" style="opacity: 0.2;">';
 $szM = new szakaszManager;
@@ -102,58 +122,6 @@ $i++;
 }
 
 ?>
-<!--
-<div id="szakasz_1">
-
-</div>
-<div id="szakasz_2">
-
-</div>
-<div id="szakasz_3">
-
-</div>
-<div id="szakasz_4">
-
-</div>
-<div id="szakasz_5">
-
-</div>
--->
-
-
-
-
-<?php
-
-/*
-
-require_once "szakaszManager.php";
-if($szakaszSum == 1){$szM = new szakaszManager; }
-if($szakaszSum == 2){$szM = new szakaszManager; }
-if($szakaszSum == 3){$szM = new szakaszManager; }
-if($szakaszSum == 4){$szM = new szakaszManager;}
-if($szakaszSum == 5){$szM = new szakaszManager; }
-
-
-
-
-//$szM = new szakaszManager;
-if($szakaszSum == 1){$szM->newSzakasz(); }
-if($szakaszSum == 2){$szM->newSzakasz(); }
-if($szakaszSum == 3){$szM->newSzakasz(); }
-if($szakaszSum == 4){$szM->newSzakasz(); }
-if($szakaszSum == 5){$szM->newSzakasz(); }
-*/
-//$szM->newSzakasz();
-//echo '<br>';
-/*$szM->newSzakasz();
-$szM->newSzakasz();*/
-/*$szM->newSzakasz();
-//echo '<br>';
-$szM->newSzakasz();
-$szM->newSzakasz();*/
-?>
-
 
             </div>
 
@@ -194,75 +162,10 @@ $szM->newSzakasz();*/
   
   
     ?>
-í/div>
+    <p id="probaTeszt"> probaTeszt</p>
+</div>
 
-<script>
-  var szakaszSzam = -1;
-  
- var canvas=document.getElementById("MainCanvas");
-var ctx=canvas.getContext("2d");
-ctx.font="20px Arial";
-ctx.globalAlpha= 0.1;
-ctx.fillText("Click on the Main picture!", 10, 30);
-/**/
-
-
-function szakaszShow(){
-  if(szakaszSzam < 4){szakaszSzam++;}
-//var x = document.getElementById("szakasz_" + szakaszSzam.toString());
-//document.write("szakasz_" + szakaszSzam.toString());
-//ctx.globalAlpha= 1.0;
-//ctx.fillText("szakasz_" + szakaszSzam, 10, 30);
-document.getElementById("szakasz_" + szakaszSzam).style.height="100px";
-  document.getElementById("szakasz_" + szakaszSzam).style.opacity= "1.0"; // height: 0px
-  
-  
-
-}
-
-function szakaszHide(){
-  //ctx.globalAlpha= 1.0;
-//ctx.fillText("szakasz_" + szakaszSzam.toString(), 10, 30);
-document.getElementById("szakasz_" + (szakaszSzam )).style.height="0px"; 
-  document.getElementById("szakasz_" + (szakaszSzam )).style.opacity= "0.0";
-  
-  if(szakaszSzam >= 0){szakaszSzam--; }
-
-
-
-}
-
-
-function textChange(be1){
-  mainImg.value=be1;
-}
-function textChange2(be2){
-  subImg.value=be2;
-}
-function textImgSrc(be){
-  mainImg.value=be;
-
-  ctx.globalAlpha= 1.0;
-var a = document.getElementById(be);
-ctx.drawImage(a, 5, 5);
-
-height.value = a.height;
-width.value = a.width;
-}
-function openImgSet(){
- // dovument.write("openImgSet()-ben")
-
-  document.getElementById("setSaav").style.height = "300px"; // "menu0"
-  document.getElementById("menu0").style.opacity= "0.0";
-}
-
-function closeImgSet(){
-  document.getElementById("setSaav").style.height = "0px"; // "menu0"
-  document.getElementById("menu0").style.opacity= "1.0";
-
-
-}
-</script>
+<script src="manager.js"></script>
 
 </div>
 </div>

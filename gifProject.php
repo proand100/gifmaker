@@ -1,9 +1,13 @@
 <?php
-require_once 'imgGifPlan.php';
+$stringBe = $_REQUEST["setAdat"];
+echo "gP: " + $stringBe; 
 
-if(!isset($_GET["mainImg"])){return;}
 
+//require_once 'imgGifPlan.php';
 
+//if(!isset($_GET["mainImg"])){return;}
+
+/*
  $MainImg;
  $SubImg;
  // function __construct() {
@@ -39,6 +43,7 @@ $MainImg->setendLight($_GET["endLight"]);
 
 
 echo "From makeImg :" . $MainImg->getimgSRC();
+*/
 /*
 echo 
 $MainImg->getimgSRC() . ", " .

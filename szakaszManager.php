@@ -1,12 +1,19 @@
 <?php
 class szakaszManager{
 
+var $check;
+function steCheck($be){
 
+    $this->check = $be;
+    echo 'this->check = ' . be;
+}
     function __construct(){
         echo '
-        <div id="pictRange" >
-       
-        <br><label  " for="tartam">Tartam (mp):</label>
+        <div Style="padding: 5px;" id="pictRange" >
+        <button Class="szakaszBtn;" type="button" Style="Font-size: 10px;" id="szakaszStShowBtn" class="setButtons" onclick="szakaszStShow()">ShowStart +</button>
+        <button  Class="szakaszBtn;" type="button" Style="Font-size: 10px; Left: 80px;" id="szakaszEndShowBtn" class="setButtons" onclick="szakaszEndShow()">ShowEnd +</button>
+        <br><br>
+        <label  " for="tartam">Tartam (mp):</label>
     
         <input id="tartam" name="tartam" type="text" value="">
         <label for="delay">Delay:</label>
@@ -16,9 +23,9 @@ class szakaszManager{
         <input id="startFr" name="startFr" type="text" value="">
         
         <label for="endFr>">End frame :</label>
-        <input id="endFr" name="endFr" type="text" value="">
+        <input id="endFr" name="endFr" type="text" value=""><br>
         
-        <br>
+       
         
         <label for="startX">Start X :</label>
         <input id="startX" name="startX" type="text" value="">
@@ -29,7 +36,9 @@ class szakaszManager{
         <input id="startOp" name="startOp" type="text" value="">
         
         <label for="startLight">Start Light :</label>
-        <input id="startLight" name="startLight" type="text" value=""><br>
+        <input id="startLight" name="startLight" type="text" value="">
+        
+      
         
         <label for="endX">End X :</label>
         <input id="endX" name="endX" type="text" value="">
@@ -41,8 +50,8 @@ class szakaszManager{
         
         <label for="endLight>">End Light :</label>
         <input id="endLight" name="endLight" type="text" value="">
+        <br>
         
-        <input id="setSend0" type="submit" value="OK submit">
         </div>';
             
  
