@@ -93,6 +93,8 @@ onclick="pictureSave()" >SAVE</button>
 <button  type="button" id="szakaszMinus" class="setButtons" style="width: 80px; left: 90px; " 
 onclick="szakaszHide()">szakasz -</button>
 
+<button  type="button" id="showGif" style="width: 80px; left: 190px;" class="setButtons" onclick="showGif()">Show</button>
+
 <!--
 <form id="szakaszDel"  action=  > 
 <input class="setButtons" style="width: 80px; left: 90px; " name=\"szakaszMinus\" type="submit" value="lastSzakaszDel"></form>
@@ -132,7 +134,7 @@ $i++;
  </div>
 <div class="col3Cikkek">
 
-<div  style="position: fixed; width: 500px;" class="imgArea"> 
+<div  style="position: fixed; width: 500px; height: 276px;" class="imgArea"> 
 
  <span id="w_h" >
   <form id="prLength"  action="gifProject.php" method="get">
@@ -148,10 +150,15 @@ $i++;
    
   </form>
  </span>
+<!--<div id="MainCanvas" width="400px" height="220px"></div>    -->
+
 
   <canvas id="MainCanvas" width="400px" height="220px" >
     Your browser not supported HTML Canvas tag.
   </canvas>
+
+   <br>
+  <img id="gifPlace" src="" style="margin-top:78px;  margin-left: 52px; "></img>
 
  
 </div>

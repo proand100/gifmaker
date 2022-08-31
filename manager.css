@@ -122,7 +122,7 @@ display: grid;
 box-sizing: border-box;
 border: 1px solid #000000;
 width: 100%;
-height: 300px;
+height: 276px;
 background-color: rgb(128, 198, 195);
 
 margin: auto;
@@ -158,14 +158,27 @@ margin: auto;
  /*margin-left: calc(100% - 540px);*/
  margin-left: 50px;
   border: 1px solid #000000;
+  z-index: 10;
 }
-#SubCanvas{
+/*
+#gifPlace{
+  box-sizing: border-box;
+  position: absolute;
+  background-color: white;
+ margin-top:40px;
+ /*margin-left: calc(100% - 540px);*/
+ margin-left: 50px;
+  border: 1px solid #000000;
+}
+
+#gifPlace{
   position: absolute;
   box-sizing: border-box;
  margin-top: 30px;
  margin-left: 700px;
   border: 1px solid #000000;
 }
+*/
 
 .closeSetImg{
   box-sizing: border-box;

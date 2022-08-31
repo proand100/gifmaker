@@ -4,6 +4,7 @@ var load = 0;
 var kepSorSzam = 0;
 var canvas = document.getElementById("MainCanvas");
 var ctx = canvas.getContext("2d");
+
 ctx.font = "20px Arial";
 ctx.globalAlpha = 0.1;
 ctx.fillText("Click on the next picture!", 10, 30);
@@ -90,6 +91,56 @@ function closeImgSet() {
     document.getElementById("menu0").style.opacity = "1.0";
 }
 
+function showGif(){
+    var setAdatKi = document.getElementById("mainImg").value;
+    document.getElementById("tartam").value = setAdatKi;
+    var dataString = "mainImg=" + document.getElementById("mainImg").value;
+    dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
+    dataString += "&height=" + document.getElementById("height").value;
+    dataString += "&width=" + document.getElementById("width").value;
+    dataString += "&mod=" + document.getElementById("mod").value;
+    dataString += "&tartam=" + document.getElementById("tartam").value;
+    dataString += "&delay=" + document.getElementById("delay").value;
+    dataString += "&startFr=" + document.getElementById("startFr").value;
+    dataString += "&endFr=" + document.getElementById("endFr").value;
+    
+    dataString += "&startX=" + document.getElementById("startX").value;
+    dataString += "&startY=" + document.getElementById("startY").value;
+    dataString += "&startOp=" + document.getElementById("startOp").value;
+    dataString += "&startLight=" + document.getElementById("startLight").value;
+    dataString += "&endX=" + document.getElementById("endX").value;
+    dataString += "&endY=" + document.getElementById("endY").value;
+    dataString += "&endOp=" + document.getElementById("endOp").value;
+    dataString += "&endLight=" + document.getElementById("endLight").value;
+    /*
+            var setAdatKi = document.getElementById("mainImg").value;
+           document.getElementById("tartam").value = setAdatKi;
+           */
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    ctx.fillStyle = "white";
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.globalAlpha = 0.0;
+                   var img_gif = document.getElementById("gifPlace");
+    
+                   var img = new Image();
+                    
+                    img.src = this.responseText;
+                    img_gif.style.backgroundColor="white";
+                    img_gif.style.width = img.width;
+                    img_gif.style.height = img.height;
+                    img_gif.style.zIndex = 120;
+                    img_gif.src = this.responseText;
+    
+                }
+            };
+            //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false);
+            xhttp.open("POST", "gifProject.php?" + dataString, false);
+            xhttp.send();
+
+}
+
 function pictureSave() {
 var dataString = "mainImg=" + document.getElementById("mainImg").value;
 dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
@@ -116,20 +167,25 @@ dataString += "&endLight=" + document.getElementById("endLight").value;
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                // document.getElementById("startFr").value =
-                var imggif = document.createElement('img');
-                imggif.src = this.responseText;
                 ctx.fillStyle = "white";
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.globalAlpha = 1.0;
-                ctx.drawImage(imggif, 5, 5);
+                ctx.globalAlpha = 0.0;
+               var img_gif = document.getElementById("gifPlace");
+
+               var img = new Image();
+                
+                img.src = this.responseText;
+                img_gif.style.backgroundColor="white";
+                img_gif.style.width = img.width;
+                img_gif.style.height = img.height;
+                img_gif.style.zIndex = 120;
+                img_gif.src = this.responseText;
+
             }
         };
         //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false);
         xhttp.open("POST", "gifProject.php?" + dataString, false);
         xhttp.send();
-
-// "GIFproject/images/lila.png"  MainCanvasfalse
 
     }
     function szakaszStShow() {
@@ -159,6 +215,11 @@ dataString += "&endLight=" + document.getElementById("endLight").value;
                ctx.fillStyle = "white";
                ctx.fillRect(0, 0, canvas.width, canvas.height);
                ctx.globalAlpha = 1.0;
+               //ctx.zIndex = 30;
+               var img_gif = document.getElementById("gifPlace");
+               //img_gif.style.width = "0px";
+               //img_gif.style.height = "0px";
+               img_gif.style.zIndex = 0;
                ctx.drawImage(imggif, 5, 5);
           }
        };
@@ -195,6 +256,11 @@ dataString += "&startE=0"; // <<<<<<<<<<<<<<<<
                ctx.fillStyle = "white";
                ctx.fillRect(0, 0, canvas.width, canvas.height);
                ctx.globalAlpha = 1.0;
+               //imggif.style.zIndex = 0;
+              // ctx.style.zIndex = 10;
+              var img_gif = document.getElementById("gifPlace");
+              img_gif.style.zIndex = 00;
+
                ctx.drawImage(imggif, 5, 5);
            }
        };

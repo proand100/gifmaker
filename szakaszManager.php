@@ -10,8 +10,8 @@ function steCheck($be){
     function __construct(){
         echo '
         <div Style="padding: 5px;" id="pictRange" >
-        <button Class="szakaszBtn;" type="button" Style="Font-size: 10px;" id="szakaszStShowBtn" class="setButtons" onclick="szakaszStShow()">ShowStart +</button>
-        <button  Class="szakaszBtn;" type="button" Style="Font-size: 10px; Left: 80px;" id="szakaszEndShowBtn" class="setButtons" onclick="szakaszEndShow()">ShowEnd +</button>
+        <button Class="szakaszBtn;" type="button" Style="Font-size: 10px;" id="szakaszStShowBtn" class="setButtons" onclick="szakaszStShow()">ShowStart</button>
+        <button  Class="szakaszBtn;" type="button" Style="Font-size: 10px; Left: 80px;" id="szakaszEndShowBtn" class="setButtons" onclick="szakaszEndShow()">ShowEnd</button>
         <br><br>
         <label  " for="tartam">Tartam (mp):</label>
     

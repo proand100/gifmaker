@@ -1,5 +1,5 @@
 <?php
-$stringBe = $_REQUEST["setAdat"];
+$stringBe = $_REQUEST["mainImg"];
 echo "https://localhost/php_1/gifmaker/GIFproject/Gif/e_e.gif"; 
 
 
