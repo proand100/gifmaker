@@ -39,7 +39,7 @@ function szakaszShow() {
 
 }
 
-function szakaszHide() {
+function szakaszHide() { // jelenleg az elsot - meretben es atlatszatlanul - megjeleniti a PHP 220830
     //ctx.globalAlpha= 1.0;
     //ctx.fillText("szakasz_" + szakaszSzam.toString(), 10, 30);
     document.getElementById("szakasz_" + (szakaszSzam)).style.height = "0px";
@@ -69,7 +69,8 @@ function textImgSrc(be) {
         document.getElementById("kepSorszam").innerHTML = "Loaded project picture-szamozas kidolgozasa itt.";
     }
 
-
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.globalAlpha = 1.0;
     var a = document.getElementById(be);
     ctx.drawImage(a, 5, 5);
@@ -90,44 +91,115 @@ function closeImgSet() {
 }
 
 function pictureSave() {
-        // document.write(document.getElementById("mainImg"));
-       // document.getElementById("kiire").innerHTML = "kiir";
+var dataString = "mainImg=" + document.getElementById("mainImg").value;
+dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
+dataString += "&height=" + document.getElementById("height").value;
+dataString += "&width=" + document.getElementById("width").value;
+dataString += "&mod=" + document.getElementById("mod").value;
+dataString += "&tartam=" + document.getElementById("tartam").value;
+dataString += "&delay=" + document.getElementById("delay").value;
+dataString += "&startFr=" + document.getElementById("startFr").value;
+dataString += "&endFr=" + document.getElementById("endFr").value;
+
+dataString += "&startX=" + document.getElementById("startX").value;
+dataString += "&startY=" + document.getElementById("startY").value;
+dataString += "&startOp=" + document.getElementById("startOp").value;
+dataString += "&startLight=" + document.getElementById("startLight").value;
+dataString += "&endX=" + document.getElementById("endX").value;
+dataString += "&endY=" + document.getElementById("endY").value;
+dataString += "&endOp=" + document.getElementById("endOp").value;
+dataString += "&endLight=" + document.getElementById("endLight").value;
+/*
         var setAdatKi = document.getElementById("mainImg").value;
-       
-        document.getElementById("tartam").value = setAdatKi;
+       document.getElementById("tartam").value = setAdatKi;
+       */
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 // document.getElementById("startFr").value =
                 var imggif = document.createElement('img');
                 imggif.src = this.responseText;
+                ctx.fillStyle = "white";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.globalAlpha = 1.0;
                 ctx.drawImage(imggif, 5, 5);
-
-               /*  document.getElementById("kiire").innerHTML =
-                    this.responseText;
-                 
-                    var a = this.responseText;
-                    ctx.drawImage(a, 5, 5); */
-                    //--------
-//var imggif = document.createElement('img');
-//imggif.src = 'https://localhost/php_1/gifmaker/GIFproject/Gif/e_e.gif';
-//ctx.drawImage(imggif, 5, 5);
-
-                    //----------------
-                    
             }
         };
-        xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false);
+        //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false);
+        xhttp.open("POST", "gifProject.php?" + dataString, false);
         xhttp.send();
 
 // "GIFproject/images/lila.png"  MainCanvasfalse
 
     }
-    function szakaszHide() {
+    function szakaszStShow() {
+
+        var dataString = "mainImg=" + document.getElementById("mainImg").value;
+        dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
+        dataString += "&height=" + document.getElementById("height").value;
+        dataString += "&width=" + document.getElementById("width").value;
+        dataString += "&mod=" + document.getElementById("mod").value;
+        dataString += "&startFr=" + document.getElementById("startFr").value;
+         dataString += "&startX=" + document.getElementById("startX").value;
+        dataString += "&startY=" + document.getElementById("startY").value;
+        dataString += "&startOp=" + document.getElementById("startOp").value;
+        dataString += "&startLight=" + document.getElementById("startLight").value;
+        dataString += "&startE=1" ;// <<<<<<<<<<<<<<<<
+
+/*
+       var setAdatKi = document.getElementById("startX").value;
+       document.getElementById("tartam").value = setAdatKi;
+       */
+       var xhttp = new XMLHttpRequest();
+       xhttp.onreadystatechange = function () {
+           if (this.readyState == 4 && this.status == 200) {
+               // document.getElementById("startFr").value =
+               var imggif = document.createElement('img');
+               imggif.src = this.responseText;
+               ctx.fillStyle = "white";
+               ctx.fillRect(0, 0, canvas.width, canvas.height);
+               ctx.globalAlpha = 1.0;
+               ctx.drawImage(imggif, 5, 5);
+          }
+       };
+       xhttp.open("POST", "range.php?" + dataString, false);
+       xhttp.send();
+
+
+
 
     }
-    function szakaszShow() {
+    function szakaszEndShow() {
+var dataString = "mainImg=" + document.getElementById("mainImg").value;
+dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
+dataString += "&height=" + document.getElementById("height").value;
+dataString += "&width=" + document.getElementById("width").value;
+dataString += "&mod=" + document.getElementById("mod").value;
+dataString += "&endFr=" + document.getElementById("endFr").value;
+dataString += "&endX=" + document.getElementById("endX").value;
+dataString += "&endY=" + document.getElementById("endY").value;
+dataString += "&endOp=" + document.getElementById("endOp").value;
+dataString += "&endLight=" + document.getElementById("endLight").value;
+dataString += "&startE=0"; // <<<<<<<<<<<<<<<<
+/*
+       var setAdatKi = document.getElementById("endX").value;
+        document.getElementById("delay").value = setAdatKi;
+        */
+
+       var xhttp = new XMLHttpRequest();
+       xhttp.onreadystatechange = function () {
+           if (this.readyState == 4 && this.status == 200) {
+               // document.getElementById("startFr").value =
+               var imggif = document.createElement('img');
+               imggif.src = this.responseText;
+               ctx.fillStyle = "white";
+               ctx.fillRect(0, 0, canvas.width, canvas.height);
+               ctx.globalAlpha = 1.0;
+               ctx.drawImage(imggif, 5, 5);
+           }
+       };
+       xhttp.open("POST", "range.php?" + dataString, false);
+       xhttp.send();
 
     }
 
