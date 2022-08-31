@@ -1,9 +1,9 @@
 <?php
 $stringBe = $_REQUEST["setAdat"];
-echo "gP: " + $stringBe; 
+echo "https://localhost/php_1/gifmaker/GIFproject/Gif/e_e.gif"; 
 
 
-//require_once 'imgGifPlan.php';
+//require_once 'imgGifPlan.php'; GIFproject/images/
 
 //if(!isset($_GET["mainImg"])){return;}
 

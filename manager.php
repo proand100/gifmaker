@@ -82,28 +82,28 @@ $isempty = isEmpty();
   
   
 </form>
-<button type="button" id="saveBtn" class="setButtons" style="width: 40px; left: 420px; " onclick="pictureSave()" >SAVE</button>
+<button type="button" id="saveBtn" class="setButtons" style="width: 40px; left: 420px; " 
+onclick="pictureSave()" >SAVE</button>
 <br>
 <br>
 
 
 <button  type="button" id="szakaszPlus" class="setButtons" onclick="szakaszShow()">szakasz +</button>
 
-<button  type="button" id="szakaszMinus" class="setButtons" style="width: 80px; left: 90px; " onclick="szakaszHide()">szakasz -</button>
+<button  type="button" id="szakaszMinus" class="setButtons" style="width: 80px; left: 90px; " 
+onclick="szakaszHide()">szakasz -</button>
 
 <!--
 <form id="szakaszDel"  action=  > 
 <input class="setButtons" style="width: 80px; left: 90px; " name=\"szakaszMinus\" type="submit" value="lastSzakaszDel"></form>
 -->
 
+<button  type="button" id="setCancel" class="setButtons" style="width: 50px; left: 290px; " 
+onclick="SetCancel()">CANCEL</button>
 
+<button  type="button" id="setDel" class="setButtons" style="width: 70px; left: 360px; " 
+onclick="SetDelete()">DELETE</button>
 
-<form id="szakaszDel"  action=  >
-<input class="setButtons" style="width: 50px; left: 290px; " name=\"cancel\" type="submit" value="CANCEL"></form>
-
-
-<form id="szakaszDel"  action= >
-<input class="setButtons" style="width: 70px; left: 360px; " name=\"delete\" type="submit" value="DELETE"></form>
 <br><br>
 
   </fieldset> 
@@ -114,21 +114,22 @@ $isempty = isEmpty();
 require_once "szakaszManager.php";
 $i=0;
 while($i <1){
-echo '<div  id="szakasz_' . $i .'" style="opacity: 0.0;height: 0px">';
-//echo '<div id="szakasz_" style="opacity: 0.2;">';
+//echo '<div  id="szakasz_' . $i .'" style="opacity: 0.0;height: 0px">';
+echo '<div  id="szakasz_' . $i .'" style="opacity: 1.0;height: 110pxpx">';
+
 $szM = new szakaszManager;
 echo '</div>';
 $i++;
 }
 
 ?>
-
-            </div>
+<P id="kiire"></p>
+ </div>
 
 
 
             
-        </div>
+ </div>
 <div class="col3Cikkek">
 
 <div  style="position: fixed; width: 500px;" class="imgArea"> 
@@ -162,7 +163,7 @@ $i++;
   
   
     ?>
-    <p id="probaTeszt"> probaTeszt</p>
+   
 </div>
 
 <script src="manager.js"></script>

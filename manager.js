@@ -27,7 +27,7 @@ if (load == 1) {
 
 
 function szakaszShow() {
-    if (szakaszSzam < 0) { szakaszSzam++; }
+    if (szakaszSzam < 1) { szakaszSzam++; }
     //var x = document.getElementById("szakasz_" + szakaszSzam.toString());
     //document.write("szakasz_" + szakaszSzam.toString());
     //ctx.globalAlpha= 1.0;
@@ -87,22 +87,41 @@ function openImgSet() {
 function closeImgSet() {
     document.getElementById("setSaav").style.height = "0px"; // "menu0"
     document.getElementById("menu0").style.opacity = "1.0";
+}
 
-    function pictureSave() {
+function pictureSave() {
         // document.write(document.getElementById("mainImg"));
-        document.getElementById("probaTeszt").innerHTML = "kiir";
-        var setAdatKi = document.getElementById("mainImg");
+       // document.getElementById("kiire").innerHTML = "kiir";
+        var setAdatKi = document.getElementById("mainImg").value;
+       
+        document.getElementById("tartam").value = setAdatKi;
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("tartam").innerHTML =
+                // document.getElementById("startFr").value =
+                var imggif = document.createElement('img');
+                imggif.src = this.responseText;
+                ctx.globalAlpha = 1.0;
+                ctx.drawImage(imggif, 5, 5);
+
+               /*  document.getElementById("kiire").innerHTML =
                     this.responseText;
+                 
+                    var a = this.responseText;
+                    ctx.drawImage(a, 5, 5); */
+                    //--------
+//var imggif = document.createElement('img');
+//imggif.src = 'https://localhost/php_1/gifmaker/GIFproject/Gif/e_e.gif';
+//ctx.drawImage(imggif, 5, 5);
+
+                    //----------------
+                    
             }
         };
-        xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, true);
+        xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false);
         xhttp.send();
 
-
+// "GIFproject/images/lila.png"  MainCanvasfalse
 
     }
     function szakaszHide() {
@@ -111,7 +130,7 @@ function closeImgSet() {
     function szakaszShow() {
 
     }
-}
+
 
 
 
