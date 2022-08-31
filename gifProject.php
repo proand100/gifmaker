@@ -1,8 +1,36 @@
 <?php
-$stringBe = $_REQUEST["mainImg"];
-echo "https://localhost/php_1/gifmaker/GIFproject/Gif/e_e.gif"; 
+//require_once 'imgGifPlan.php';
 
 
+
+//class proMan{
+
+
+   //function __construct(){}
+//function print(){
+   $stringBe = $_SERVER["QUERY_STRING"];
+
+ //$stringBe = $_REQUEST['kepSorszam'];
+   echo $stringBe;
+   //echo "https://localhost/php_1/gifmaker/GIFproject/Gif/e_e.gif"; 
+
+   $currentPictureData ='';
+
+
+
+//   $jsonFile = fopen($stringBe . "picture", "w") or die("Unable to open file!");
+
+
+
+
+
+
+
+//}
+
+
+//
+ 
 //require_once 'imgGifPlan.php'; GIFproject/images/
 
 //if(!isset($_GET["mainImg"])){return;}
@@ -14,28 +42,33 @@ echo "https://localhost/php_1/gifmaker/GIFproject/Gif/e_e.gif";
 
     $MainImg = new imgGifPlan();
    // $this->SubImg = new gifPlan();
+*/
+//$MainImg = new imgGifPlan();
+//$MainImg->kepSorszam = $_REQUEST["kepSorszam"];
+//$MainImg->imgSRC = $_REQUEST["mainImg"];
+//echo 'gifProject: mainImg = ' . $MainImg->imgSRC . ' vagyis: ';
+/*
+$MainImg->setimgSRC($_REQUEST["mainImg"]);
+$MainImg->setkepSorszam($_REQUEST["kepSorszam"]);
+$MainImg->setIdoTartam($_REQUEST["tartam"]);
+$MainImg->setheight($_REQUEST["height"]);
+$MainImg->setwidth($_REQUEST["width"]);
 
+$MainImg->setdelay($_REQUEST["delay"]);
+$MainImg->setszakaszokSzama($_REQUEST["szakasz"]);
+$MainImg->setalakitasMod($_REQUEST["mod"]);
+$MainImg->setstartFrame($_REQUEST["startFr"]);$MainImg
+$MainImg->setendFrame($_REQUEST["endFr"]);
 
-$MainImg->setimgSRC($_GET["mainImg"]);
-$MainImg->setIdoTartam($_GET["tartam"]);
-$MainImg->setheight($_GET["height"]);
-$MainImg->setwidth($_GET["width"]);
-$MainImg->setIdoTartam($_GET["tartam"]);
-$MainImg->setdelay($_GET["delay"]);
-$MainImg->setszakaszokSzama($_GET["szakasz"]);
-$MainImg->setalakitasMod($_GET["alakitasMod"]);
-$MainImg->setstartFrame($_GET["startFr"]);
-$MainImg->setendFrame($_GET["endFr"]);
+$MainImg->setstartX($_REQUEST["startX"]);
+$MainImg->setstartY($_REQUEST["startY"]);
+$MainImg->setstartOPacity($_REQUEST["startOp"]);
+$MainImg->setstartLight($_REQUEST["startLight"]);
 
-$MainImg->setstartX($_GET["startX"]);
-$MainImg->setstartY($_GET["startY"]);
-$MainImg->setstartOPacity($_GET["startOp"]);
-$MainImg->setstartLight($_GET["startLight"]);
-
-$MainImg->setendX($_GET["endX"]);
-$MainImg->setendY($_GET["endY"]);
-$MainImg->setendOpacity($_GET["endOp"]);
-$MainImg->setendLight($_GET["endLight"]);
+$MainImg->setendX($_REQUEST["endX"]);
+$MainImg->setendY($_REQUEST["endY"]);
+$MainImg->setendOpacity($_REQUEST["endOp"]);
+$MainImg->setendLight($_REQUEST["endLight"]);
 
 
 
@@ -44,13 +77,15 @@ $MainImg->setendLight($_GET["endLight"]);
 
 echo "From makeImg :" . $MainImg->getimgSRC();
 */
+
+
 /*
 echo 
 $MainImg->getimgSRC() . ", " .
+$MainImg->getkepSorszam();
 $MainImg->getIdoTartam(). ", " .
 $MainImg->getheight(). ", " .
 $MainImg->getwidth(). ", " .
-$MainImg->getIdoTartam(). ", " .
 $MainImg->getdelay(). ", " .
 $MainImg->getszakaszokSzama(). ", " .
 $MainImg->getalakitasMod(). ", " .
@@ -65,7 +100,11 @@ $MainImg->getendX(). ", " .
 $MainImg->getendY(). ", " .
 $MainImg->getendOpacity(). ", " .
 $MainImg->getendLight(). ", ";
+
 */
+
+
+ //}
 ?>
 
 

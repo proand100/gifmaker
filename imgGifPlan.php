@@ -1,28 +1,33 @@
 <?php
 class imgGifPlan{
-    public $szakaszokSzama = 0;
+   /**/
+    public $szakaszokSzama;
     public $imgSRC;
-    public $tartam; // array is lehet
-public $delay;  // array is lehet
-    public $startX; // array is lehet
-    public $startY; // array is lehet
-    public $endX; // array is lehet
-    public $endY; // array is lehet
-    public $startFrame; // array is lehet
-    public $endFrame;  // array is lehet
-    public $alakitasMod;  // array is lehet, 0= nem valtozi(hatter), 1=mozgat, 2=light, 3=opacity
-    public $startOPacity;  // array is lehet
-    public $endOpacity;  // array is lehet
-    public $startLight;  // array is lehet
-    public $endLight;  // array is lehet
-
+    public $kepSorszam;
+    public $tartam; 
+public $delay;  
+    public $startX; 
+    public $startY; 
+    public $endX; 
+    public $endY; 
+    public $startFrame; 
+    public $endFrame;  
+    public $alakitasMod;  // //A//rray is lehet, 0= nem valtozi(hatter), 1=mozgat, 2=light, 3=opacity
+    public $startOPacity;  
+    public $endOpacity;  
+    public $startLight;  
+    public $endLight;  
     public $height;
     public $width;
-
+    public $save;
+    
+    
+ 
     function __construct(){
-echo "imgGifPlan class-ban.";
+//echo "imgGifPlan class-ban.";
+echo $this->kepSorszam . "," . $this->imgSRC;
     }
-    function setszakaszokSzama($Be){
+ /*  function setszakaszokSzama($Be){
       $this->szakaszokSzama= $Be;
     }
    
@@ -32,7 +37,7 @@ echo "imgGifPlan class-ban.";
 
     
  function setIdoTartam($Be){
-$this->tartam = $Be;
+$this->tartam = Be;
 }
 function getIdoTartam(){
    return $this->tartam;
@@ -44,6 +49,13 @@ function getIdoTartam(){
  }
  function getimgSRC(){
    return $this->imgSRC;
+}
+
+function setkepSorszam($Be){
+   $this->kepSorszam = $Be; // ?
+}
+function getkepSorszam(){
+  return $this->kepSorszam;
 }
  
  function setdelay($Be){
@@ -133,7 +145,7 @@ function setwidth($Be){
 function getwidth(){
 return $this->width;
 }
-
+*/
 
 }
 

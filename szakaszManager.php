@@ -13,7 +13,7 @@ function steCheck($be){
         <button Class="szakaszBtn;" type="button" Style="Font-size: 10px;" id="szakaszStShowBtn" class="setButtons" onclick="szakaszStShow()">ShowStart</button>
         <button  Class="szakaszBtn;" type="button" Style="Font-size: 10px; Left: 80px;" id="szakaszEndShowBtn" class="setButtons" onclick="szakaszEndShow()">ShowEnd</button>
         <br><br>
-        <label  " for="tartam">Tartam (mp):</label>
+        <label  " for="tartam2">Tartam (mp):</label>
     
         <input id="tartam" name="tartam" type="text" value="">
         <label for="delay">Delay:</label>

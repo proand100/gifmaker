@@ -1,5 +1,8 @@
 <?php
 /*
+include_once 'gifProject.php';
+$projectManager = new proMan();*/
+/*
 global $szakaszSum;
 if(!isset($_GET["szakaszPlus"])){$szakaszSum = 0;}
 if(isset($_GET["szakaszPlus"]))
@@ -57,10 +60,13 @@ $isempty = isEmpty();
     <input style="width: auto;" id="mainImg" name="mainImg" type="text" value="Kattints a MAIN képen! ">
 <?php
      if($isempty == 1){
-      echo ' <span id="kepSorszam">1</span> .';
+      //echo ' <span id="kepSorszam">1</span> .';
+      echo ' <input id="kepSorszam"  name="kepSorszam" type="text" value="0">';
+      echo '<span id="felirat"> .picture</span> .';
      }
      else{
-      echo ' <span id="kepSorszam">0</span> .';
+     //  echo ' <input id="kepSorszam" name="kepSorszam" type="text" value="">';
+     echo '<span id="felirat2"> Loaded project picture-szamozas kidolgozasa itt.</span> .';
      }
     /*  echo ' <span id="kepSorszam">0</span> .';*/
     ?>
@@ -82,8 +88,7 @@ $isempty = isEmpty();
   
   
 </form>
-<button type="button" id="saveBtn" class="setButtons" style="width: 40px; left: 420px; " 
-onclick="pictureSave()" >SAVE</button>
+<button type="button" id="saveBtn" class="setButtons" style="width: 40px; left: 420px;" onclick="pictureSave()" >SAVE</button>
 <br>
 <br>
 
@@ -93,8 +98,8 @@ onclick="pictureSave()" >SAVE</button>
 <button  type="button" id="szakaszMinus" class="setButtons" style="width: 80px; left: 90px; " 
 onclick="szakaszHide()">szakasz -</button>
 
-<button  type="button" id="showGif" style="width: 80px; left: 190px;" class="setButtons" onclick="showGif()">Show</button>
 
+<button type="button" id="showGif" class="setButtons" style="width: 80px; left: 190px;" onclick="showGif()">Show</button>
 <!--
 <form id="szakaszDel"  action=  > 
 <input class="setButtons" style="width: 80px; left: 90px; " name=\"szakaszMinus\" type="submit" value="lastSzakaszDel"></form>

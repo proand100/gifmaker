@@ -2,6 +2,12 @@
 var szakaszSzam = -1;
 var load = 0;
 var kepSorSzam = 0;
+var picture1 = "";
+var picture2 = "";
+var picture3 = "";
+var picture4 = "";
+var picture5 = "";
+var dataString = "";
 var canvas = document.getElementById("MainCanvas");
 var ctx = canvas.getContext("2d");
 
@@ -19,11 +25,12 @@ if (document.getElementById("kepSorszam").innerHTML == "0") {
 /**/
 if (load == 0) {
     document.getElementById("kepSorszam").style.fontWeight = "900";
-    document.getElementById("kepSorszam").style.color = "#fcdef3";
-    document.getElementById("kepSorszam").innerHTML = "JS: Please click on the First picture";
+    document.getElementById("kepSorszam").style.color = "black";
+    document.getElementById("kepSorszam").value = kepSorSzam;
+    document.getElementById("felirat").innerHTML = "JS: Please click on the First picture";
 }
 if (load == 1) {
-    document.getElementById("kepSorszam").innerHTML = "JS:  (Load the saved GIF project!)";
+    document.getElementById("felirat2").innerHTML = "JS:  (Load the saved GIF project!)";
 }
 
 
@@ -59,16 +66,37 @@ function textChange(be1) {
 function textChange2(be2) {
     subImg.value = be2;
 }
-function textImgSrc(be) {
-    mainImg.value = be;
+function textImgSrc(be) { // Display all image from Gifproject/images folder
+  mainImg.value = be;
+  //document.write("textImgSrc");
     if (load == 0) {
+         if(kepSorSzam >= 5){
+            alert("Maximum 5 picture");
+            return;
+        }
+       // projectData();
+          
+      /*   */
         kepSorSzam++;
-        document.getElementById("kepSorszam").innerHTML = kepSorSzam + ". picture";
+        document.getElementById("kepSorszam").value = kepSorSzam ;//+ ". picture";
+        document.getElementById("felirat").innerHTML = ".picture";
+
     }
     if (load == 1) {
+        
+        if (load == 0) {
+           if(kepSorSzam >= 5){
+                alert("Maximum 5 picture");
+                return;
+            }
+        }
+       
+             /**/
         kepSorSzam++;
-        document.getElementById("kepSorszam").innerHTML = "Loaded project picture-szamozas kidolgozasa itt.";
+
+       // document.getElementById("kepSorszam").innerHTML = "Loaded project picture-szamozas kidolgozasa itt.";
     }
+   
 
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -78,6 +106,23 @@ function textImgSrc(be) {
 
     height.value = a.height;
     width.value = a.width;
+    
+//-------------
+tartam.value = "";
+delay.value = "";
+startFr.value = "";
+endFr.value = "";//
+startX.value = "";//
+startY.value = "";//
+startOp.value = "";//
+startLight.value = "";//
+endX.value = "";//
+endY.value = "";//
+endOp.value = "";//
+endLight.value = "";//
+mod.value = "0";//
+
+//--------------
 }
 function openImgSet() {
     // dovument.write("openImgSet()-ben")
@@ -92,8 +137,8 @@ function closeImgSet() {
 }
 
 function showGif(){
-    var setAdatKi = document.getElementById("mainImg").value;
-    document.getElementById("tartam").value = setAdatKi;
+    document.write("showGif(){ -ben!");
+    /*
     var dataString = "mainImg=" + document.getElementById("mainImg").value;
     dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
     dataString += "&height=" + document.getElementById("height").value;
@@ -112,10 +157,9 @@ function showGif(){
     dataString += "&endY=" + document.getElementById("endY").value;
     dataString += "&endOp=" + document.getElementById("endOp").value;
     dataString += "&endLight=" + document.getElementById("endLight").value;
+    dataString += "&save=1";
     /*
-            var setAdatKi = document.getElementById("mainImg").value;
-           document.getElementById("tartam").value = setAdatKi;
-           */
+          
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -138,28 +182,72 @@ function showGif(){
             //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false);
             xhttp.open("POST", "gifProject.php?" + dataString, false);
             xhttp.send();
+ */
+}
+
+function projectData(){
+    var dataStringActual = '';
+     dataStringActual = "mainImg=" + document.getElementById("mainImg").value;
+
+    dataStringActual += "&kepSorszam=" + document.getElementById("kepSorszam").value;
+    dataStringActual += "&height=" + document.getElementById("height").value;
+    dataStringActual += "&width=" + document.getElementById("width").value;
+    dataStringActual += "&mod=" + document.getElementById("mod").value;
+    dataStringActual += "&tartam=" + document.getElementById("tartam").value;
+    dataStringActual += "&delay=" + document.getElementById("delay").value;
+    dataStringActual += "&startFr=" + document.getElementById("startFr").value;
+    dataStringActual += "&endFr=" + document.getElementById("endFr").value;
+    
+    dataStringActual += "&startX=" + document.getElementById("startX").value;
+    dataStringActual += "&startY=" + document.getElementById("startY").value;
+    dataStringActual += "&startOp=" + document.getElementById("startOp").value;
+    dataStringActual += "&startLight=" + document.getElementById("startLight").value;
+    dataStringActual += "&endX=" + document.getElementById("endX").value;
+    dataStringActual += "&endY=" + document.getElementById("endY").value;
+    dataStringActual += "&endOp=" + document.getElementById("endOp").value;
+    dataStringActual += "&endLight=" + document.getElementById("endLight").value;
+    dataStringActual += "&save=1";
+    
+    
+    if(kepSorSzam == 1){ 
+       dataString = '';
+       picture1 = '';
+       picture1 = dataStringActual;
+       dataString = dataStringActual;
+        //dataString = dataStringActual;
+
+    }
+    if(kepSorSzam == 2){
+        picture2 = '';
+         picture2 = dataStringActual;
+         dataString = picture1 + picture2;
+        }
+    if(kepSorSzam == 3){
+        picture3 = '';
+         picture3 = dataStringActual;
+         dataString = picture1 + picture2+ picture3;
+        }
+    if(kepSorSzam == 4){ 
+        picture4 = '';
+        picture4 = dataStringActual;
+        dataString = picture1 + picture2+ picture3 + picture4;
+    }
+    if(kepSorSzam == 5){
+        picture5 = '';
+         picture5 = dataStringActual;
+         dataString = picture1 + picture2+ picture3 + picture4 + picture5;
+        }
+
 
 }
 
 function pictureSave() {
-var dataString = "mainImg=" + document.getElementById("mainImg").value;
-dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
-dataString += "&height=" + document.getElementById("height").value;
-dataString += "&width=" + document.getElementById("width").value;
-dataString += "&mod=" + document.getElementById("mod").value;
-dataString += "&tartam=" + document.getElementById("tartam").value;
-dataString += "&delay=" + document.getElementById("delay").value;
-dataString += "&startFr=" + document.getElementById("startFr").value;
-dataString += "&endFr=" + document.getElementById("endFr").value;
+   // var dataString = "mainImg=" + mainImg.value; 
+   projectData();
 
-dataString += "&startX=" + document.getElementById("startX").value;
-dataString += "&startY=" + document.getElementById("startY").value;
-dataString += "&startOp=" + document.getElementById("startOp").value;
-dataString += "&startLight=" + document.getElementById("startLight").value;
-dataString += "&endX=" + document.getElementById("endX").value;
-dataString += "&endY=" + document.getElementById("endY").value;
-dataString += "&endOp=" + document.getElementById("endOp").value;
-dataString += "&endLight=" + document.getElementById("endLight").value;
+   if(kepSorSzam == 2){
+
+
 /*
         var setAdatKi = document.getElementById("mainImg").value;
        document.getElementById("tartam").value = setAdatKi;
@@ -167,6 +255,8 @@ dataString += "&endLight=" + document.getElementById("endLight").value;
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+document.write(this.responseText);
+/*
                 ctx.fillStyle = "white";
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.globalAlpha = 0.0;
@@ -180,13 +270,14 @@ dataString += "&endLight=" + document.getElementById("endLight").value;
                 img_gif.style.height = img.height;
                 img_gif.style.zIndex = 120;
                 img_gif.src = this.responseText;
-
+*/
             }
         };
-        //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false);
-        xhttp.open("POST", "gifProject.php?" + dataString, false);
+        //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false); key value fusion
+       xhttp.open("POST", "gifProject.php?" + dataString, false);
+       // xhttp.open("POST", "gifProject.php?mainImg=miEz", false);
         xhttp.send();
-
+   }
     }
     function szakaszStShow() {
 
