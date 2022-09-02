@@ -187,9 +187,18 @@ function showGif(){
 
 function projectData(){
     var dataStringActual = '';
-     dataStringActual = "mainImg=" + document.getElementById("mainImg").value;
+    /*
+    if(kepSorSzam == 1){
+        dataStringActual = "kepSorszam=" + document.getElementById("kepSorszam").value;
+        }
+        else{
+            dataStringActual = "|kepSorszam=" + document.getElementById("kepSorszam").value;
+        }
+        */
+    dataStringActual = "kepSorszam=" + document.getElementById("kepSorszam").value;
+    dataStringActual += "&mainImg=" + document.getElementById("mainImg").value;
 
-    dataStringActual += "&kepSorszam=" + document.getElementById("kepSorszam").value;
+  
     dataStringActual += "&height=" + document.getElementById("height").value;
     dataStringActual += "&width=" + document.getElementById("width").value;
     dataStringActual += "&mod=" + document.getElementById("mod").value;
@@ -206,7 +215,7 @@ function projectData(){
     dataStringActual += "&endY=" + document.getElementById("endY").value;
     dataStringActual += "&endOp=" + document.getElementById("endOp").value;
     dataStringActual += "&endLight=" + document.getElementById("endLight").value;
-    dataStringActual += "&save=1";
+    dataStringActual += "&save=1|";
     
     
     if(kepSorSzam == 1){ 
@@ -245,7 +254,7 @@ function pictureSave() {
    // var dataString = "mainImg=" + mainImg.value; 
    projectData();
 
-   if(kepSorSzam == 2){
+   //if(kepSorSzam == 1){
 
 
 /*
@@ -255,33 +264,21 @@ function pictureSave() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-document.write(this.responseText);
-/*
-                ctx.fillStyle = "white";
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.globalAlpha = 0.0;
-               var img_gif = document.getElementById("gifPlace");
-
-               var img = new Image();
-                
-                img.src = this.responseText;
-                img_gif.style.backgroundColor="white";
-                img_gif.style.width = img.width;
-                img_gif.style.height = img.height;
-                img_gif.style.zIndex = 120;
-                img_gif.src = this.responseText;
-*/
-            }
+                if(kepSorSzam == 4){ document.write(this.responseText); }
+                     }
         };
         //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false); key value fusion
        xhttp.open("POST", "gifProject.php?" + dataString, false);
        // xhttp.open("POST", "gifProject.php?mainImg=miEz", false);
         xhttp.send();
    }
-    }
+    //}
+
     function szakaszStShow() {
 
-        var dataString = "mainImg=" + document.getElementById("mainImg").value;
+        var dataString = "|=|";
+        dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
+         dataString = "&mainImg=" + document.getElementById("mainImg").value;
         dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
         dataString += "&height=" + document.getElementById("height").value;
         dataString += "&width=" + document.getElementById("width").value;
