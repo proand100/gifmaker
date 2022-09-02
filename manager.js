@@ -187,14 +187,7 @@ function showGif(){
 
 function projectData(){
     var dataStringActual = '';
-    /*
-    if(kepSorSzam == 1){
-        dataStringActual = "kepSorszam=" + document.getElementById("kepSorszam").value;
-        }
-        else{
-            dataStringActual = "|kepSorszam=" + document.getElementById("kepSorszam").value;
-        }
-        */
+
     dataStringActual = "kepSorszam=" + document.getElementById("kepSorszam").value;
     dataStringActual += "&mainImg=" + document.getElementById("mainImg").value;
 
@@ -251,16 +244,10 @@ function projectData(){
 }
 
 function pictureSave() {
-   // var dataString = "mainImg=" + mainImg.value; 
+ 
    projectData();
 
-   //if(kepSorSzam == 1){
 
-
-/*
-        var setAdatKi = document.getElementById("mainImg").value;
-       document.getElementById("tartam").value = setAdatKi;
-       */
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -276,9 +263,7 @@ function pictureSave() {
 
     function szakaszStShow() {
 
-        var dataString = "|=|";
-        dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
-         dataString = "&mainImg=" + document.getElementById("mainImg").value;
+        var  dataString = "mainImg=" + document.getElementById("mainImg").value;
         dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
         dataString += "&height=" + document.getElementById("height").value;
         dataString += "&width=" + document.getElementById("width").value;
@@ -297,6 +282,9 @@ function pictureSave() {
        var xhttp = new XMLHttpRequest();
        xhttp.onreadystatechange = function () {
            if (this.readyState == 4 && this.status == 200) {
+            /* document.write(this.responseText);
+
+              */
                // document.getElementById("startFr").value =
                var imggif = document.createElement('img');
                imggif.src = this.responseText;
@@ -309,6 +297,7 @@ function pictureSave() {
                //img_gif.style.height = "0px";
                img_gif.style.zIndex = 0;
                ctx.drawImage(imggif, 5, 5);
+            
           }
        };
        xhttp.open("POST", "range.php?" + dataString, false);
@@ -319,17 +308,17 @@ function pictureSave() {
 
     }
     function szakaszEndShow() {
-var dataString = "mainImg=" + document.getElementById("mainImg").value;
-dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
-dataString += "&height=" + document.getElementById("height").value;
-dataString += "&width=" + document.getElementById("width").value;
-dataString += "&mod=" + document.getElementById("mod").value;
-dataString += "&endFr=" + document.getElementById("endFr").value;
-dataString += "&endX=" + document.getElementById("endX").value;
-dataString += "&endY=" + document.getElementById("endY").value;
-dataString += "&endOp=" + document.getElementById("endOp").value;
-dataString += "&endLight=" + document.getElementById("endLight").value;
-dataString += "&startE=0"; // <<<<<<<<<<<<<<<<
+        var  dataString = "mainImg=" + document.getElementById("mainImg").value;
+        dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
+        dataString += "&height=" + document.getElementById("height").value;
+        dataString += "&width=" + document.getElementById("width").value;
+        dataString += "&mod=" + document.getElementById("mod").value;
+        dataString += "&startFr=" + document.getElementById("startFr").value;
+         dataString += "&startX=" + document.getElementById("startX").value;
+        dataString += "&startY=" + document.getElementById("startY").value;
+        dataString += "&startOp=" + document.getElementById("startOp").value;
+        dataString += "&startLight=" + document.getElementById("startLight").value;
+        dataString += "&startE=0" ;// <<<<<<<<<<<<<<<<
 /*
        var setAdatKi = document.getElementById("endX").value;
         document.getElementById("delay").value = setAdatKi;
@@ -340,6 +329,9 @@ dataString += "&startE=0"; // <<<<<<<<<<<<<<<<
            if (this.readyState == 4 && this.status == 200) {
                // document.getElementById("startFr").value =
                var imggif = document.createElement('img');
+/*document.write(this.responseText);
+*/
+
                imggif.src = this.responseText;
                ctx.fillStyle = "white";
                ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -350,6 +342,7 @@ dataString += "&startE=0"; // <<<<<<<<<<<<<<<<
               img_gif.style.zIndex = 00;
 
                ctx.drawImage(imggif, 5, 5);
+               
            }
        };
        xhttp.open("POST", "range.php?" + dataString, false);
