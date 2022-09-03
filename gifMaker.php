@@ -41,14 +41,7 @@ if($pictRangeDatas["startE"] == "0"){
 //$face->writeImage($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged.png');
 //$time = time();
 //--------
-$dir = $_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/';
-$files = glob($dir . '*'); // get all file names
-foreach($files as $file){ // iterate files
-  if(is_file($file)) {
-    unlink($file); // delete file
-  }
-}
-//-----------
+
 $url = '/php_1/gifmaker/GIFproject/rangeImg/ranged' . time() . '.png';
 $face->writeImage($_SERVER['DOCUMENT_ROOT'] . $url);
 //$imgUrl = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/rangedE' . $time . '.png'";
