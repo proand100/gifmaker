@@ -10,6 +10,7 @@ var picture5 = "";
 var dataString = "";
 var canvas = document.getElementById("MainCanvas");
 var ctx = canvas.getContext("2d");
+var szakaszShowTime = "&fileTime=0";
 
 ctx.font = "20px Arial";
 ctx.globalAlpha = 0.1;
@@ -68,6 +69,7 @@ function textChange2(be2) {
 }
 function textImgSrc(be) { // Display all image from Gifproject/images folder
   mainImg.value = be;
+  szakaszShowTime = "&fileTime=0";
   //document.write("textImgSrc");
     if (load == 0) {
          if(kepSorSzam >= 5){
@@ -234,6 +236,7 @@ function pictureSave() {
 
 function szakaszStShow() {
     //document.write("szakaszStShow");
+   // var szakaszShowTime = "0";
         var  dataString = "mainImg=" + document.getElementById("mainImg").value;
         dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
         dataString += "&height=" + document.getElementById("height").value;
@@ -245,7 +248,7 @@ function szakaszStShow() {
         dataString += "&startOp=" + document.getElementById("startOp").value;
         dataString += "&startLight=" + document.getElementById("startLight").value;
         dataString += "&startE=1" ;// <<<<<<<<<<<<<<<<
-
+        dataString += szakaszShowTime ;
 /*
        var setAdatKi = document.getElementById("startX").value;
        document.getElementById("tartam").value = setAdatKi;
@@ -257,18 +260,26 @@ function szakaszStShow() {
 
              /* */
                // document.getElementById("startFr").value =
-               var imggif = document.createElement('img');
-               imggif.src = this.responseText ;
+               var imggifH = document.createElement('img');
+               var resp = this.responseText.trim();
+               var imageURL = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged" + resp + ".png";
+               imggifH.src = imageURL;
+               
+               szakaszShowTime = "&fileTime=" + resp;
+               // szakaszShowTime = "233" + this.responseText.trim();
+
+
+
+              //document.write(szakaszShowTime );
+ 
                ctx.fillStyle = "white";
                 
                ctx.fillRect(0, 0, canvas.width, canvas.height);
               ctx.globalAlpha = 1.0;
-               //ctx.zIndex = 30;
-               ////////var img_gif = document.getElementById("gifPlace");
-               //img_gif.style.width = "0px";
-               //img_gif.style.height = "0px";
-               //img_gif.style.zIndex = 0;
-               ctx.drawImage(imggif, 0, 0);
+              //ctx.putImageData(imggifH, 0,0);
+
+               ctx.drawImage(imggifH, 0, 0);
+              ////////////////// ctx.drawImage(imggifH, 0, 0);
             
           }
        };
@@ -291,6 +302,7 @@ function szakaszStShow() {
         dataString += "&endOp=" + document.getElementById("endOp").value;
         dataString += "&endLight=" + document.getElementById("endLight").value;
         dataString += "&startE=0" ;// <<<<<<<<<<<<<<<<
+        dataString += szakaszShowTime ;
 /*
        var setAdatKi = document.getElementById("endX").value;
         document.getElementById("delay").value = setAdatKi;
@@ -303,17 +315,13 @@ function szakaszStShow() {
                var imggif = document.createElement('img');
 /*document.write(this.responseText);
 */
-/*
-const result = await fetch(this.responseText);
-const blob = await result.blob();
-const image = await createImageBitmap(blob);
-const pattern = ctx.createPattern(image, 'repeat');
-ctx.fillStyle = pattern;
-ctx.fill();
 
-*/
-//var imggif = document.createElement('img');
-imggif.src = this.responseText;
+var imggifH = document.createElement('img');
+var resp = this.responseText.trim();
+var imageURL = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged" + resp + ".png";
+imggifH.src = imageURL;
+
+szakaszShowTime = "&fileTime=" + resp;
 ctx.fillStyle = "white";
 
 ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -323,7 +331,7 @@ ctx.globalAlpha = 1.0;
 //img_gif.style.width = "0px";
 //img_gif.style.height = "0px";
 //img_gif.style.zIndex = 20;
-ctx.drawImage(imggif, 0, 0);
+ctx.drawImage(imggifH, 0, 0);
 
                
            }

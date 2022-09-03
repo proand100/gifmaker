@@ -1,1 +1,0 @@
-kepSorszam=1&mainImg=lila.png&height=101&width=35&mod=0&tartam=&delay=&startFr=&endFr=&startX=10&startY=100&startOp=&startLight=&endX=20&endY=40&endOp=&endLight=&save=1

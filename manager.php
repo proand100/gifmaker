@@ -126,6 +126,8 @@ onclick="SetDelete()">DELETE</button>
 
 <?php
 require_once "szakaszManager.php";
+
+
 $i=0;
 while($i <1){
 //echo '<div  id="szakasz_' . $i .'" style="opacity: 0.0;height: 0px">';
