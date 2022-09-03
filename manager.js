@@ -137,55 +137,22 @@ function closeImgSet() {
 }
 
 function showGif(){
-    document.write("showGif(){ -ben!");
-    /*
-    var dataString = "mainImg=" + document.getElementById("mainImg").value;
-    dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
-    dataString += "&height=" + document.getElementById("height").value;
-    dataString += "&width=" + document.getElementById("width").value;
-    dataString += "&mod=" + document.getElementById("mod").value;
-    dataString += "&tartam=" + document.getElementById("tartam").value;
-    dataString += "&delay=" + document.getElementById("delay").value;
-    dataString += "&startFr=" + document.getElementById("startFr").value;
-    dataString += "&endFr=" + document.getElementById("endFr").value;
-    
-    dataString += "&startX=" + document.getElementById("startX").value;
-    dataString += "&startY=" + document.getElementById("startY").value;
-    dataString += "&startOp=" + document.getElementById("startOp").value;
-    dataString += "&startLight=" + document.getElementById("startLight").value;
-    dataString += "&endX=" + document.getElementById("endX").value;
-    dataString += "&endY=" + document.getElementById("endY").value;
-    dataString += "&endOp=" + document.getElementById("endOp").value;
-    dataString += "&endLight=" + document.getElementById("endLight").value;
-    dataString += "&save=1";
-    /*
-          
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    ctx.fillStyle = "white";
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.globalAlpha = 0.0;
-                   var img_gif = document.getElementById("gifPlace");
-    
-                   var img = new Image();
-                    
-                    img.src = this.responseText;
-                    img_gif.style.backgroundColor="white";
-                    img_gif.style.width = img.width;
-                    img_gif.style.height = img.height;
-                    img_gif.style.zIndex = 120;
-                    img_gif.src = this.responseText;
-    
-                }
-            };
-            //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false);
-            xhttp.open("POST", "gifProject.php?" + dataString, false);
-            xhttp.send();
- */
+    projectData("0");
+    //document.write("showGif(){ -ben!");
+ 
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if(kepSorSzam == 4){ document.write(this.responseText); }
+                 }
+    };
+    //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false); key value fusion
+   xhttp.open("POST", "gifProject.php?" + dataString, false);
+   // xhttp.open("POST", "gifProject.php?mainImg=miEz", false);
+    xhttp.send();
 }
 
-function projectData(){
+function projectData(save){
     var dataStringActual = '';
 
     dataStringActual = "kepSorszam=" + document.getElementById("kepSorszam").value;
@@ -208,7 +175,9 @@ function projectData(){
     dataStringActual += "&endY=" + document.getElementById("endY").value;
     dataStringActual += "&endOp=" + document.getElementById("endOp").value;
     dataStringActual += "&endLight=" + document.getElementById("endLight").value;
-    dataStringActual += "&save=1|";
+    if(save == "1"){dataStringActual += "&save=1|";}
+    if(save == "0"){dataStringActual += "&save=0|";}
+    
     
     
     if(kepSorSzam == 1){ 
@@ -245,13 +214,15 @@ function projectData(){
 
 function pictureSave() {
  
-   projectData();
+   projectData("1");
 
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                if(kepSorSzam == 4){ document.write(this.responseText); }
+                //if(kepSorSzam == 4){ 
+                   // document.write(this.responseText); 
+               // }
                      }
         };
         //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false); key value fusion
@@ -261,8 +232,8 @@ function pictureSave() {
    }
     //}
 
-    function szakaszStShow() {
-
+function szakaszStShow() {
+    //document.write("szakaszStShow");
         var  dataString = "mainImg=" + document.getElementById("mainImg").value;
         dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
         dataString += "&height=" + document.getElementById("height").value;
@@ -282,21 +253,22 @@ function pictureSave() {
        var xhttp = new XMLHttpRequest();
        xhttp.onreadystatechange = function () {
            if (this.readyState == 4 && this.status == 200) {
-            /* document.write(this.responseText);
+            // document.write(this.responseText);
 
-              */
+             /* */
                // document.getElementById("startFr").value =
                var imggif = document.createElement('img');
-               imggif.src = this.responseText;
+               imggif.src = this.responseText ;
                ctx.fillStyle = "white";
+                
                ctx.fillRect(0, 0, canvas.width, canvas.height);
-               ctx.globalAlpha = 1.0;
+              ctx.globalAlpha = 1.0;
                //ctx.zIndex = 30;
-               var img_gif = document.getElementById("gifPlace");
+               ////////var img_gif = document.getElementById("gifPlace");
                //img_gif.style.width = "0px";
                //img_gif.style.height = "0px";
-               img_gif.style.zIndex = 0;
-               ctx.drawImage(imggif, 5, 5);
+               //img_gif.style.zIndex = 0;
+               ctx.drawImage(imggif, 0, 0);
             
           }
        };
@@ -313,11 +285,11 @@ function pictureSave() {
         dataString += "&height=" + document.getElementById("height").value;
         dataString += "&width=" + document.getElementById("width").value;
         dataString += "&mod=" + document.getElementById("mod").value;
-        dataString += "&startFr=" + document.getElementById("startFr").value;
-         dataString += "&startX=" + document.getElementById("startX").value;
-        dataString += "&startY=" + document.getElementById("startY").value;
-        dataString += "&startOp=" + document.getElementById("startOp").value;
-        dataString += "&startLight=" + document.getElementById("startLight").value;
+        dataString += "&endFr=" + document.getElementById("endFr").value;
+        dataString += "&endX=" + document.getElementById("endX").value;
+        dataString += "&endY=" + document.getElementById("endY").value;
+        dataString += "&endOp=" + document.getElementById("endOp").value;
+        dataString += "&endLight=" + document.getElementById("endLight").value;
         dataString += "&startE=0" ;// <<<<<<<<<<<<<<<<
 /*
        var setAdatKi = document.getElementById("endX").value;
@@ -331,17 +303,28 @@ function pictureSave() {
                var imggif = document.createElement('img');
 /*document.write(this.responseText);
 */
+/*
+const result = await fetch(this.responseText);
+const blob = await result.blob();
+const image = await createImageBitmap(blob);
+const pattern = ctx.createPattern(image, 'repeat');
+ctx.fillStyle = pattern;
+ctx.fill();
 
-               imggif.src = this.responseText;
-               ctx.fillStyle = "white";
-               ctx.fillRect(0, 0, canvas.width, canvas.height);
-               ctx.globalAlpha = 1.0;
-               //imggif.style.zIndex = 0;
-              // ctx.style.zIndex = 10;
-              var img_gif = document.getElementById("gifPlace");
-              img_gif.style.zIndex = 00;
+*/
+//var imggif = document.createElement('img');
+imggif.src = this.responseText;
+ctx.fillStyle = "white";
 
-               ctx.drawImage(imggif, 5, 5);
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.globalAlpha = 1.0;
+//ctx.zIndex = 30;
+//var img_gif = document.getElementById("gifPlace");
+//img_gif.style.width = "0px";
+//img_gif.style.height = "0px";
+//img_gif.style.zIndex = 20;
+ctx.drawImage(imggif, 0, 0);
+
                
            }
        };

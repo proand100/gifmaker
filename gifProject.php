@@ -28,6 +28,28 @@ while($i < count($pictures)  - 1){
 
 $i++;
   }
+//----------------------
+if($pictureArray[count($pictureArray) - 1]['save'] == "1"){  // SAVE last setted picture datas
+  $fileUrl = $_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/' . $pictureArray[count($pictureArray) - 1]["kepSorszam"] . 'pict' . '.txt';
+  $fileSave = fopen($fileUrl, 'w') or die('Unable to open' . $pictureArray[count($pictureArray) - 1]["kepSorszam"]. 'pict' . '.txt');
+    fwrite($fileSave, $pictures[count($pictures)  - 2]);  // 
+    fclose($fileSave);
+
+  }
+if($pictureArray[count($pictureArray) - 1]["save"] == "0"){  // SHOWGIF()
+
+
+
+}
+//----------------------
+function createGif(){
+
+
+  
+
+}
+
+
  
 ?>
 
