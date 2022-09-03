@@ -20,4 +20,7 @@ Minden picture-hez létrehozni egy "gif alakítás" struktúrát.Vagy változatl
 ---220830:
     SAVE, ShowStart, ShowEnd buttons work well, but just now changed the xmlhttprequests
     of them. It looks the image event will be the next job.
+---220903:
+   ShowStart ShowEnd buttonokra kettős kattintás kell, (line-style-display?)
+   A range.php-ből class-t és betölteni a manager.php-ba gyorsítás miatt.    
 
