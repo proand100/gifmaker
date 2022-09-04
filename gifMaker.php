@@ -29,12 +29,9 @@ $face->setImageFilename("ranged.png");
 $time = trim(time());
 //--------
 $face->writeImage($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged' . $time . '.png');
-$url = $_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged' . $time . '.png';
-//$face->writeImage($_SERVER['DOCUMENT_ROOT'] . $url);
-//$imgUrl = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/rangedE' . $time . '.png'";
+//$url = $_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged' . $time . '.png';
+//echo "range.php echo";
 
-//return 'https://localhost' . $url;
-//echo $url;
 echo $time;
 
    

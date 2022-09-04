@@ -3,16 +3,18 @@ class szakaszManager{
 
 var $check;
 function steCheck($be){
-
+/*
     $this->check = $be;
     echo 'this->check = ' . be;
+    */
 }
     function __construct(){
         echo '
-        <div Style="padding: 5px;" id="pictRange" >
-        <button  type="button" Style="Font-size: 10px;display:inline;" id="szakaszStShowBtn"  onclick="szakaszStShow()">ShowStart</button>
-        <button  type="button" Style="Font-size: 10px; Left: 80px;display:inline;" id="szakaszEndShowBtn"  onclick="szakaszEndShow()">ShowEnd</button>
+        <div  id="pictRange" >
+        <button  type="button" Style="color: white;" id="szakaszStShowBtn"  onclick="szakaszStShow()">ShowStart</button>
+        <button  type="button" Style="" id="szakaszEndShowBtn"  onclick="szakaszEndShow()">ShowEnd</button>
         <br><br>
+    <div class="tartamSor">   
         <label  " for="tartam2">Tartam (mp):</label>
     
         <input id="tartam" name="tartam" type="text" value="">
@@ -24,9 +26,10 @@ function steCheck($be){
         
         <label for="endFr>">End frame :</label>
         <input id="endFr" name="endFr" type="text" value=""><br>
-        
+       </div>
+
        
-        
+       <div class="startSor"  >   
         <label for="startX">Start X :</label>
         <input id="startX" name="startX" type="text" value="">
         <label for="startY>">Start Y :</label>
@@ -37,9 +40,9 @@ function steCheck($be){
         
         <label for="startLight">Start Light :</label>
         <input id="startLight" name="startLight" type="text" value="">
-        
+        </div>
       
-        
+        <div class="endSor">   
         <label for="endX">End X :</label>
         <input id="endX" name="endX" type="text" value="">
         <label for="endY>">End Y :</label>
@@ -50,7 +53,8 @@ function steCheck($be){
         
         <label for="endLight>">End Light :</label>
         <input id="endLight" name="endLight" type="text" value="">
-        <br>
+        </div>
+        
         
         </div>';
             

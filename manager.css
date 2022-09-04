@@ -1,147 +1,94 @@
+* {
+  box-sizing: border-box;
+}
 
-*{
-    box-sizing: border-box;
-  }
-  body{
-    /*display: block;
+body {
+  /*display: block;
     position: relative;*/
-    height: 1000px;
-    margin: 0 0 0 0;
-   
-  }
-  
- /* .cl_fSaav {
-    overflow: hidden;
-    border: 1px solid #ccc;
-   
-    display: inline-block;
-      padding: 0px;
-   position: fixed; 
-   background-color: rgba(68, 25, 12, 0.3);
-   border: 1px solid #000;
+  height: 1000px;
+  margin: 0 0 0 0;
 
-   top: 0px;
-
-   width: 500vw;
-height: 0px;
-  left: 0px;
-   right: 0px;
-  
-  z-index: 10;
- 
 }
 
-  
-  .cl_fSaav form{
-    
-    background-color: rgba(212, 190, 111, 0.7);
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 2px 4px;
-    transition: 0.3s;
-    font-size: 7px;
-margin-top: 0px;
-
- 
-  }
-
- Change background color of buttons on hover */
 
 
-#fieldSet input{
+#fieldSet input {
 
- font-size: 10px;
- width: 50px;
-
-
-  }
-  #fieldSet input:hover{
-background-color: rgb(210, 12, 12);
-color: azure;
-  }
-
-  .setButtons{
-    display:inline;
-    position: absolute;
-      margin-top: 3px;
-      margin-left: 10px;
-      margin-bottom: 5px;
-      box-sizing: border-box;
-      border: 1px solid #1e453d;
-      height: auto;
-      padding: 3px;
-      width: auto;
-      color: white;
-  
-  
-  
-  background-color: rgb(52, 104, 99);
-  
-  }
-  .setButtons:hover{
-    background-color: rgb(52, 104, 99);
-
-  }
+  font-size: 10px;
+  width: 50px;
 
 
- /* .setButtons input{
-    position:absolute;
-    background-color: rgb(177, 95, 95);
-  color: white;
+}
+
+#fieldSet input:hover {
+  background-color: rgb(210, 12, 12);
+  color: azure;
+}
+
+.setButtons {
+  display: inline;
   position: absolute;
-  margin-left: 100px;
-  
-    
-    }*/
- 
-  
-  /*
-  #fieldSet #setSend0 {
-  background-color: #555;
-  color: aliceblue;
-  margin-left: 50px;
-  width:50px;
-  height: 30px;
+  margin-top: 3px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  border: 1px solid #1e453d;
+  height: auto;
+  padding: 3px;
+  width: auto;
+  color: white;
+  font-size: 13px;
+/* 
+
+*/
+  background-color: rgb(119, 165, 161);
+
+}
+
+.setButtons:hover {
+  background-color: rgb(52, 104, 99);
+
+}
+fieldset #saveBtn{
+  width: 40px; left: 420px;color: rgb(243, 240, 110);
+  background-color: rgb(163, 35, 41);
+}
+fieldset #saveBtn:hover{
+  background-color: rgb(118, 24, 29);
 }
 
 
 
-  
- Style the tab content
-  .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-  }
- */
-.imgArea{
-display: grid;
-box-sizing: border-box;
-border: 1px solid #000000;
-width: 100%;
-height: 276px;
-background-color: rgb(128, 198, 195);
 
-margin: auto;
+
+.imgArea {
+  display: grid;
+  box-sizing: border-box;
+  border: 1px solid #000000;
+  width: 100%;
+  height: 276px;
+  background-color: rgb(128, 198, 195);
+
+  margin: auto;
 
 
 }
-#w_h{
-  display:inline-flex;
+
+#w_h {
+  display: inline-flex;
   margin-left: 10px;
 
   margin-top: 10px;
-  
+
 }
-#projLength{
+
+#projLength {
   display: inline;
   width: 30px;
 }
-#lengthSend{
-  position:absolute;
+
+#lengthSend {
+  position: absolute;
   display: inline-flex;
   background-color: rgb(236, 102, 65);
   margin-left: 20px;
@@ -150,69 +97,50 @@ margin: auto;
 }
 
 
-#MainCanvas{
+#MainCanvas {
   box-sizing: border-box;
   position: absolute;
   background-color: white;
- margin-top:40px;
- /*margin-left: calc(100% - 540px);*/
- margin-left: 50px;
+  margin-top: 40px;
+  /*margin-left: calc(100% - 540px);*/
+  margin-left: 50px;
   border: 1px solid #000000;
   z-index: 10;
 }
+
+ .closeSetImg {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 10px;
+
+  left: calc(100vw - 480px);
+  margin-bottom: 0px;
+  font-size: 17px;
+  cursor: pointer;
+  background-color: rgba(68, 25, 12, 0.0);
+  width: 100px;
+
+
+}
+
+
+.cikkek {
+  display: grid;
+  margin-top: 10px;
+  grid: auto-flow/1fr 1fr;
+}
+
+.col1Cikkek {
+  display: grid;
+  /*grid: auto-flow; / 1fr;*/
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(min-content, max-content);
+  height: auto;
+  margin-left: 15px;
+
+}
+
 /*
-#gifPlace{
-  box-sizing: border-box;
-  position: absolute;
-  background-color: white;
- margin-top:40px;
- /*margin-left: calc(100% - 540px);*/
- margin-left: 50px;
-  border: 1px solid #000000;
-}
-
-#gifPlace{
-  position: absolute;
-  box-sizing: border-box;
- margin-top: 30px;
- margin-left: 700px;
-  border: 1px solid #000000;
-}
-*/
-
-.closeSetImg{
-  box-sizing: border-box;
-  position: absolute;
-bottom: 10px;
-
-left: calc(100vw - 480px);
-margin-bottom: 0px;
-font-size: 17px;
-cursor:pointer;
-background-color: rgba(68, 25, 12, 0.0);
-width: 100px;
-
-
-}
-
-
-  .cikkek{
-    display: grid;
-    margin-top: 10px;
-    grid: auto-flow/1fr 1fr;
-  }
-  .col1Cikkek{
-    display: grid;
-    /*grid: auto-flow; / 1fr;*/
-    grid-template-columns: 1fr;
-    grid-auto-rows: minmax(min-content, max-content);
-    height: auto;
-    margin-left: 15px;
-   /* align-items: start;
-    overscroll-behavior: auto;*/
-    
-    }
-    /*
   .cikk_1{
 
     background-color: rgb(239, 177, 206);
@@ -220,94 +148,129 @@ width: 100px;
     grid-row: 1;
   }
   */
-  
-.cikk_5{
+
+.cikk_5 {
   position: fixed;
   width: 500px;
-    background-color: #ad837a;
-    grid-column: 1;
-    grid-row: 2;
-    width:90%;
-  }
-
-  #pictRange{
-    position:relative;
-    margin-top: 3px;
-    margin-left: 10px;
-    margin-bottom: 5px;
-    box-sizing: border-box;
-    border: 1px solid #000000;
-    
-    padding: 3px;
-    height:110px;
-    width: 90%;
-    font-size: 13px;
-  }
-  
-  
-  
-  #pictRange input{
-    width: 30px;
-    
-    }
-    #pictRange:hover{
-     background-color: rgb(159, 194, 190);
-      
-      }
-
-#pictRange input{
-      background-color: rgb(159, 194, 190);
-      height: 16px;
-      width: 40px
-         
-         }     
-.szakaszBtn:hover{
-  background-color: rgb(222, 50, 50);
-
+  background-color: #ad837a;
+  grid-column: 1;
+  grid-row: 2;
+  width: 90%;
 }
 
+
+#pictRange {
+  padding: 5px;
+  display: inline;
+  position:absolute;
+  margin-top: 3px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  border: 3px solid #b13d17;
+
+  padding: 6px;
+  height: 110px;
+  width: 90%;
+  font-size: 13px;
+  background-color: rgb(53, 59, 58);
+}
+
+#pictRange label{
+color: aliceblue;
+  /* Font-size: 10px;display:inline;*/
+}
+
+#pictRange button {
+  display: inline;
+  margin-top: 3px;
+  /* Font-size: 10px;display:inline;*/
+}
+
+#pictRange input {
+  display:inline-block;
+
+  width: 30px;
+  background-color: rgb(159, 194, 190);
+  height: 16px;
+  width: 40px
+}
+
+#pictRange .tartamSor{
+  display: inline;
+  box-sizing: border-box;
+  position: relative;
+  left: 5px;
+  background-color: rgb(62, 69, 12);
+  color: #ad837a;
+ }
+.tartamSor input{
   
-  .col3Cikkek{
+  background-color: rgb(35, 38, 11);
+}
+.startSor{
+  display: inline;
+  position: relative;
+  left:5px;
+}
+.endSor{
+  display: inline;
+  position: relative;
+  left: 5px;
+}
+#szakaszStShowBtn{
+  background-color: rgb(170, 136, 197);
+
+}
+#szakaszStShowBtn:hover {
+  background-color: rgb(15, 82, 101);
+color: antiquewhite;
+}
+#szakaszEndShowBtn{
+  background-color: rgb(21, 154, 198);
+  color: antiquewhite;
+}
+
+
+#szakaszEndShowBtn:hover{
+  background-color: rgb(198, 21, 21);
+  color: white;
+}
+
+
+
+
+.col3Cikkek {
   display: grid;
-    /*grid: auto-flow / 1fr;*/
-    grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
   grid-auto-rows: minmax(min-content, max-content);
   overscroll-behavior: auto;
-  
-  }
-  
-  
-  .cikk_3{
-   /* background-color: rgb(228, 138, 11);*/
-    /*grid-column: 3;
-    grid-row: 1/2;*/
-    grid-column: 2;
-   /* grid-row: 1;*/
-  }
-
-  .cikk_3:hover {
-    background-color: #ddd;
-    border: 3px solid rgb(42, 3, 3);
-  }
-  
-  /*
-  .cikk_4{
-    background-color: rgb(198, 224, 235);
-    grid-column: 1;
-    grid-row: 2;
-  }
-*/
-#gimForm form{
-  
-  display:grid;
- margin-top: 0px;
- font-size: 13px;
-}
-/*
-.szakaszok{
-/*display:none;
 
 }
-*/
 
+
+.cikk_3 {
+  grid-column: 2;
+
+}
+
+.cikk_3:hover {
+  background-color: #ddd;
+  border: 3px solid rgb(42, 3, 3);
+}
+
+#gimForm form {
+
+  display: grid;
+  margin-top: 0px;
+  font-size: 13px;
+  background-color: rgb(198, 224, 235);
+}
+#rangShowImg{
+  grid-column: 1;
+  grid-row: 3;
+width:400px;
+height:220px;
+
+}
 

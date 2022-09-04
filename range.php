@@ -1,4 +1,6 @@
 <?php
+//echo "range.php echo";
+
 require_once "gifMaker.php";
 
 //$stringBe = $_REQUEST["mainImg"];
@@ -12,21 +14,26 @@ foreach($rangeDatArray as $x => $x_value){
          unset($rangeDatArray[$x]);
 
 }
-//if(is_file($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged' . $rangeDatArray["fileTime"] . '.png'))
 
+/*
 if($rangeDatArray["fileTime"] != "0"){ // delete
 unlink($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged' . $rangeDatArray["fileTime"] . '.png') ;
+}
+*/
+
+$files = glob($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/' . '*'); // get all file names
+if(count($files) > 10){
+foreach($files as $file){ // iterate files
+  if(is_file($file)) {
+    unlink($file); // delete file
+  }
+}
 }
 
 //-----------
 $madePicture->makeRangeShow($rangeDatArray);
-//echo $madePicture->makeRangeShow($rangeDatArray);
+/**/
 
-
-
-
-//echo "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged.png";
-//echo $_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged.png';
 
 
 

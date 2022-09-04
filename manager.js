@@ -13,8 +13,8 @@ var ctx = canvas.getContext("2d");
 var szakaszShowTime = "&fileTime=0";
 
 ctx.font = "20px Arial";
-ctx.globalAlpha = 0.1;
-ctx.fillText("Click on the next picture!", 10, 30);
+ctx.globalAlpha = 1.0;
+//ctx.fillText("Click on the next picture!", 10, 30);
 /* kepSorszam */
 //document.getElementById(kepSorszam).innerHTML = "JS: 1 (Start New GIF project!)";
 if (document.getElementById("kepSorszam").innerHTML == "1") {
@@ -76,9 +76,7 @@ function textImgSrc(be) { // Display all image from Gifproject/images folder
             alert("Maximum 5 picture");
             return;
         }
-       // projectData();
-          
-      /*   */
+
         kepSorSzam++;
         document.getElementById("kepSorszam").value = kepSorSzam ;//+ ". picture";
         document.getElementById("felirat").innerHTML = ".picture";
@@ -102,7 +100,7 @@ function textImgSrc(be) { // Display all image from Gifproject/images folder
 
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.globalAlpha = 1.0;
+   // ctx.globalAlpha = 1.0;
     var a = document.getElementById(be);
     ctx.drawImage(a, 5, 5);
 
@@ -222,10 +220,8 @@ function pictureSave() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                //if(kepSorSzam == 4){ 
-                   // document.write(this.responseText); 
-               // }
-                     }
+                  // document.write(this.responseText); 
+               }
         };
         //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false); key value fusion
        xhttp.open("POST", "gifProject.php?" + dataString, false);
@@ -248,36 +244,32 @@ function szakaszStShow() {
         dataString += "&startOp=" + document.getElementById("startOp").value;
         dataString += "&startLight=" + document.getElementById("startLight").value;
         dataString += "&startE=1" ;// <<<<<<<<<<<<<<<<
-        dataString += szakaszShowTime ;
-/*
-       var setAdatKi = document.getElementById("startX").value;
-       document.getElementById("tartam").value = setAdatKi;
-       */
+        //dataString += szakaszShowTime ;
+
        var xhttp = new XMLHttpRequest();
        xhttp.onreadystatechange = function () {
            if (this.readyState == 4 && this.status == 200) {
             // document.write(this.responseText);
 
-             /* */
-               // document.getElementById("startFr").value =
                var imggifH = document.createElement('img');
                var resp = this.responseText.trim();
                var imageURL = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged" + resp + ".png";
                imggifH.src = imageURL;
+
+               //-------------
+               //var imggifH = document.getElementById("rangShowImg");
+               //imggifH.src = imageURL;
+               //--------------
                
-               szakaszShowTime = "&fileTime=" + resp;
-               // szakaszShowTime = "233" + this.responseText.trim();
-
-
-
-              //document.write(szakaszShowTime );
+              // szakaszShowTime = "&fileTime=" + resp;
+               
  
                ctx.fillStyle = "white";
                 
                ctx.fillRect(0, 0, canvas.width, canvas.height);
-              ctx.globalAlpha = 1.0;
+             // ctx.globalAlpha = 1.0;
               //ctx.putImageData(imggifH, 0,0);
-
+             // document.write(szakaszShowTime );
                ctx.drawImage(imggifH, 0, 0);
               ////////////////// ctx.drawImage(imggifH, 0, 0);
             
@@ -302,35 +294,29 @@ function szakaszStShow() {
         dataString += "&endOp=" + document.getElementById("endOp").value;
         dataString += "&endLight=" + document.getElementById("endLight").value;
         dataString += "&startE=0" ;// <<<<<<<<<<<<<<<<
-        dataString += szakaszShowTime ;
-/*
-       var setAdatKi = document.getElementById("endX").value;
-        document.getElementById("delay").value = setAdatKi;
-        */
+        //dataString += szakaszShowTime ;
+
 
        var xhttp = new XMLHttpRequest();
        xhttp.onreadystatechange = function () {
            if (this.readyState == 4 && this.status == 200) {
                // document.getElementById("startFr").value =
                var imggif = document.createElement('img');
-/*document.write(this.responseText);
-*/
+//document.write(this.responseText);
+
 
 var imggifH = document.createElement('img');
 var resp = this.responseText.trim();
 var imageURL = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged" + resp + ".png";
 imggifH.src = imageURL;
 
-szakaszShowTime = "&fileTime=" + resp;
-ctx.fillStyle = "white";
+//szakaszShowTime = "&fileTime=" + resp;
 
+ctx.fillStyle = "white";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
+/*
 ctx.globalAlpha = 1.0;
-//ctx.zIndex = 30;
-//var img_gif = document.getElementById("gifPlace");
-//img_gif.style.width = "0px";
-//img_gif.style.height = "0px";
-//img_gif.style.zIndex = 20;
+*/
 ctx.drawImage(imggifH, 0, 0);
 
                
