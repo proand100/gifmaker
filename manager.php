@@ -116,7 +116,7 @@
 
           <span style="display: inline;"> sec Frame/sec:</span>
           <span >
-            <input id="mainDelay" type="text"> 
+            <input id="mainDelay" type="text" value="">
             <input id="mainFrameDb" type="text" disabled> db frames.
                   </span>
           <?php

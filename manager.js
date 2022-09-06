@@ -227,7 +227,7 @@ function projectData(save){
 function pictureSave() {
    // document.write("pictureSave(){ -ben!");
    projectData("1");
-
+   if(alertShow_Save() == "0"){ return;};
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -248,6 +248,12 @@ function showGif2() {
    projectData("0");
   // document.write("showGif(){ -ben!");
    /* */
+   //--------------- warning check
+   /*alert( "Please fill out both the 'Gif long' and the 'Frame/sec'!" );
+   exit(0);*/
+  //document.write(document.getElementById("projLength").value +', ' + document.getElementById("mainDelay").value);
+  if(alertShow_Save() == "0"){ return;};
+   //----------------------document.getElementById("endY").value;
 
    var xhttp = new XMLHttpRequest();
    xhttp.onreadystatechange = function () {
@@ -298,6 +304,25 @@ function fillCanvas(){
 
 
 
+
+    }
+
+    function alertShow_Save(){
+        if(document.getElementById("projLength").value == "" || document.getElementById("mainDelay").value == ""){
+            alert( "Please fill out both the 'Gif long' and the 'Frame/sec'!" );
+            return "0";
+        }
+        if(document.getElementById("kepSorszam").value == "0" ){
+            alert( "Please load into one picture!" );
+            return "0";
+        }
+        if(document.getElementById("startX").value == "" || document.getElementById("startY").value == ""
+            || document.getElementById("endX").value == "" || document.getElementById("endY").value == ""){
+            alert( "Please fill these all: 'startX', 'startY', 'endX', 'endY'!" );
+            return "0";
+        }
+
+    return"1";
 
     }
 
