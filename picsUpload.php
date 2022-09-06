@@ -71,10 +71,10 @@ if(count($dirArray) == "2"){ // There is not created h_... bacgrounded file(s), 
    
     
      //-----------
-     //echo 'document.write(" imgTitleH = "' . $imgTitleH . '")';
+     echo 'document.write(" imgTitleH = "' . $imgTitleH . '", $shortTitle= "' . $shortTitle . '")"';
                 echo ' <div><p style="margin-left: calc(50% + 50px); align: center;">' . $shortTitle . '</p>
-                <img  id="' . $imgTitleH . '" class= "cikk_3" style=" grid-row:' . $index  . '; " src="GIFproject/h_images/' . $imgTitleH . '" alt="Image" 
-              onclick="textImgSrc(\'' . $imgTitleH . '\')"/>
+                <img  id="' . $shortTitle . '" class= "cikk_3" style=" grid-row:' . $index  . '; " src="images/' . $shortTitle . '" alt="Image" 
+              onclick="textImgSrc(\'' . $shortTitle . '\')"/>
               
               </div>';
            // }

@@ -72,9 +72,19 @@ function textChange2(be2) {
 }
 function textImgSrc(be) { // Display all image from Gifproject/images folder
    
-  //mainImg.value = be; // text.substring(2)
-  mainImg.value = be.substring(4);
+  mainImg.value = be; // text.substring(2)
+
+  var a = document.getElementById(be);
+
+  //document.getElementById(height).innerHTML = a.height;
+  height.value = a.height;
+ //document.getElementById(width).innerHTML = a.width;
+  width.value = a.width;
+  // //mainImg.value = be.substring(4);
+  
   szakaszShowTime = "&fileTime=0";
+
+
   //document.write("textImgSrc");
     if (load == 0) {
          if(kepSorSzam >= 5){
@@ -85,7 +95,7 @@ function textImgSrc(be) { // Display all image from Gifproject/images folder
         kepSorSzam++;
         document.getElementById("kepSorszam").value = kepSorSzam ;//+ ". picture";
         document.getElementById("felirat").innerHTML = ".picture";
-
+    
     }
     if (load == 1) {
         
@@ -102,27 +112,20 @@ function textImgSrc(be) { // Display all image from Gifproject/images folder
        // document.getElementById("kepSorszam").innerHTML = "Loaded project picture-szamozas kidolgozasa itt.";
     }
    
-
-    //ctx.fillStyle = "white";
-    //ctx.fillRect(0, 0, canvas.width, canvas.height);
-   // ctx.globalAlpha = 1.0;
-    var a = document.getElementById(be);
-   // document.write(a.height);
-   // document.getElementById("height").value = a.height;
-  // var b = '<img src="https://localhost/php_1/gifmaker/GIFproject/h_images/"' + be;
-
-   var imageURL = "https://localhost/php_1/gifmaker/GIFproject/h_images/" + be;
-   //document.write(imageURL);
-    //ctx.drawImage(a, 5, 5);
-    //document.write(imageURL);
-   // document.getElementById("height").value = a.height;
-    height.value = a.height;
-    width.value = a.width;
+   
     
-  /////  document.getElementById("canvasIMG").style.width =  b.width;
-    //document.write(document.getElementById("canvasIMG").style.width);
-   //// document.getElementById("canvasIMG").style.height = a.height;
-    document.getElementById("canvasIMG").src = imageURL;
+  
+    // document.write(be);
+ 
+
+   var imageURL = "https://localhost/php_1/gifmaker/GIFproject/images/" + be;
+//document.write(imageURL);
+  
+
+// canvas.src = imageURL;
+   /////////  document.getElementById("canvasIMG").src = imageURL;
+  fillCanvas();
+
    // document.getElementById("canvasIMG") = a;
 //canvas.src = a.src;
 
@@ -261,7 +264,42 @@ function showGif2() {
    xhttp.send();
 }
 
+function fillCanvas(){
+    //document.write("szakaszStShow");
+   // var szakaszShowTime = "0";
+        var  dataString = "mainImg=" + document.getElementById("mainImg").value;
+        dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
+        dataString += "&height=" + document.getElementById("height").value;
+        dataString += "&width=" + document.getElementById("width").value;
+        dataString += "&mod=" + document.getElementById("mod").value;
+        dataString += "&startFr=" + document.getElementById("startFr").value;
+         dataString += "&startX=0";
+        dataString += "&startY=0";
+        dataString += "&startOp=" + document.getElementById("startOp").value;
+        dataString += "&startLight=" + document.getElementById("startLight").value;
+        dataString += "&startE=1" ;// <<<<<<<<<<<<<<<<
+        //dataString += szakaszShowTime ;
 
+       var xhttp = new XMLHttpRequest();
+       xhttp.onreadystatechange = function () {
+           if (this.readyState == 4 && this.status == 200) {
+             //document.write(this.responseText);
+
+  
+               var resp = this.responseText.trim();
+               var imageURL = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged" + resp + ".png";
+                document.getElementById("canvasIMG").src = imageURL;
+        
+            
+          }
+       };
+       xhttp.open("POST", "range.php?" + dataString, false);
+       xhttp.send();
+
+
+
+
+    }
 
 
 function szakaszStShow() {
