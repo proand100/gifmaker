@@ -52,15 +52,22 @@ function getPictures($thePicture){
     //$face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, 20, 40); 
     $face->flattenImages(); 
     //$face->setImageFormat("png");
-    //$face->setImageFilename("ranged.png");
+    if(!str_contains($thePicture, "hat_")) {
+        $face->setImageFilename("hat_" . $thePicture);
+        $hatteresName = "hat_" . $thePicture;
+    }
+    else{
+        $hatteresName = $thePicture;
+    }
     
     //$time = trim(time());
     //--------
-    $face->writeImage($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/images/' . $thePicture);
+    
+    $face->writeImage($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/h_images/' . $hatteresName);
     //$url = $_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged' . $time . '.png';
     //echo "range.php echo";
     
-   // echo $time;
+    return $hatteresName;
 
 
 }    

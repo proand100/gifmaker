@@ -72,7 +72,8 @@ function textChange2(be2) {
 }
 function textImgSrc(be) { // Display all image from Gifproject/images folder
    
-  mainImg.value = be;
+  //mainImg.value = be; // text.substring(2)
+  mainImg.value = be.substring(4);
   szakaszShowTime = "&fileTime=0";
   //document.write("textImgSrc");
     if (load == 0) {
@@ -108,9 +109,9 @@ function textImgSrc(be) { // Display all image from Gifproject/images folder
     var a = document.getElementById(be);
    // document.write(a.height);
    // document.getElementById("height").value = a.height;
-   var b = '<img src="https://localhost/php_1/gifmaker/GIFproject/images/"' + be;
+  // var b = '<img src="https://localhost/php_1/gifmaker/GIFproject/h_images/"' + be;
 
-   var imageURL = "https://localhost/php_1/gifmaker/GIFproject/images/" + be;
+   var imageURL = "https://localhost/php_1/gifmaker/GIFproject/h_images/" + be;
    //document.write(imageURL);
     //ctx.drawImage(a, 5, 5);
     //document.write(imageURL);
@@ -290,7 +291,7 @@ function szakaszStShow() {
               // imggifH.src = imageURL;
               //document.write(imageURL);
               // src="https://localhost/php_1/gifmaker/canvasImg/canvasIMG0.png"
-              document.getElementById("canvasIMG").src = "https://localhost/php_1/gifmaker/canvasImg/canvasIMG0.png";
+              //document.getElementById("canvasIMG").src = "https://localhost/php_1/gifmaker/canvasImg/canvasIMG0.png";
                document.getElementById("canvasIMG").src = imageURL;
                //-------------
                //var imggifH = document.getElementById("rangShowImg");
@@ -345,7 +346,7 @@ function szakaszStShow() {
 var resp = this.responseText.trim();
 var imageURL = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged" + resp + ".png";
 //imggifH.src = imageURL;
-document.getElementById("canvasIMG").src = "https://localhost/php_1/gifmaker/canvasImg/canvasIMG0.png";
+//document.getElementById("canvasIMG").src = "https://localhost/php_1/gifmaker/canvasImg/canvasIMG0.png";
 document.getElementById("canvasIMG").src = imageURL;
 //szakaszShowTime = "&fileTime=" + resp;
 /*
