@@ -19,13 +19,13 @@ function steCheck($be){
     
         <input id="tartam" name="tartam" type="text" value="">
         <label for="delay">Delay:</label>
-        <input id="delay" name="delay" type="text" value="">
+        <input id="delay" name="delay" type="text" value="" disabled>
         
         <label for="startFr">Start frame :</label>
-        <input id="startFr" name="startFr" type="text" value="">
+        <input id="startFr" name="startFr" type="text" value="" disabled>
         
         <label for="endFr>">End frame :</label>
-        <input id="endFr" name="endFr" type="text" value=""><br>
+        <input id="endFr" name="endFr" type="text" value="" disabled><br>
        </div>
 
        

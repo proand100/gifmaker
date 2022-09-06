@@ -1,8 +1,11 @@
 <?php
+//echo "imgGifProject-ban!";
 require_once 'imgGifPlan.php';
+
+//return ;
    $stringBe = $_SERVER["QUERY_STRING"];
    
-  // echo $stringBe;
+   //echo $stringBe;
    //echo "https://localhost/php_1/gifmaker/GIFproject/Gif/e_e.gif"; 
 
 $pictures = explode('|', $stringBe); // When set more than one picture. Tobb kep bevitelekor képekre bontja.
@@ -28,6 +31,7 @@ while($i < count($pictures)  - 1){
 
 $i++;
   }
+
 //----------------------
 if($pictureArray[count($pictureArray) - 1]['save'] == "1"){  // SAVE last setted picture datas
   $fileUrl = $_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/' . $pictureArray[count($pictureArray) - 1]["kepSorszam"] . 'pict' . '.txt';
@@ -37,7 +41,9 @@ if($pictureArray[count($pictureArray) - 1]['save'] == "1"){  // SAVE last setted
 
   }
 if($pictureArray[count($pictureArray) - 1]["save"] == "0"){  // SHOWGIF()
-
+  $frameNum = $pictureArray["0"]["projLength"] * $pictureArray["0"]["mainDelay"];
+  $returner = 'projLength:' . $pictureArray["0"]["projLength"] . ', mainDelay:' . $pictureArray["0"]["mainDelay"] . 'frameNum:' . $frameNum . ')';
+echo $returner;
 
 
 }

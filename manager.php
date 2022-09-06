@@ -7,6 +7,7 @@
     <meta http-equiv='cache-control' content='no-cache'>
     <title>Gif Manager page</title>
     <link rel="stylesheet" href="manager.css"> <!-- -->
+    <script src="manager.js"></script>
 </head>
 <body>
 
@@ -18,7 +19,7 @@
          echo ' <div id="loadGif" style=" position: fixed; width: 480px;" class="cikk_5">Create New Gif.';
         }// <!-- 3 --> 
         else{
-         echo ' <div id="loadGif" style=" position: fixed; width: 480px;" class="cikk_5">Loaded Gif project.>';
+         echo ' <div id="loadGif" style=" position: fixed; width: 480px; color: red;" class="cikk_5">Loaded Gif project.>';
         }// <!-- 3 --> 
         ?>
         
@@ -61,25 +62,22 @@
   
   
                 <!--</form> -->
-              <button type="button" id="saveBtn" class="setButtons" style="" onclick="pictureSave()" >SAVE</button>
+              <button type="button" id="saveBtn" class="setButtons" style="" onclick="pictureSave(1)" >SAVE</button>
               <br>
               <br>
 
 
               <button  type="button" id="szakaszPlus" class="setButtons" onclick="szakaszShow()">szakasz +</button>
 
-              <button  type="button" id="szakaszMinus" class="setButtons" style="width: 80px; left: 90px; " 
-                onclick="szakaszHide()">szakasz -</button>
+              <button  type="button" id="szakaszMinus" class="setButtons" style="width: 80px; left: 90px; " onclick="szakaszHide()">szakasz -</button>
 
+              <button type="button" id="showGif" class="setButtons" style="" onclick="showGif2()" >Show</button>
 
-              <button type="button" id="showGif" class="setButtons" style="width: 80px; left: 190px;" 
-              onclick="showGif()">Show</button>
+              
 
-              <button  type="button" id="setCancel" class="setButtons" style="width: 50px; left: 290px; " 
-              onclick="SetCancel()">CANCEL</button>
+              <button  type="button" id="setCancel" class="setButtons" style="width: 50px; left: 290px; " onclick="SetCancel()">CANCEL</button>
 
-              <button  type="button" id="setDel" class="setButtons" style="width: 70px; left: 360px; " 
-              onclick="SetDelete()">DELETE</button>
+              <button  type="button" id="setDel" class="setButtons" style="width: 70px; left: 360px; " onclick="SetDelete()">DELETE</button>
 
               <br><br>
 
@@ -112,40 +110,53 @@
     <div  style="position: fixed; width: 500px; height: 276px;" class="imgArea"> 
       <!-- 4 -->
       <span id="w_h" >
-        <form id="prLength"  action="gifProject.php" method="get">
-          <span style="margin-left: 10px; display: inline-flex; font-size: 13px;"> Canvas width=400px, height=220px; Animated Gif long=  </span>
+       
+          <span style="margin-left: 10px; display: inline-flex; font-size: 13px;"> Canvas width=400px, height=220px; Gif long=  </span>
           <input id="projLength" name="projLength" type="text" value="">
 
-          <span style="display: inline;"> sec</span>
+          <span style="display: inline;"> sec Frame/sec:</span>
+          <span >
+            <input id="mainDelay" type="text"> 
+            <input id="mainFrameDb" type="text" disabled> db frames.
+                  </span>
           <?php
             if($isempty == 1){
-              echo '<input id="lengthSend" type="submit" value="Length OK">';
+          // echo '<input id="lengthSend" type="submit" value="Length OK">';
+           
             }
           ?>
-   
-        </form>
+
+        
       </span>
         
-
+<!--
       <canvas id="MainCanvas" width="400px" height="220px" >
                 Your browser not supported HTML Canvas tag.
-      </canvas>
+      </canvas> 
+  --> 
+      
+      <img  id="canvasIMG" style="width:400px; height:220px;margin-left: 40px;margin-top: 0px;"  
+    src="https://localhost/php_1/gifmaker/GIFproject/canvasImg/canvasIMG0.png" alt="Image" >
 
-      <br>
-      <img id="gifPlace" src="" style="margin-top:78px;  margin-left: 52px; "></img>
+
+
+    <br>
+ 
+     <!-- <img id="canvasIMG" src="" style="margin-top:78px;  margin-left: 52px; "></img> -->
 
  
     </div><!-- 4 -->
 
     <div   style="margin-top: 290px;" ><!-- 5 -->
       <?php include_once 'picsUpload.php'; 
-              $images = new pictureLoad("GIFproject/images");
+             $images = new pictureLoad();
+              $images->picsLoad("GIFproject/images");
               //$images->drawImages();
       ?>
    
     </div><!-- 5 -->
 
-      <script src="manager.js"></script>
+   
 
 
 
