@@ -147,14 +147,16 @@
  
     </div><!-- 4 -->
 
-    <div   style="margin-top: 290px;" ><!-- 5 -->
-      <?php include_once 'picsUpload.php'; 
+    <div   style="margin-top: 290px;" > <!--5 -->
+      <?php 
+      include_once 'picsUpload.php'; 
              $images = new pictureLoad();
               $images->picsLoad("GIFproject/images");
               //$images->drawImages();
+            /*  */
       ?>
    
-    </div><!-- 5 -->
+    </div> <!--5 -->
 
    
 

@@ -258,10 +258,13 @@ function showGif2() {
    var xhttp = new XMLHttpRequest();
    xhttp.onreadystatechange = function () {
        if (this.readyState == 4 && this.status == 200) {
-              document.write(this.responseText); 
+               // document.write(this.responseText); 
+              var imageURL = "https://localhost/php_1/gifmaker/GIFproject/Gif/animation.gif";
+                document.getElementById("canvasIMG").src = imageURL;
+              
           }
           else{
-           document.write("Nem 4 es 200!");
+          // document.write("showGif2(): Nem 4 es 200!");
           }
    };
    //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false); key value fusion
