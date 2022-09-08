@@ -5,11 +5,12 @@ require_once 'gifMaker.php';
 //return ;
    $stringBe = $_SERVER["QUERY_STRING"];
 $pictures = explode('|', $stringBe); // When set more than one picture. Tobb kep bevitelekor képekre bontja.
-
+//echo $stringBe;
 $i = 0;
 while($i < count($pictures)  - 1){
    $OneImg = new imgGifPlan();
    $pictureArray[$i] = $OneImg->getPictureDatas($pictures[$i]);
+   echo $pictures[$i] . " ------------------";
    $i++;
  }
  $i = 0;
@@ -26,6 +27,27 @@ if($pictureArray[count($pictureArray) - 1]["save"] == "0"){  // SHOWGIF()
 
 createGif($pictureArray);
 }
+
+
+if($pictureArray[count($pictureArray) - 1]['save'] == "2"){  // SAVE PROJECT last setted picture datas
+  $i = 0;
+  while($i < count($pictureArray)){
+      $fileUrl = $_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/' . $pictureArray[$i]["kepSorszam"] . 'pict' . '.txt';
+      $fileSave = fopen($fileUrl, 'w') or die('Unable to open' . $pictureArray[$i]["kepSorszam"]. 'pict' . '.txt');
+       fwrite($fileSave, $pictures[$i]);  // 
+       fclose($fileSave);
+     $i++;
+   }
+
+echo "SAVE PROJECT -ben";
+ 
+
+
+
+
+
+  }
+
 //----------------------
 function createGif($pArr){
   $files = glob($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/Gif/' . '*'); // get all file names

@@ -23,7 +23,7 @@
         }// <!-- 3 --> 
         ?>
         
-    
+   
 
       <section id="gimForm"> 
 
@@ -44,6 +44,18 @@
                     }
                   /*  echo ' <span id="kepSorszam">0</span> .';*/
               ?>
+
+<span id="imgBtnKeret">
+<button type="button" id="imgBtn_1" Class="imgBtns" onclick="switchPict('1')">1</button>
+<button type="button" id="imgBtn_2" Class="imgBtns" onclick="switchPict('2')">2</button>
+<button type="button" id="imgBtn_3" Class="imgBtns" onclick="switchPict('3')">3</button>                  
+<button type="button" id="imgBtn_4" Class="imgBtns" onclick="switchPict('4')">4</button>
+<button type="button" id="imgBtn_5" Class="imgBtns" onclick="switchPict('5')">5</button>
+
+</span> 
+<button type="button" id="imgSwitch"  Style="position: absolute;display: inline;font-size: 10px; left: 420px;" onclick="picturesImprove()">Improve</button>
+
+
     
                <br>
               <label for="height">Height (px) :</label>
@@ -62,7 +74,7 @@
   
   
                 <!--</form> -->
-              <button type="button" id="saveBtn" class="setButtons" style="" onclick="pictureSave(1)" >SAVE</button>
+              <button type="button" id="saveBtn" class="setButtons" style="font-size: 10px;" onclick="pictureSave(1)" >Save Picture</button>
               <br>
               <br>
 
@@ -138,7 +150,7 @@
       <img  id="canvasIMG" style="width:400px; height:220px;margin-left: 40px;margin-top: 0px;"  
     src="https://localhost/php_1/gifmaker/GIFproject/canvasImg/canvasIMG0.png" alt="Image" >
 
-
+    <button type="button" id="saveProject"  style="" onclick="saveProj()" >SAVE</button>
 
     <br>
  
@@ -147,7 +159,7 @@
  
     </div><!-- 4 -->
 
-    <div   style="margin-top: 290px;" > <!--5 -->
+    <div  id="uploadedPictures" style="margin-top: 290px;" > <!--5 -->
       <?php 
       include_once 'picsUpload.php'; 
              $images = new pictureLoad();

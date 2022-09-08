@@ -71,7 +71,7 @@ if(count($dirArray) == "2"){ // There is not created h_... bacgrounded file(s), 
    
     
      //-----------
-     echo 'document.write(" imgTitleH = "' . $imgTitleH . '", $shortTitle= "' . $shortTitle . '")"';
+    // echo 'document.write(" imgTitleH = "' . $imgTitleH . '", $shortTitle= "' . $shortTitle . '")"';
                 echo ' <div><p style="margin-left: calc(50% + 50px); align: center;">' . $shortTitle . '</p>
                 <img  id="' . $shortTitle . '" class= "cikk_3" style=" grid-row:' . $index  . '; " src="images/' . $shortTitle . '" alt="Image" 
               onclick="textImgSrc(\'' . $shortTitle . '\')"/>
