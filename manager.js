@@ -171,11 +171,12 @@ mod.value = "0";//
 }
 
 function picturesImprove(){
+     
     if(firstLoad == "1"){ return; }
     if(alertShow_Save() == "0"){ return; }
 
 if(pictImprove == "0"){ // false
-
+   // document.write("firstLoad ==" + firstLoad  + "  pictImprove ==" + pictImprove);
      projectData("0");
     pictImprove = "1";
     beforeImprove = "0"
@@ -209,12 +210,20 @@ else{ //true
 }
 //  uploadedPictures
 
-function switchPict(pictureNum){
+function switchPict(pictureNum, projectLoad){
   
-        if(alertShow_Save() == "0"){ return; }
-        projectData("0");
+       
+       
+        if(projectLoad == '0'){// if it is not projectload
+             if(alertShow_Save() == "0"){ return; }
+            projectData("0");
+        }
+        else{
+            kepSorSzam = picturesData[pictureNum - 1][0] ;
+        } 
+        
         beforeImprove = pictureNum;
-
+ //document.write(picturesData[pictureNum - 1][0]);
     
     //projectData("0"); //save=="0" : showGif
       document.getElementById("kepSorszam").value = picturesData[pictureNum - 1][0] ;
@@ -331,41 +340,7 @@ dataStringActual = "kepSorszam=" + picturesData[i][0];
     dataStringActual += "&projLength=" + picturesData[i][17];
     dataStringActual += "&mainDelay=" + picturesData[i][18];
     dataStringActual += "&save=" + picturesData[i][19];
-     /*   
-    if(save == "1"){dataStringActual += "&save=1|";} // projLength mainDelay
-  if(save == "0"){dataStringActual += "&save=0|";}
-  if(save == "2"){dataStringActual += "&save=2|";}   
-    
 
-    if(kepSorSzam == 1){ 
-       dataString = '';
-       picture1 = '';
-       picture1 = dataStringActual;
-       dataString = dataStringActual;
-        //dataString = dataStringActual;
-
-    }
-    if(kepSorSzam == 2){
-        picture2 = '';
-         picture2 = dataStringActual;
-         dataString = picture1 + picture2;
-        }
-    if(kepSorSzam == 3){
-        picture3 = '';
-         picture3 = dataStringActual;
-         dataString = picture1 + picture2+ picture3;
-        }
-    if(kepSorSzam == 4){ 
-        picture4 = '';
-        picture4 = dataStringActual;
-        dataString = picture1 + picture2+ picture3 + picture4;
-    }
-    if(kepSorSzam == 5){
-        picture5 = '';
-         picture5 = dataStringActual;
-         dataString = picture1 + picture2+ picture3 + picture4 + picture5;
-        }
-*/
 if(i == 0){ 
     dataString = '';
     picture1 = '';
@@ -406,10 +381,10 @@ function pictureSave() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                   document.write(this.responseText); 
+                  // document.write(this.responseText); 
                }
                else{
-                document.write("Nem 4 es 200!");
+               // document.write("Nem 4 es 200!");
                }
         };
         //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false); key value fusion
@@ -426,10 +401,10 @@ function saveProj(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-               document.write(this.responseText); 
+              // document.write(this.responseText); 
            }
            else{
-            document.write("Nem 4 es 200!");
+           // document.write("Nem 4 es 200!");
            }
     };
     //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false); key value fusion
@@ -445,12 +420,7 @@ function showGif2() {
    
    projectData("0");
   // document.write("showGif(){ -ben!");
-   /* */
-   //--------------- warning check
-   /*alert( "Please fill out both the 'Gif long' and the 'Frame/sec'!" );
-   exit(0);*/
-  //document.write(document.getElementById("projLength").value +', ' + document.getElementById("mainDelay").value);
-  if(alertShow_Save() == "0"){ return;};
+   if(alertShow_Save() == "0"){ return;};
    //----------------------document.getElementById("endY").value;
 
    var xhttp = new XMLHttpRequest();
@@ -529,8 +499,6 @@ function fillCanvas(){
 
 
 function szakaszStShow() {
-    //document.write("szakaszStShow");
-   // var szakaszShowTime = "0";
         var  dataString = "mainImg=" + document.getElementById("mainImg").value;
         dataString += "&kepSorszam=" + document.getElementById("kepSorszam").value;
         dataString += "&height=" + document.getElementById("height").value;
@@ -547,33 +515,10 @@ function szakaszStShow() {
        var xhttp = new XMLHttpRequest();
        xhttp.onreadystatechange = function () {
            if (this.readyState == 4 && this.status == 200) {
-             //document.write(this.responseText);
-
-             //  var imggifH = document.createElement('img');
-               var resp = this.responseText.trim();
+                var resp = this.responseText.trim();
                var imageURL = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged" + resp + ".png";
-              // imggifH.src = imageURL;
-              //document.write(imageURL);
-              // src="https://localhost/php_1/gifmaker/canvasImg/canvasIMG0.png"
-              //document.getElementById("canvasIMG").src = "https://localhost/php_1/gifmaker/canvasImg/canvasIMG0.png";
-               document.getElementById("canvasIMG").src = imageURL;
-               //-------------
-               //var imggifH = document.getElementById("rangShowImg");
-               //imggifH.src = imageURL;
-               //--------------
-               
-              // szakaszShowTime = "&fileTime=" + resp;
-               
- 
-              // ctx.fillStyle = "white";
-                
-              // ctx.fillRect(0, 0, canvas.width, canvas.height);
-             // ctx.globalAlpha = 1.0;
-              //ctx.putImageData(imggifH, 0,0);
-             // document.write(szakaszShowTime );
-              // ctx.drawImage(imggifH, 0, 0);
-              ////////////////// ctx.drawImage(imggifH, 0, 0);
-            
+              document.getElementById("canvasIMG").src = imageURL;
+           
           }
        };
        xhttp.open("POST", "range.php?" + dataString, false);
@@ -627,6 +572,92 @@ ctx.drawImage(imggifH, 0, 0);
 
     }
 
+function projectLoad(){
+   //document.write("function projectLoad() -ban!"); 
+   // dataString = "";
+   firstLoad = "0";
+   pictImprove = "0";
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        //dataString = this.responseText;
+      // document.write(this.responseText);
+        var filesData = this.responseText;
+        const fileok = filesData.split("|"); //split filesDatas into picturesData[5][21]:
+        var i = 0;
+        //document.write(fileok.length - 1);
+        while(i < (fileok.length - 1)){
+            
+            const keyValues = fileok[i].split("&");
+            var j = 0;
+          //  document.write("i=" + i + ", ");
+            while(j <  keyValues.length){//19){
+                const key_value = keyValues[j].split("=");
+                picturesData[i][j] = key_value[1];
+                //document.write(picturesData[i][j] + ", ");
+                //document.write(key_value[1] + ", ");
+                j++;
+            }
+          //  switchPict(picturesData[i][0], '1');
+         // fillLoadedDatas(i);
+         document.getElementById("imgBtn_" + (i + 1)).style.display = "inline";
+            i++;
+        }
+//----------------------- fill into the set panels:
+//document.write("check_1");
+//document.write(picturesData[fileok.length - 2][0]);
+   switchPict(picturesData[fileok.length - 2][0], '1');
 
+
+
+
+
+    }
+    else{
+       // document.write("NEM  4 && this.status == 200");
+    }
+};
+xhttp.open("POST", "projectLoad.php", false);
+xhttp.send();
+textImgSrc(picturesData[keyValues.length * 1][1]);
+
+}
+
+/*
+function fillLoadedDatas(kepIndexBe){
+$miez = picturesData[kepIndexBe][0];
+document.getElementById("kepSorszam").value = "MIEZ?";
+document.write("check");
+   
+    //document.getElementById("kepSorszam").value = picturesData[kepIndexBe][0] ;
+    document.getElementById("kepSorszam").innerHTML = picturesData[kepIndexBe][0] ;
+    
+  // document.getElementById("mainImg").value = picturesData[kepIndexBe][1]  ;
+   document.getElementById("mainImg").innerHTML = picturesData[kepIndexBe][1]  ;
+   document.write(kepIndexBe + " ,check_1" + "mainImg= " + picturesData[kepIndexBe][1]  );
+   // document.getElementById("height").value = picturesData[kepIndexBe][2] ;
+    document.getElementById("height").innerHTML = picturesData[kepIndexBe][2] ;
+    document.getElementById("width").value = picturesData[kepIndexBe][3] ;
+    document.getElementById("mod").value = picturesData[kepIndexBe][4] ;
+  document.getElementById("tartam").value = picturesData[kepIndexBe][5]  ;
+  document.getElementById("delay").value = picturesData[kepIndexBe][6]  ;
+    document.getElementById("startFr").value = picturesData[kepIndexBe][7] ;
+    document.getElementById("endFr").value =  picturesData[kepIndexBe][8];
+    document.getElementById("startX").value =  picturesData[kepIndexBe][9];
+    document.getElementById("startY").value =  picturesData[kepIndexBe][10];
+  
+    document.getElementById("startOp").value = picturesData[kepIndexBe][11] ;
+    document.getElementById("startLight").value =  picturesData[kepIndexBe][12];
+    document.getElementById("endX").value = picturesData[kepIndexBe][13] ;
+    document.getElementById("endY").value =  picturesData[kepIndexBe][14];
+    document.getElementById("endOp").value = picturesData[kepIndexBe][15] ;
+   document.getElementById("endLight").value =  picturesData[kepIndexBe][16] ;
+    document.getElementById("projLength").value =  picturesData[kepIndexBe][17];
+    document.getElementById("mainDelay").value = picturesData[kepIndexBe][18] ;
+
+
+
+}
+*/
 
 

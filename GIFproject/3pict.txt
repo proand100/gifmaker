@@ -1,1 +1,1 @@
-kepSorszam=3&mainImg=zold.png&height=54&width=77&mod=0&tartam=&delay=&startFr=&endFr=&startX=0&startY=100&startOp=&startLight=&endX=300&endY=100&endOp=&endLight=&projLength=10&mainDelay=4&save=2
+kepSorszam=3&mainImg=zold.png&height=54&width=77&mod=0&tartam=&delay=&startFr=&endFr=&startX=0&startY=150&startOp=&startLight=&endX=200&endY=0&endOp=&endLight=&projLength=10&mainDelay=7&save=2

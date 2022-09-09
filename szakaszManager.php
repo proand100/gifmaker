@@ -54,8 +54,6 @@ function steCheck($be){
         <label for="endLight>">End Light :</label>
         <input id="endLight" name="endLight" type="text" value="">
         </div>
-        
-        
         </div>';
             
  
