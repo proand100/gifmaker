@@ -103,11 +103,11 @@ projectLoad();
               ?>
             <span id="felirat"> .picture</span> 
 <span id="imgBtnKeret">
-<button type="button" id="imgBtn_1" Class="imgBtns" onclick="switchPict('1', '0')">1</button>
-<button type="button" id="imgBtn_2" Class="imgBtns" onclick="switchPict('2', '0')">2</button>
-<button type="button" id="imgBtn_3" Class="imgBtns" onclick="switchPict('3', '0')">3</button>                  
-<button type="button" id="imgBtn_4" Class="imgBtns" onclick="switchPict('4', '0')">4</button>
-<button type="button" id="imgBtn_5" Class="imgBtns" onclick="switchPict('5', '0')">5</button>
+<button type="button" id="imgBtn_1" Class="imgBtns" onclick="switchPict('1', '0', '0')">1</button>
+<button type="button" id="imgBtn_2" Class="imgBtns" onclick="switchPict('2', '0', '0')">2</button>
+<button type="button" id="imgBtn_3" Class="imgBtns" onclick="switchPict('3', '0', '0')">3</button>                  
+<button type="button" id="imgBtn_4" Class="imgBtns" onclick="switchPict('4', '0', '0')">4</button>
+<button type="button" id="imgBtn_5" Class="imgBtns" onclick="switchPict('5', '0', '0')">5</button>
 
 </span> 
 <button type="button" id="imgSwitch"  Style="position: absolute;display: inline;font-size: 10px; left: 420px;" onclick="picturesImprove()">Improve</button>

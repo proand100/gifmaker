@@ -67,7 +67,8 @@ function getPictures($thePicture){
 
 
 function makeGif($pictureArray){
-/* */
+ /*   echo "makeGif($pictureArray)= " . $pictureArray;
+ */
     $i = 0;
     
     while($i < count($pictureArray)){
@@ -136,10 +137,26 @@ while($i < $frameNum){
     }
     else{
         $x += $xDiff;
-        $y += $yDiff;
+        $y += $yDiff ;
     }
-    if($x > $imgData2["endX"]){ $x = $imgData2["endX"]; }
-    if($y > $imgData2["endY"]){ $y = $imgData2["endY"]; }
+
+    if($xDiff < 0){
+        if($x < $imgData2["endX"]){ $x = $imgData2["endX"]; }
+    }
+    if($xDiff > 0){
+        if($x > $imgData2["endX"]){ $x = $imgData2["endX"]; }
+    } 
+
+    if($yDiff < 0){
+        if($y < $imgData2["endY"]){ $y = $imgData2["endY"]; }
+    }
+    if($yDiff > 0){
+        if($y > $imgData2["endY"]){ $y = $imgData2["endY"]; }
+    }    
+    
+
+    //if($x > $imgData2["endX"]){ $x = $imgData2["endX"]; }
+    //if($y > $imgData2["endY"]){ $y = $imgData2["endY"]; }
 
 
 
@@ -158,7 +175,8 @@ while($i < $frameNum){
  
     
     $im = new Imagick ($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/images/' .$imgData2["mainImg"]);
-    $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y); 
+  $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y); 
+     /// $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $y, $x); 
     $face->flattenImages(); 
     $face->setImageFormat('png');
         $face->setImageFilename($i . ".png");
