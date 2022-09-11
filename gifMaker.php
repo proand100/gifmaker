@@ -10,13 +10,36 @@ $face->newImage(400, 220, new ImagickPixel('white'));
 $face->setImageFormat('png');
 
 $im = new Imagick ($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/images/' .$pictRangeDatas["mainImg"]);
+
+
+ # STEP 3: compose the original with the sliced clone
+ //$im->compositeImage($im_clone, \Imagick::COMPOSITE_COPY, 0, 0);
+ //$gradient->destroy();
+ //$im_clone->destroy();
+ //$im->setImageFormat('png');
+//$im->setImageOpacity(0.444);
+  //$im->setImageFilename("ranged_2.png");
+ // $im->writeImage($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged_2.png');
+  //$im->destroy();
+
+ // $im = new Imagick ($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged_2.png');
+ if(!$im->getImageAlphaChannel()){
+    $im->setImageAlphaChannel(Imagick::ALPHACHANNEL_OPAQUE);
+    }
 if($pictRangeDatas["startE"] == "1"){
     $x = $pictRangeDatas["startX"];
     $y = $pictRangeDatas["startY"];
+    $opacitySt = $pictRangeDatas["startOp"];
+     
+    $im->evaluateImage(Imagick::EVALUATE_DIVIDE, $opacitySt, Imagick::CHANNEL_ALPHA);
 }
-if($pictRangeDatas["startE"] == "0"){
+if($pictRangeDatas["startE"] == "0"){ /// 
     $x = $pictRangeDatas["endX"];
-    $y = $pictRangeDatas["endY"];    
+    $y = $pictRangeDatas["endY"]; 
+    
+    $opacityEnd = $pictRangeDatas["endOp"];
+    //$im->colorizeImage(new ImagickPixel('#0000b0',1.0));
+    $im->evaluateImage(Imagick::EVALUATE_DIVIDE, $opacityEnd, Imagick::CHANNEL_ALPHA);
 }
 
 
@@ -24,8 +47,8 @@ if($pictRangeDatas["startE"] == "0"){
 $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y); 
 //$face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, 20, 40); 
 $face->flattenImages(); 
-//$face->setImageFormat("png");
-$face->setImageFilename("ranged.png");
+$face->setImageFormat("png");
+//$face->setImageFilename("ranged.png");
 
 $time = trim(time());
 //--------
@@ -122,11 +145,15 @@ if($imgData2["mod"] == "1"){ // Unchanged
     $y = "0";
     $xDiff = "0";
     $yDiff = "0";
+    $stOpacity = 1;
+    $endOpacity = 1;
 }    
 else{
    
    $xDiff = ($imgData2["endX"] - $imgData2["startX"]) / $frameNum; // $float_value_of_var = floatval($var);
    $yDiff = ($imgData2["endY"] - $imgData2["startY"]) / $frameNum;
+    $opDiff = ($imgData2["endOp"] - $imgData2["startOp"]) / $frameNum;
+
 }
 
 $i="0";
@@ -134,10 +161,12 @@ while($i < $frameNum){
     if($i == "0"){
         $x = $imgData2["startX"];
         $y = $imgData2["startY"];
+        $opacity = $imgData2["startOp"];
     }
     else{
         $x += $xDiff;
         $y += $yDiff ;
+        $opacity += $opDiff;
     }
 
     if($xDiff < 0){
@@ -151,8 +180,15 @@ while($i < $frameNum){
         if($y < $imgData2["endY"]){ $y = $imgData2["endY"]; }
     }
     if($yDiff > 0){
-        if($y > $imgData2["endY"]){ $y = $imgData2["endY"]; }
-    }    
+        if($opacity > $imgData2["endY"]){ $y = $imgData2["endY"]; }
+    }
+    
+    if($opDiff < 0){
+        if($opacity < $imgData2["endOp"]){ $y = $imgData2["endOp"]; }
+    }
+    if($opDiff > 0){
+        if($opacity > $imgData2["endOp"]){ $y = $imgData2["endOp"]; }
+    }   
     
 
     //if($x > $imgData2["endX"]){ $x = $imgData2["endX"]; }
@@ -175,7 +211,11 @@ while($i < $frameNum){
  
     
     $im = new Imagick ($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/images/' .$imgData2["mainImg"]);
-  $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y); 
+    if(!$im->getImageAlphaChannel()){
+    $im->setImageAlphaChannel(Imagick::ALPHACHANNEL_OPAQUE);
+    }
+    $im->evaluateImage(Imagick::EVALUATE_DIVIDE, $opacity, Imagick::CHANNEL_ALPHA);
+    $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y); 
      /// $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $y, $x); 
     $face->flattenImages(); 
     $face->setImageFormat('png');

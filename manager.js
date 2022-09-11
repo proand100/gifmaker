@@ -565,6 +565,11 @@ function alertShow_Save() {
         return "0";
     }
 
+    if (document.getElementById("startOp").value == "" || document.getElementById("startY").value == ""
+    || document.getElementById("endOp").value == "" || document.getElementById("endY").value == "") {
+    alert("Please fill these all: 'startX', 'startY', 'endX', 'endY'!");
+    return "0";
+}
     return "1";
 
 }
