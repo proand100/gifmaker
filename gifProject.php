@@ -24,7 +24,7 @@ if($pictureArray[count($pictureArray) - 1]['save'] == "1"){  // SAVE last setted
 
   }
 if($pictureArray[count($pictureArray) - 1]["save"] == "0"){  // SHOWGIF()
-
+  $pictures = array();
 createGif($pictureArray);
 }
 

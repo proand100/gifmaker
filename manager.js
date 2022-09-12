@@ -528,24 +528,31 @@ function fillCanvas() {
     dataString += "&startLight=" + document.getElementById("startLight").value;
     dataString += "&startE=1";// <<<<<<<<<<<<<<<<
     //dataString += szakaszShowTime ;
+//var imageURL = "https://localhost/php_1/gifmaker/range.php?" + dataString;
+//imageURL = 'data:image/png;base64,' + imageURL;
 
-    var xhttp = new XMLHttpRequest();
+          //  document.getElementById("canvasIMG").src = imageURL;
+             // document.getElementById("canvasIMG").src = imageURL;
+/* */
+   var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            //document.write(this.responseText);
+          var  imageURL = 'data:image/png;base64,' + this.responseText;
+            document.getElementById("canvasIMG").src = imageURL;
+          //  document.write(imageURL);
 
 
             var resp = this.responseText.trim();
-            var imageURL = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged" + resp + ".png";
-            document.getElementById("canvasIMG").src = imageURL;
-
-
+         //   var imageURL = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged" + resp + ".png";
+           // document.getElementById("canvasIMG").src = imageURL;
+//------------------------- 
+            
         }
     };
     xhttp.open("POST", "range.php?" + dataString, false);
     xhttp.send();
 
-
+ 
 
 
 }
@@ -592,9 +599,13 @@ function szakaszStShow() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+          var  imageURL = 'data:image/png;base64,' + this.responseText;
+            document.getElementById("canvasIMG").src = imageURL;
+/*
             var resp = this.responseText.trim();
             var imageURL = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged" + resp + ".png";
             document.getElementById("canvasIMG").src = imageURL;
+            */
 
         }
     };
@@ -623,6 +634,10 @@ function szakaszEndShow() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+
+            var  imageURL = 'data:image/png;base64,' + this.responseText;
+            document.getElementById("canvasIMG").src = imageURL;
+/*
             // document.getElementById("startFr").value =
             var imggif = document.createElement('img');
             //document.write(this.responseText);
@@ -635,6 +650,7 @@ function szakaszEndShow() {
             //document.getElementById("canvasIMG").src = "https://localhost/php_1/gifmaker/canvasImg/canvasIMG0.png";
             document.getElementById("canvasIMG").src = imageURL;
             //szakaszShowTime = "&fileTime=" + resp;
+            */
             /*
             ctx.fillStyle = "white";
             ctx.fillRect(0, 0, canvas.width, canvas.height);

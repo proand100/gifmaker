@@ -1,6 +1,7 @@
 <?php
 class imagickManager{
     protected $gifDelay;
+    protected $frameArray;
 function  __construct(){}
 
 
@@ -48,8 +49,13 @@ $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y);
 //$face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, 20, 40); 
 $face->flattenImages(); 
 $face->setImageFormat("png");
-//$face->setImageFilename("ranged.png");
+$face->setImageFilename("ranged.png");
+include_once 'phpToHtml.php';
+getPhpImg($face);
 
+//echo $face;
+//$face->setImageFilename("ranged.png");
+/*
 $time = trim(time());
 //--------
 $face->writeImage($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged' . $time . '.png');
@@ -57,10 +63,10 @@ $face->writeImage($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeI
 //echo "range.php echo";
 
 echo $time;
-
+*/
    
     }
-/**/
+/*
 function getPictures($thePicture){
     $face = new Imagick();
     $face->newImage(400, 220, new ImagickPixel('white'));
@@ -87,7 +93,7 @@ function getPictures($thePicture){
       return $hatteresName;
 } 
 
-
+*/
 
 function makeGif($pictureArray){
  /*   echo "makeGif($pictureArray)= " . $pictureArray;
@@ -131,6 +137,9 @@ $i++;
 }
 //---- make Gif: -------
 $animation->writeImages($gifDir . 'animation.gif', true);
+$pictureArray = array();
+$pngArray = array();
+
 //----------------------  
 }
 

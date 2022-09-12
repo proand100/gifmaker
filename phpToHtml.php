@@ -1,0 +1,1 @@
+<?php function getPhpImg($pictureBe){echo(base64_encode($pictureBe));}?>
