@@ -5,44 +5,39 @@ class pictureLoad{
 
  
    // } //function drawImages(){
-   
+   protected $gifmaker;
 
 function __construct(){
     include_once 'gifMaker.php'; 
+    $this->gifmaker = new imagickManager();
 } //
 
 function canvasImgLoad(){
-    echo '<img  id="canvasIMG" style="width:400px; height:220px;margin-left: 40px;margin-top: 0px;"  
+  /*  echo '<img  id="canvasIMG" style="width:400px; height:220px;margin-left: 40px;margin-top: 0px;"  
     src="canvasImg/canvasIMG0.png" alt="Image" >';
+*/
+    echo '<img  id="canvasIMG" style="width:400px; height:220px;margin-left: 40px;margin-top: 0px;"  
+    src="' . $this->gifmaker->canvasWhite() .'" alt="Image" >';
 
 }
 
 
 function picsLoad($imageDir){
-    $gifmaker = new imagickManager();
+    /////////$gifmaker = new imagickManager();
   //-----  
-  $myDirectory = opendir("GIFproject/h_images");
+  $myDirectory = opendir("GIFproject/images");
   while($entryName = readdir($myDirectory)) {
     $dirArray[] = $entryName;
     
 }
 // close directory
 closedir($myDirectory);
-$is_hat = "1";
+//$is_hat = "1";
 
 //echo 'document.write(" count($dirArray) = "' . count($dirArray) . '")';
 if(count($dirArray) == "2"){ // There is not created h_... bacgrounded file(s), the h_images dir is empty
    // echo 'document.write(" if(!count($dirArray) > "0"){ !!")';
-    $is_hat = "0";
-   $myDirectory = opendir($imageDir);
-
-    // get each entry
-    while($entryName = readdir($myDirectory)) {
-        $dirArray[] = $entryName;
-    }
-    
-    // close directory
-    closedir($myDirectory);
+return;
     }
     //	count elements in array
     $indexCount	= count($dirArray);
@@ -60,21 +55,16 @@ if(count($dirArray) == "2"){ // There is not created h_... bacgrounded file(s), 
                 $imgTitle = $dirArray[$index];
      //-----------
      //If there is no prefix "hat_" in it, then:
-     if($is_hat == "0"){ // Directory h_images is empty
-                    $imgTitleH = $gifmaker->getPictures($imgTitle);
-                     $shortTitle = substr($imgTitleH, 4);
-           }
-      else{
-        $imgTitleH = $imgTitle;
-        $shortTitle = substr($imgTitle, 4);
-      }     
+ 
+                    $pngPicture = $this->gifmaker->getPictures($imgTitle);
+     
    
     
      //-----------
     // echo 'document.write(" imgTitleH = "' . $imgTitleH . '", $shortTitle= "' . $shortTitle . '")"';
-                echo ' <div><p style="margin-left: calc(50% + 50px); align: center;">' . $shortTitle . '</p>
-                <img  id="' . $shortTitle . '" class= "cikk_3" style=" grid-row:' . $index  . '; " src="images/' . $shortTitle . '" alt="Image" 
-              onclick="textImgSrc(\'' . $shortTitle . '\')"/>
+                echo ' <div><p style="margin-left: calc(50% + 50px); align: center;">' . $imgTitle . '</p>
+                <img  id="' . $imgTitle . '" class= "cikk_3" style=" grid-row:' . $index  . '; " src="data:image/png;base64,' . $pngPicture . '" alt="Image" 
+              onclick="textImgSrc(\'' . $imgTitle . '\')"/>
               
               </div>';
            // }

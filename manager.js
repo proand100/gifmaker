@@ -549,7 +549,7 @@ function fillCanvas() {
           //  document.write(imageURL);
 
 
-            var resp = this.responseText.trim();
+          //  var resp = this.responseText.trim();
          //   var imageURL = "https://localhost/php_1/gifmaker/GIFproject/rangeImg/ranged" + resp + ".png";
            // document.getElementById("canvasIMG").src = imageURL;
 //------------------------- 
@@ -579,9 +579,9 @@ function alertShow_Save() {
         return "0";
     }
 
-    if (document.getElementById("startOp").value == "" || document.getElementById("startY").value == ""
-    || document.getElementById("endOp").value == "" || document.getElementById("endY").value == "") {
-    alert("Please fill these all: 'startX', 'startY', 'endX', 'endY'!");
+    if (document.getElementById("startOp").value == "" || document.getElementById("endOp").value == ""    ) 
+    {
+    alert("Please fill these all: 'startOp', 'endOp'!");
     return "0";
 }
     return "1";

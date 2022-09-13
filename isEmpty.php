@@ -16,7 +16,7 @@ while($entryName = readdir($myDirectory)) {
 closedir($myDirectory);
 
 $indexCount	= count($dirArray);
-if($indexCount < 9){ // ha ures: . .. images h_images Gif rangeImg temp canvasImg<- ez 8 db. and there is'nt any file!
+if($indexCount < 5){ // ha ures: . .. images  Gif   <- ez 8 db. and there is'nt any file!
      return "1";
 }
 else{

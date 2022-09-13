@@ -71,8 +71,56 @@ echo $time;
 */
    
     }
-/*
+
+function canvasWhite(){
+    $face = new Imagick();
+    $face->newImage(400, 220, new ImagickPixel('white'));
+    $face->setImageFormat('png');
+    getPhpImg($face);
+
+}    
+
 function getPictures($thePicture){
+   // $face = new Imagick();
+   // $face->newImage(400, 220, new ImagickPixel('white'));
+   // $face->setImageFormat('png');
+    
+    $im = new Imagick ($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/images/' .$thePicture);
+    /*
+     if(!$im->getImageAlphaChannel()){
+        $im->setImageAlphaChannel(Imagick::ALPHACHANNEL_OPAQUE);
+        }
+        */
+   // if($pictRangeDatas["startE"] == "1"){
+    //    $x = 0;//$thePicture["startX"];
+     //   $y = 0;//$thePicture["startY"];
+      //  $opacitySt = $pictRangeDatas["startOp"];
+         
+       // $im->evaluateImage(Imagick::EVALUATE_DIVIDE, $opacitySt, Imagick::CHANNEL_ALPHA);
+   // }
+    /*
+    if($pictRangeDatas["startE"] == "0"){ /// 
+        $x = $pictRangeDatas["endX"];
+        $y = $pictRangeDatas["endY"]; 
+        
+        $opacityEnd = $pictRangeDatas["endOp"];
+        //$im->colorizeImage(new ImagickPixel('#0000b0',1.0));
+        $im->evaluateImage(Imagick::EVALUATE_DIVIDE, $opacityEnd, Imagick::CHANNEL_ALPHA);
+    }
+    */
+    
+    /*
+    $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y); 
+    //$face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, 20, 40); 
+    $face->flattenImages(); 
+    $face->setImageFormat("png");
+    $face->setImageFilename("ranged.png");
+    */
+    ///////////include_once 'phpToHtml.php';
+   // getPhpImg($face);
+return (base64_encode($im));
+
+    /*
     $face = new Imagick();
     $face->newImage(400, 220, new ImagickPixel('white'));
     $face->setImageFormat('png');
@@ -96,9 +144,10 @@ function getPictures($thePicture){
     //--------
         $face->writeImage($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/h_images/' . $hatteresName);
       return $hatteresName;
+      */
 } 
 
-*/
+/**/
 
 function makeGif($pictureArray){
  /*   echo "makeGif($pictureArray)= " . $pictureArray;  $imgData2["projLength"] * $imgData2["mainDelay"]
