@@ -1,8 +1,13 @@
 <?php
 class imagickManager{
     protected $gifDelay;
-    protected $frameArray;
-function  __construct(){}
+    protected $frameArray;// = array();
+    //protected $gifFrames ;
+    
+function  __construct(){
+    include_once 'phpToHtml.php';
+   // $this->frames = 
+}
 
 
 function makeRangeShow($pictRangeDatas){
@@ -50,7 +55,7 @@ $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y);
 $face->flattenImages(); 
 $face->setImageFormat("png");
 $face->setImageFilename("ranged.png");
-include_once 'phpToHtml.php';
+///////////include_once 'phpToHtml.php';
 getPhpImg($face);
 
 //echo $face;
@@ -96,8 +101,10 @@ function getPictures($thePicture){
 */
 
 function makeGif($pictureArray){
- /*   echo "makeGif($pictureArray)= " . $pictureArray;
+ /*   echo "makeGif($pictureArray)= " . $pictureArray;  $imgData2["projLength"] * $imgData2["mainDelay"]
  */
+$frames = $pictureArray[0]["projLength"] * $pictureArray[0]["mainDelay"];
+$frameArray =  array($frames);
     $i = 0;
     
     while($i < count($pictureArray)){
@@ -105,10 +112,10 @@ function makeGif($pictureArray){
        }
 
             if($i == 0){
-                    $this->makeCopiedPNG("0", $pictureArray[$i], "0");
+                  $this->makeCopiedPNG( $pictureArray[$i], "0");
             }
             else{
-                $this->makeCopiedPNG($pictureArray[$i - 1], $pictureArray[$i], "1");
+                 $this->makeCopiedPNG( $pictureArray[$i], "1");
 
             }
     
@@ -117,35 +124,60 @@ function makeGif($pictureArray){
    //----- make GIF from PNG array: --------------
 $animation = new Imagick();
 $animation->setFormat("GIF");
+/*
 
 $myDirectory = opendir("GIFproject/Gif/");
 
 while($entryName = readdir($myDirectory)) {
     $pngArray[] = $entryName;
 }
+*/
 $gifDir = $_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/Gif/';
-closedir($myDirectory);
+//closedir($myDirectory);
 
+//$animLength = 0;
 $i = "0";
-while($i < (count($pngArray) - 2)){ // . ..
-$frame = new Imagick($gifDir . $i . '.png');
-$animation->addImage($frame);
-$animation->setImageDelay($this->gifDelay);
-$animation->nextImage();
+while($i < (count($this->frameArray))){
+/*while($i < (count($pngArray) - 2)){ // . ..
 
+$frame = new Imagick($gifDir . $i . '.png');
+$animation->addImage($frame);  // $frameArray[$i]
+*/
+
+$animation->addImage($this->frameArray[$i]);
+
+$animation->setImageDelay($this->gifDelay);
+//$animation->resetIterator();
+//$animation->nextImage();
+//$animLength += sizeof($animation);
 $i++;
 }
+
+//echo $animLength;
 //---- make Gif: -------
+/*
+$animation->setImageFormat("gif");
+$animation->setImageFilename("animated.gif");
+echo("count($this->frameArray) = " . count($this->frameArray));
+*/////////
 $animation->writeImages($gifDir . 'animation.gif', true);
+
+//getPhpImg($animation);
+///echo 'count($this->frameArray): ' . count($this->frameArray); // $this->frameArray[$i]
+//getPhpGif($this->frameArray["30"]);
+//echo strlen($animation);
+//           getPhpGif($animation);
+
+
 $pictureArray = array();
 $pngArray = array();
-
+$this->frameArray = array();
 //----------------------  
 }
 
 
 
-function makeCopiedPNG($imgData1, $imgData2, $nullE){
+function makeCopiedPNG($imgData2, $nullE){
 $frameNum = $imgData2["projLength"] * $imgData2["mainDelay"];
 $this->gifDelay = $imgData2["mainDelay"];
 
@@ -206,37 +238,59 @@ while($i < $frameNum){
 
 
     if($nullE == "0"){
+        /*
         $face = new Imagick();// white background under all images
         $face->newImage(400, 220, new ImagickPixel('white'));
+        */
+
+        $this->frameArray[$i] = new Imagick();// white background under all images
+        $this->frameArray[$i]->newImage(400, 220, new ImagickPixel('white'));
+
        // $face->setImageFormat('png');
     }
     else{ // much than first picture will be copied.There are a PNG array already in Gif directory
        // echo 'if(!$imgData1 == 0){)';
-        $face = new Imagick ($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/Gif/' .$i .'.png');
+       ////////////     $face = new Imagick ($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/Gif/' .$i .'.png');
+       
        // $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, "0", "0"); 
        // $face->flattenImages();
-
+//$face = $this->frameArray[$i];
     }
- 
     
+    // THE IMAGES ARE SAVED IN FILES YET:
     $im = new Imagick ($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/images/' .$imgData2["mainImg"]);
     if(!$im->getImageAlphaChannel()){
     $im->setImageAlphaChannel(Imagick::ALPHACHANNEL_OPAQUE);
     }
     $im->evaluateImage(Imagick::EVALUATE_DIVIDE, $opacity, Imagick::CHANNEL_ALPHA);
+
+    $this->frameArray[$i]->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y); 
+    $this->frameArray[$i]->flattenImages(); 
+   // $this->frameArray[$i]->setImageFormat('png');
+    //$this->frameArray[$i]->setImageFilename($i . ".png");
+    $this->frameArray[$i]->setImageFormat('GIF');
+    $this->frameArray[$i]->setImageFilename($i . ".gif");
+
+/*
     $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y); 
-     /// $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $y, $x); 
     $face->flattenImages(); 
     $face->setImageFormat('png');
         $face->setImageFilename($i . ".png");
+        */
+
+
+
+
+
+
         $hatteresName = $i . ".png";
  
     
     //$time = trim(time());
     //--------
     
-    $face->writeImage($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/Gif/' . $hatteresName);
-
+   // $face->writeImage($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/Gif/' . $hatteresName);
+   /////////$this->frameArray[$i] =$face;
 
  $i++;
 }

@@ -10,7 +10,7 @@ $i = 0;
 while($i < count($pictures)  - 1){
    $OneImg = new imgGifPlan();
    $pictureArray[$i] = $OneImg->getPictureDatas($pictures[$i]);
-   echo $pictures[$i] . " ------------------";
+   //echo $pictures[$i] . " ------------------";
    $i++;
  }
  $i = 0;
@@ -24,8 +24,9 @@ if($pictureArray[count($pictureArray) - 1]['save'] == "1"){  // SAVE last setted
 
   }
 if($pictureArray[count($pictureArray) - 1]["save"] == "0"){  // SHOWGIF()
-  $pictures = array();
+ 
 createGif($pictureArray);
+$pictures = array();
 }
 
 
@@ -50,6 +51,7 @@ echo "SAVE PROJECT -ben";
 
 //----------------------
 function createGif($pArr){
+  /*
   $files = glob($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/Gif/' . '*'); // get all file names
   if(count($files) > 10){
   foreach($files as $file){ // iterate files
@@ -58,6 +60,7 @@ function createGif($pArr){
     }
   }
   }
+  */
 //----------
 
   

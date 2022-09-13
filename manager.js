@@ -493,11 +493,20 @@ function showGif2() {
     // document.write("showGif(){ -ben!");
     if (alertShow_Save() == "0") { return; };
     //----------------------document.getElementById("endY").value;
+   // var imageURL = "https://localhost/php_1/gifmaker/gifProject.php?" + dataString;
+    //document.getElementById("canvasIMG").src = imageURL;
+
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            // document.write(this.responseText); 
+        /// document.write(this.responseText); 
+         // var  imageURL = "data:image/gif;base64," + this.responseText;
+           
+           //  document.getElementById("canvasIMG").src = imageURL;
+       //     //  document.getElementById("canvasIMG").src = this.responseText;
+
+
             var imageURL = "https://localhost/php_1/gifmaker/GIFproject/Gif/animation.gif";
             document.getElementById("canvasIMG").src = imageURL;
 
@@ -506,11 +515,9 @@ function showGif2() {
             // document.write("showGif2(): Nem 4 es 200!");
         }
     };
-    //xhttp.open("GET", "gifProject.php?setAdat=" + setAdatKi, false); key value fusion
     xhttp.open("POST", "gifProject.php?" + dataString, false);
-   /// document.write("showGif2(): dataString: " + dataString);
-    // xhttp.open("POST", "gifProject.php?mainImg=miEz", false);
     xhttp.send();
+     /**/
 }
 
 function fillCanvas() {
