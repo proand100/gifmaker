@@ -545,13 +545,16 @@ function projectLoad() {
         else {
             // document.write("NEM  4 && this.status == 200");
         }
+        document.getElementById("mainFrameDb").value = document.getElementById("projLength").value * document.getElementById("mainDelay").value;
     };
     xhttp.open("POST", "projectLoad.php", false);
     xhttp.send();
     textImgSrc(picturesData[keyValues.length * 1][1]);
 
 }
-
-
+function calcFrPerSec(){
+    document.getElementById("mainFrameDb").value = document.getElementById("projLength").value * document.getElementById("mainDelay").value;
+    //document.write("calcFrPerSec()");
+}
 
 

@@ -132,12 +132,12 @@ else{echo '<body  onload="newGif()">';}
                    
                    <div class="startSor"  >   
                     <label for="startX">Start X :</label>
-                    <input id="startX" name="startX" type="text" value="0">
+                    <input id="startX" style="background-color: rgb(239, 224, 150);" name="startX" type="text" value="0">
                     <label for="startY>">Start Y :</label>
-                    <input id="startY" name="startY" type="text" value="0">
+                    <input id="startY" style="background-color: rgb(239, 224, 150);"name="startY" type="text" value="0">
                     
                     <label for="startOp">Start opacity :</label>
-                    <input id="startOp" name="startOp" type="text" value="1">
+                    <input id="startOp" style="background-color: rgb(208, 239, 150);" name="startOp" type="text" value="1">
                     
                     <label for="startLight">Start Light :</label>
                     <input id="startLight" name="startLight" type="text" value="100">
@@ -150,7 +150,7 @@ else{echo '<body  onload="newGif()">';}
                     <input id="endY" name="endY" type="text" value="0">
                     
                     <label for="endOp>">End opacity :</label>
-                    <input id="endOp" name="endOp" type="text" value="1">
+                    <input id="endOp" style="background-color: rgb(208, 239, 150);" name="endOp" type="text" value="1">
                     
                     <label for="endLight>">End Light :</label>
                     <input id="endLight" name="endLight" type="text" value="100">
@@ -181,12 +181,12 @@ else{echo '<body  onload="newGif()">';}
                    
                    <div class="startSor"  >   
                     <label for="startX">Start X :</label>
-                    <input id="startX" name="startX" type="text" value="' . $pictureArray[$lastPicIndex]["startX"] . '">
+                    <input id="startX" style="background-color: rgb(239, 224, 150);" name="startX" type="text" value="' . $pictureArray[$lastPicIndex]["startX"] . '">
                     <label for="startY>">Start Y :</label>
-                    <input id="startY" name="startY" type="text" value="' . $pictureArray[$lastPicIndex]["startY"] . '">
+                    <input id="startY" style="background-color: rgb(239, 224, 150);"name="startY" type="text" value="' . $pictureArray[$lastPicIndex]["startY"] . '">
                     
                     <label for="startOp">Start opacity :</label>
-                    <input id="startOp" name="startOp" type="text" value="' . $pictureArray[$lastPicIndex]["startOp"] . '">
+                    <input id="startOp" style="background-color: rgb(208, 239, 150);" name="startOp" type="text" value="' . $pictureArray[$lastPicIndex]["startOp"] . '">
                     
                     <label for="startLight">Start Light :</label>
                     <input id="startLight" name="startLight" type="text" value="' . $pictureArray[$lastPicIndex]["startLight"] . '">
@@ -199,7 +199,7 @@ else{echo '<body  onload="newGif()">';}
                     <input id="endY" name="endY" type="text" value="' . $pictureArray[$lastPicIndex]["endY"] . '">
                     
                     <label for="endOp>">End opacity :</label>
-                    <input id="endOp" name="endOp" type="text" value="' . $pictureArray[$lastPicIndex]["endOp"] . '">
+                    <input id="endOp" style="background-color: rgb(208, 239, 150); " name="endOp" type="text" value="' . $pictureArray[$lastPicIndex]["endOp"] . '">
                     
                     <label for="endLight>">End Light :</label>
                     <input id="endLight" name="endLight" type="text" value="' . $pictureArray[$lastPicIndex]["endLight"] . '">
@@ -227,19 +227,19 @@ else{echo '<body  onload="newGif()">';}
           
           <?php
                if($isempty == "1"){
-               echo ' <input id="projLength" name="projLength" type="text" value="">';
+               echo ' <input id="projLength" name="projLength" type="text" value="" onkeyup="calcFrPerSec()">';
                echo ' <span style="display: inline;"> sec Frame/sec:</span>';
                echo ' <span >';
-               echo '  <input id="mainDelay" type="text" value="">';
+               echo '  <input id="mainDelay" type="text" value="" onkeyup="calcFrPerSec()">';
                echo '  <input id="mainFrameDb" type="text" disabled> db frames.';
                echo '        </span>  ';            
                               
                 }
                 else{
-                  echo ' <input id="projLength" name="projLength" type="text" value="' . $pictureArray[$lastPicIndex]["projLength"] . '">';
+                  echo ' <input id="projLength" name="projLength" type="text" onkeyup="calcFrPerSec()" value="' . $pictureArray[$lastPicIndex]["projLength"] . '">';
                   echo ' <span style="display: inline;"> sec Frame/sec:</span>';
                   echo ' <span >';
-                  echo '  <input id="mainDelay" type="text" value="' . $pictureArray[$lastPicIndex]["mainDelay"] . '">';
+                  echo '  <input id="mainDelay" type="text" onkeyup="calcFrPerSec()" value="' . $pictureArray[$lastPicIndex]["mainDelay"] . '">';
                   echo '  <input id="mainFrameDb" type="text" disabled value= ""> db frames.';
                   echo '        </span>  ';               
                      }

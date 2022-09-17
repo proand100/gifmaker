@@ -52,8 +52,6 @@ return;
               
                 $imgTitle = $dirArray[$index];
      //-----------
-     //If there is no prefix "hat_" in it, then:
- 
                     $pngPicture = $this->gifmaker->getPictures($imgTitle);
      
    
