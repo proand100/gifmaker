@@ -11,6 +11,7 @@ function  __construct(){
 
 
 function makeRangeShow($pictRangeDatas){
+   // echo "makeRangeShow($pictRangeDatas)";
 $face = new Imagick();
 $face->newImage(400, 220, new ImagickPixel('white'));
 $face->setImageFormat('png');
@@ -71,14 +72,15 @@ echo $time;
 */
    
     }
-
+/*
 function canvasWhite(){
     $face = new Imagick();
     $face->newImage(400, 220, new ImagickPixel('white'));
     $face->setImageFormat('png');
     getPhpImg($face);
 
-}    
+} 
+*/   
 
 function getPictures($thePicture){
    // $face = new Imagick();

@@ -5,7 +5,7 @@ require_once 'gifMaker.php';
 //return ;
    $stringBe = $_SERVER["QUERY_STRING"];
 $pictures = explode('|', $stringBe); // When set more than one picture. Tobb kep bevitelekor képekre bontja.
-//echo $stringBe;
+echo $stringBe;
 $i = 0;
 while($i < count($pictures)  - 1){
    $OneImg = new imgGifPlan();
@@ -14,7 +14,7 @@ while($i < count($pictures)  - 1){
    $i++;
  }
  $i = 0;
-
+//echo $pictureArray[count($pictureArray) - 1]['save'];
 //----------------------
 if($pictureArray[count($pictureArray) - 1]['save'] == "1"){  // SAVE last setted picture datas
   $fileUrl = $_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/' . $pictureArray[count($pictureArray) - 1]["kepSorszam"] . 'pict' . '.txt';

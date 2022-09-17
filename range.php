@@ -20,7 +20,7 @@ if($rangeDatArray["fileTime"] != "0"){ // delete
 unlink($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/ranged' . $rangeDatArray["fileTime"] . '.png') ;
 }
 */
-
+/*
 $files = glob($_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/rangeImg/' . '*'); // get all file names
 if(count($files) > 10){
 foreach($files as $file){ // iterate files
@@ -29,7 +29,7 @@ foreach($files as $file){ // iterate files
   }
 }
 }
-
+*/
 //-----------
 $madePicture->makeRangeShow($rangeDatArray);
 /**/

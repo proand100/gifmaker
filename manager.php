@@ -11,116 +11,63 @@
 </head>
 <?php require_once 'isEmpty.php';
 $isempty = isEmpty();
-if($isempty == 0){echo '<body onload="projectLoad()">';}
-else{echo '<body>';}
+if($isempty == "0"){echo '<body onload="projectLoad()">';}
+else{echo '<body  onload="newGif()">';}
 ?>
 
-
-
-  <?php //require_once 'isEmpty.php';$isempty = isEmpty();?>
 <div class="cikkek"> <!-- 1 -->
     <div class="col1Cikkek"> <!-- 2 --> 
         <?php
-        if($isempty == 1){
+        if($isempty == "1"){
          echo ' <div id="loadGif" style=" position: fixed; width: 480px;" class="cikk_5">Create New Gif.';
         }// <!-- 3 --> 
         else{
-echo '<div  style="top: 100px;">' ;
-          require_once "projectLoad.php";  
-        echo  '</div>';
+            echo '<div  style="top: 100px;">' ;
+            require_once "projectLoad.php";  
+            echo  '</div>';
           
           echo ' <div id="loadGif" style=" position: fixed; width: 480px;" class="cikk_5">Loaded Gif.';
           $lastPicIndex = count($pictureArray) - 1;
 //----/-----------------
-/*
-$i = 0;
-while($i < $lastPicIndex + 1){
-echo '-----------';
-//$j = 0;
-// while($j < 3){//count($pictureArray[$i])){
-echo $pictureArray[$i]["mainImg"] . ', ';
-echo $pictureArray[$i]["kepSorszam"] . ', ';
-echo $pictureArray[$i]["height"] . ', ';
-echo $pictureArray[$i]["width"] . ', ';
-echo $pictureArray[$i]["mod"] . ', ';
-echo $pictureArray[$i]["tartam"] . ', ';
-echo $pictureArray[$i]["delay"] . ', ';
-echo $pictureArray[$i]["startFr"] . ', ';
-echo $pictureArray[$i]["endFr"] . ', ';
-echo $pictureArray[$i]["startX"] . ', ';
-echo $pictureArray[$i]["startY"] . ', ';
-echo $pictureArray[$i]["startOp"] . ', ';
-echo $pictureArray[$i]["startLight"] . ', ';
-echo $pictureArray[$i]["endX"] . ', ';
-echo $pictureArray[$i]["endY"] . ', ';
-echo $pictureArray[$i]["endOp"] . ', ';
-echo $pictureArray[$i]["endLight"] . ', ';
-echo $pictureArray[$i]["projLength"] . ', ';
-echo $pictureArray[$i]["mainDelay"] . ', ';
-echo $pictureArray[$i]["save"] . ', ';
-
-
-$i++;
-}
-*/
-//--------------------
-         // echo '$pictureArray[0]["mainImg"]=' . $pictureArray["1"]["mainImg"];
-        /// echo ' <div id="loadGif" style=" position: fixed; width: 480px; color: brown;" class="cikk_5">Loaded Gif project.>';
-//-----------------------------------
-/*
-echo '<div style=" position: fixed; width: 480px; color: brown;" class="cikk_5">
-
-<script type="text/javascript">
-projectLoad();
-</script>
-';
-*/
-
-//-----------------------------------
-        }// <!-- 3 --> 
+       }// <!-- 3 --> 
         ?>
-        
-   
-
       <section id="gimForm" > 
 
-        <form action="" method="get">
+        <form action="" >
           <fieldset id="fieldSet">
             <legend>Gif setup for image:</legend>
               <label for="imgMainSrc"> Image:</label>
               
               
               <?php
-                if($isempty == 1){
-                   echo '<input style="width: auto;" id="mainImg" name="mainImg" type="text" value="Click on same picture! ">';
+              $isempty = isEmpty();
+                if($isempty == "1"){
+                 // echo '<input style="width: auto;" id="mainImg" name="mainImg2" type="text" value="">';
+                   echo '<input style="width: auto;" id="mainImg" name="mainImg2" type="text" value="Click on same picture! ">';
                   echo ' <input id="kepSorszam"  name="kepSorszam" type="text" value="0">';
                   
                 }
-                else{
-                  echo '<input style="width: auto;" id="mainImg" name="mainImg" type="text" value="' . $pictureArray[$lastPicIndex]["mainImg"] . '">';
+                if($isempty == "0"){
+                  echo '<input style="width: auto;" id="mainImg" name="mainImg2" type="text" value="' . $pictureArray[$lastPicIndex]["mainImg"] . '">';
                   echo ' <input style="width: 30px;"id="kepSorszam"  name="kepSorszam" type="text" value="' . $pictureArray[$lastPicIndex]["kepSorszam"] . '">';
                      }
               ?>
             <span id="felirat"> .picture</span> 
-<span id="imgBtnKeret">
-<button type="button" id="imgBtn_1" Class="imgBtns" onclick="switchPict('1', '0', '0')">1</button>
-<button type="button" id="imgBtn_2" Class="imgBtns" onclick="switchPict('2', '0', '0')">2</button>
-<button type="button" id="imgBtn_3" Class="imgBtns" onclick="switchPict('3', '0', '0')">3</button>                  
-<button type="button" id="imgBtn_4" Class="imgBtns" onclick="switchPict('4', '0', '0')">4</button>
-<button type="button" id="imgBtn_5" Class="imgBtns" onclick="switchPict('5', '0', '0')">5</button>
-
-</span> 
-<button type="button" id="imgSwitch"  Style="position: absolute;display: inline;font-size: 10px; left: 420px;" onclick="picturesImprove()">Improve</button>
-
-
-    
-               <br>
+            <span id="imgBtnKeret">
+              <button type="button" id="imgBtn_1" Class="imgBtns" onclick="switchPict('1', '0', '0')">1</button>
+              <button type="button" id="imgBtn_2" Class="imgBtns" onclick="switchPict('2', '0', '0')">2</button>
+              <button type="button" id="imgBtn_3" Class="imgBtns" onclick="switchPict('3', '0', '0')">3</button>                  
+              <button type="button" id="imgBtn_4" Class="imgBtns" onclick="switchPict('4', '0', '0')">4</button>
+              <button type="button" id="imgBtn_5" Class="imgBtns" onclick="switchPict('5', '0', '0')">5</button>
+            </span> 
+            <button type="button" id="imgSwitch"  Style="position: absolute;display: inline;font-size: 10px; left: 420px;" onclick="picturesImprove()">Improve</button>
+              <br>
                <?php
-                if($isempty == 1){
+                if($isempty == "1"){
                    echo ' <label for="height">Height (px) :</label>';
-                  echo ' <input id="height" name="height" type="text" value="">';
+                  echo ' <input id="height" name="height" type="text" value="0">';
                   echo ' <label for="width">Width (px) :</label>';
-                  echo ' <input id="width" name="width" type="text" value="">';                
+                  echo ' <input id="width" name="width" type="text" value="0">';                
                   echo ' <label for="alakitasMod">Alakitas :</label>';
                   echo ' <select name="alakitasMod" id="mod">';                  
                   echo ' <option value="0">Change</option>';
@@ -145,52 +92,21 @@ projectLoad();
                   
                 }
               ?>
-
-
-
-
                 <br>
               </select>
-
- 
-  
-  
                 <!--</form> -->
               <button type="button" id="saveBtn" class="setButtons" style="font-size: 10px;" onclick="pictureSave(1)" >Save Picture</button>
               <br>
               <br>
-
-
               <button  type="button" id="szakaszPlus" class="setButtons" onclick="szakaszShow()">szakasz +</button>
-
               <button  type="button" id="szakaszMinus" class="setButtons" style="width: 80px; left: 90px; " onclick="szakaszHide()">szakasz -</button>
-
-              <button type="button" id="showGif" class="setButtons" style="" onclick="showGif2()" >Show</button>
-
-              
-
+              <button type="button" id="showGif" class="setButtons" style="display: inline;" onclick="showGif2()" >Show</button>
               <button  type="button" id="setCancel" class="setButtons" style="width: 50px; left: 290px; " onclick="SetCancel()">CANCEL</button>
-
               <button  type="button" id="setDel" class="setButtons" style="width: 70px; left: 360px; " onclick="SetDelete()">DELETE</button>
-
               <br><br>
-
           </fieldset> 
         </form>
-      
-
-           <?php
-           /*
-              require_once "szakaszManager.php";
-              
-              $i=0;
-                 while($i <1){
-                  // echo '<div  id="szakasz_' . $i .'" class="ranges"' . 'style="opacity: 1.0;height: 110pxpx">';
-                   $szM = new szakaszManager();
-                  /// echo '</div>';
-                    $i++;
-                   }
-                   */
+         <?php
                   //----------------------------
                   if($isempty == "1"){
                     
@@ -199,10 +115,10 @@ projectLoad();
                     <button  type="button" Style="color: white;" id="szakaszStShowBtn"  onclick="szakaszStShow()">ShowStart</button>
                     <button  type="button" Style="" id="szakaszEndShowBtn"  onclick="szakaszEndShow()">ShowEnd</button>
                     <br><br>
-                <div class="tartamSor">   
+                <div class="tartamSor" style="display: none;">   
                     <label  " for="tartam2">Tartam (mp):</label>
                 
-                    <input id="tartam" name="tartam" type="text" value="">
+                    <input id="tartam" name="tartam" type="text" value="0">
                     <label for="delay">Delay:</label>
                     <input id="delay" name="delay" type="text" value="" disabled>
                     
@@ -216,28 +132,28 @@ projectLoad();
                    
                    <div class="startSor"  >   
                     <label for="startX">Start X :</label>
-                    <input id="startX" name="startX" type="text" value="">
+                    <input id="startX" name="startX" type="text" value="0">
                     <label for="startY>">Start Y :</label>
-                    <input id="startY" name="startY" type="text" value="">
+                    <input id="startY" name="startY" type="text" value="0">
                     
                     <label for="startOp">Start opacity :</label>
-                    <input id="startOp" name="startOp" type="text" value="">
+                    <input id="startOp" name="startOp" type="text" value="1">
                     
                     <label for="startLight">Start Light :</label>
-                    <input id="startLight" name="startLight" type="text" value="">
+                    <input id="startLight" name="startLight" type="text" value="100">
                     </div>
                   
                     <div class="endSor">   
                     <label for="endX">End X :</label>
-                    <input id="endX" name="endX" type="text" value="">
+                    <input id="endX" name="endX" type="text" value="0">
                     <label for="endY>">End Y :</label>
-                    <input id="endY" name="endY" type="text" value="">
+                    <input id="endY" name="endY" type="text" value="0">
                     
                     <label for="endOp>">End opacity :</label>
-                    <input id="endOp" name="endOp" type="text" value="">
+                    <input id="endOp" name="endOp" type="text" value="1">
                     
                     <label for="endLight>">End Light :</label>
-                    <input id="endLight" name="endLight" type="text" value="">
+                    <input id="endLight" name="endLight" type="text" value="100">
                     </div>
                     </div>';
                   }
@@ -248,7 +164,7 @@ projectLoad();
                     <button  type="button" Style="color: white;" id="szakaszStShowBtn"  onclick="szakaszStShow()">ShowStart</button>
                     <button  type="button" Style="" id="szakaszEndShowBtn"  onclick="szakaszEndShow()">ShowEnd</button>
                     <br><br>
-                <div class="tartamSor">   
+                <div class="tartamSor"  style="display: none;">   
                     <label  " for="tartam2">Tartam (mp):</label>
                 
                     <input id="tartam" name="tartam" type="text" value="' . $pictureArray[$lastPicIndex]["tartam"] . '">
@@ -294,14 +210,14 @@ projectLoad();
               
             ?>
  
-        <P id="kiire"></p>
+        <!--<P id="kiire"></p>-->
 
       </section>            
 
 
       </div><!-- 3 -->
     </div><!-- 2 -->
-<div class="col3Cikkek"><!-- 1 -->
+<div class="col3Cikkek"><!-- 11 -->
 
     <div  style="position: fixed; width: 500px; height: 276px;" class="imgArea"> 
       <!-- 4 -->
@@ -310,7 +226,7 @@ projectLoad();
           <span style="margin-left: 10px; display: inline-flex; font-size: 13px;"> Canvas width=400px, height=220px; Gif long=  </span>
           
           <?php
-               if($isempty == 1){
+               if($isempty == "1"){
                echo ' <input id="projLength" name="projLength" type="text" value="">';
                echo ' <span style="display: inline;"> sec Frame/sec:</span>';
                echo ' <span >';
@@ -329,35 +245,21 @@ projectLoad();
                      }
                      
               ?>         
-          
-          
-
+ 
           <?php
-            if($isempty == 1){
+            if($isempty == "1"){
           // echo '<input id="lengthSend" type="submit" value="Length OK">';
-           
             }
           ?>
-
-        
+    
       </span>
-        
-<!--
-      <canvas id="MainCanvas" width="400px" height="220px" >
-                Your browser not supported HTML Canvas tag.
-      </canvas> 
-  --> 
-      
+       
       <img  id="canvasIMG" style="width:400px; height:220px;margin-left: 40px;margin-top: 0px;"  
     src="https://localhost/php_1/gifmaker/GIFproject/canvasImg/canvasIMG0.png" alt="Image" >
 
     <button type="button" id="saveProject"  style="" onclick="saveProj()" >SAVE</button>
 
     <br>
- 
-     <!-- <img id="canvasIMG" src="" style="margin-top:78px;  margin-left: 52px; "></img> -->
-
- 
     </div><!-- 4 -->
 
     <div  id="uploadedPictures" style="margin-top: 290px;" > <!--5 -->
@@ -365,16 +267,12 @@ projectLoad();
       include_once 'picsUpload.php'; 
              $images = new pictureLoad();
               $images->picsLoad("GIFproject/images");
-              //$images->drawImages();
-            /*  */
-      ?>
+          ?>
    
-    </div> <!--5 -->
-
-   
-</body>
-
-
+    </div> <!--5 --> 
+  </div>  <!--11 --> 
+  </div>  <!--1 --> 
+ </body>
 </html>
 
 

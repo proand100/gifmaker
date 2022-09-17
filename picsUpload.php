@@ -11,15 +11,13 @@ function __construct(){
     include_once 'gifMaker.php'; 
     $this->gifmaker = new imagickManager();
 } //
-
+/*
 function canvasImgLoad(){
-  /*  echo '<img  id="canvasIMG" style="width:400px; height:220px;margin-left: 40px;margin-top: 0px;"  
-    src="canvasImg/canvasIMG0.png" alt="Image" >';
-*/
     echo '<img  id="canvasIMG" style="width:400px; height:220px;margin-left: 40px;margin-top: 0px;"  
-    src="' . $this->gifmaker->canvasWhite() .'" alt="Image" >';
+    src=data:image/png;base64,' . $this->gifmaker->canvasWhite() .' alt="Image" >';
 
 }
+*/
 
 
 function picsLoad($imageDir){
