@@ -425,7 +425,14 @@ function alertShow_Save() {
     {
     alert("Please fill these all: 'startOp', 'endOp'!");
     return "0";
-}
+    }
+    if (document.getElementById("endLight").value == "" || document.getElementById("startLight").value == ""    ) 
+    {
+    alert("Please fill these all: 'startLight', 'endLight'!");
+    return "0";
+    }
+
+
     return "1";
 
 }

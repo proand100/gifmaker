@@ -4,16 +4,14 @@ class imagickManager{
     protected $framePerSec;
     protected $frameArray;// = array();
 
-    //protected $gifFrames ;
     
 function  __construct(){
     include_once 'phpToHtml.php';
-   // $this->frames = 
 }
 
 
 function makeRangeShow($pictRangeDatas){
-   // echo "makeRangeShow($pictRangeDatas)";
+
 $face = new Imagick();
 $face->newImage(400, 220, new ImagickPixel('white'));
 $face->setImageFormat('png');
@@ -48,15 +46,11 @@ if($pictRangeDatas["startE"] == "0"){ ///
 
 
 $face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y); 
-//$face->compositeImage($im, Imagick::COMPOSITE_DEFAULT, 20, 40); 
 $face->flattenImages(); 
 $face->setImageFormat("png");
 $face->setImageFilename("ranged.png");
-///////////include_once 'phpToHtml.php';
 getPhpImg($face);
 
-//echo $face;
-  
     }
   
 
@@ -73,9 +67,7 @@ return (base64_encode($im));
 
 
 function makeGif($pictureArray){
- /*   echo "makeGif($pictureArray)= " . $pictureArray;  $imgData2["projLength"] * $imgData2["mainDelay"]
- */
-$frames = $pictureArray[0]["projLength"] * $pictureArray[0]["mainDelay"];
+/*  */$frames = $pictureArray[0]["projLength"] * $pictureArray[0]["mainDelay"];
 $frameArray =  array($frames);
     $i = 0;
     
@@ -126,12 +118,7 @@ $this->frameArray = array();
 function makeCopiedPNG($imgData2, $nullE){
     $this->$framePerSec = $imgData2["mainDelay"]; 
     $this->gifDelay = (100 / $this->$framePerSec);
-    /*
-$frameNum = $imgData2["projLength"] * $imgData2["mainDelay"];
-$this->gifDelay = $imgData2["mainDelay"];
 
-$frameNum = $imgData2["projLength"] * $imgData2["mainDelay"];
-*/
 $frameNum = $imgData2["projLength"] * $this->$framePerSec;
 
 if($imgData2["mod"] == "1"){ // Unchanged
@@ -219,8 +206,6 @@ while($i < $frameNum){
 
     $this->frameArray[$i]->compositeImage($im, Imagick::COMPOSITE_DEFAULT, $x, $y); 
     $this->frameArray[$i]->flattenImages(); 
-   // $this->frameArray[$i]->setImageFormat('png');
-    //$this->frameArray[$i]->setImageFilename($i . ".png");
     $this->frameArray[$i]->setImageFormat('GIF');
     $this->frameArray[$i]->setImageFilename($i . ".gif");
 
