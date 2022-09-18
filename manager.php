@@ -8,6 +8,7 @@
     <title>Gif Manager page</title>
     <link rel="stylesheet" href="manager.css"> <!-- -->
     <script type="text/javascript" src="manager.js"></script>
+
 </head>
 <?php require_once 'isEmpty.php';
 $isempty = isEmpty();
@@ -129,7 +130,9 @@ else{echo '<body  onload="newGif()">';}
                     <input id="endFr" name="endFr" type="text" value="" disabled><br>
                    </div>
             
-                   
+                   <span id="opTt"  >1 - 20</span>
+                   <span id="lightTt"  >0 - 200</span><br>
+
                    <div class="startSor"  >   
                     <label for="startX">Start X :</label>
                     <input id="startX" style="background-color: rgb(239, 224, 150);" name="startX" type="text" value="0">
@@ -137,23 +140,26 @@ else{echo '<body  onload="newGif()">';}
                     <input id="startY" style="background-color: rgb(239, 224, 150);"name="startY" type="text" value="0">
                     
                     <label for="startOp">Start opacity :</label>
-                    <input id="startOp" style="background-color: rgb(208, 239, 150);" name="startOp" type="text" value="1">
+
+                 
+                      <input id="startOp" class="tooltip" name="startOp" type="text" onmouseover="stOpTt()" onmouseout="stOpTtKi()" value="1">
+ 
                     
                     <label for="startLight">Start Light :</label>
-                    <input id="startLight" name="startLight" type="text" value="100">
-                    </div>
+                    <input id="startLight" name="startLight" type="text" onmouseover="stLiTt()" onmouseout="stLiTtKi()" value="100">
+                  </div>
                   
-                    <div class="endSor">   
+                  <div class="endSor">   
                     <label for="endX">End X :</label>
                     <input id="endX" name="endX" type="text" value="0">
                     <label for="endY>">End Y :</label>
                     <input id="endY" name="endY" type="text" value="0">
                     
                     <label for="endOp>">End opacity :</label>
-                    <input id="endOp" style="background-color: rgb(208, 239, 150);" name="endOp" type="text" value="1">
+                    <input id="endOp" style="background-color: rgb(208, 239, 150);" name="endOp" type="text" onmouseover="stOpTt()" onmouseout="stOpTtKi()" value="1">
                     
                     <label for="endLight>">End Light :</label>
-                    <input id="endLight" name="endLight" type="text" value="100">
+                    <input id="endLight" name="endLight" type="text" onmouseover="stLiTt()" onmouseout="stLiTtKi()" value="100">
                     </div>
                     </div>';
                   }
@@ -163,7 +169,8 @@ else{echo '<body  onload="newGif()">';}
                     <div  id="pictRange" >
                     <button  type="button" Style="color: white;" id="szakaszStShowBtn"  onclick="szakaszStShow()">ShowStart</button>
                     <button  type="button" Style="" id="szakaszEndShowBtn"  onclick="szakaszEndShow()">ShowEnd</button>
-                    <br><br>
+                    <br>
+                    <!-- <br>-->
                 <div class="tartamSor"  style="display: none;">   
                     <label  " for="tartam2">Tartam (mp):</label>
                 
@@ -177,19 +184,24 @@ else{echo '<body  onload="newGif()">';}
                     <label for="endFr>">End frame :</label>
                     <input id="endFr" name="endFr" type="text" value="' . $pictureArray[$lastPicIndex]["endFr"] . '" disabled><br>
                    </div>
+                  
             
-                   
+                   <span id="opTt"  >1 - 20 </span>
+                   <span id="lightTt"  >0 - 200</span><br>
                    <div class="startSor"  >   
                     <label for="startX">Start X :</label>
                     <input id="startX" style="background-color: rgb(239, 224, 150);" name="startX" type="text" value="' . $pictureArray[$lastPicIndex]["startX"] . '">
                     <label for="startY>">Start Y :</label>
                     <input id="startY" style="background-color: rgb(239, 224, 150);"name="startY" type="text" value="' . $pictureArray[$lastPicIndex]["startY"] . '">
-                    
+                   
                     <label for="startOp">Start opacity :</label>
-                    <input id="startOp" style="background-color: rgb(208, 239, 150);" name="startOp" type="text" value="' . $pictureArray[$lastPicIndex]["startOp"] . '">
+                    <input id="startOp" class="tooltip" name="startOp" type="text" onmouseover="stOpTt()" onmouseout="stOpTtKi()" value="' . $pictureArray[$lastPicIndex]["startOp"] . '">
+
+                   
                     
+
                     <label for="startLight">Start Light :</label>
-                    <input id="startLight" name="startLight" type="text" value="' . $pictureArray[$lastPicIndex]["startLight"] . '">
+                    <input id="startLight" name="startLight" type="text" onmouseover="stLiTt()" onmouseout="stLiTtKi()" value="' . $pictureArray[$lastPicIndex]["startLight"] . '">
                     </div>
                   
                     <div class="endSor">   
@@ -199,10 +211,10 @@ else{echo '<body  onload="newGif()">';}
                     <input id="endY" name="endY" type="text" value="' . $pictureArray[$lastPicIndex]["endY"] . '">
                     
                     <label for="endOp>">End opacity :</label>
-                    <input id="endOp" style="background-color: rgb(208, 239, 150); " name="endOp" type="text" value="' . $pictureArray[$lastPicIndex]["endOp"] . '">
+                    <input id="endOp" style="background-color: rgb(208, 239, 150); " onmouseover="stOpTt()"  onmouseout="stOpTtKi()"name="endOp" type="text" value="' . $pictureArray[$lastPicIndex]["endOp"] . '">
                     
                     <label for="endLight>">End Light :</label>
-                    <input id="endLight" name="endLight" type="text" value="' . $pictureArray[$lastPicIndex]["endLight"] . '">
+                    <input id="endLight" name="endLight" type="text" onmouseover="stLiTt()" onmouseout="stLiTtKi()" value="' . $pictureArray[$lastPicIndex]["endLight"] . '">
                     </div>
                     </div>';
 

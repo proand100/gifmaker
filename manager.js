@@ -20,8 +20,26 @@ while (j < 5) {
     picturesData[j] = new Array(21);
     j++;
 }
+/*
+$("#startOp").hover(function() {
+    $(this).css('cursor','pointer').attr('title', 'This is a hover text.');
+}, function() {
+    $(this).css('cursor','auto');
+});
+*/
 
-
+function stOpTt(){
+       document.getElementById("opTt").style.display = "inline"; 
+}
+function stOpTtKi(){
+    document.getElementById("opTt").style.display = "none"; 
+}
+function stLiTt(){
+       document.getElementById("lightTt").style.display = "inline"; 
+}
+function stLiTtKi(){
+    document.getElementById("lightTt").style.display = "none"; 
+}
 
 function szakaszShow() {
     if (szakaszSzam < 1) { szakaszSzam++; }
