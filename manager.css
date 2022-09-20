@@ -213,6 +213,7 @@ color: rgb(250, 235, 215);
   grid-auto-rows: minmax(min-content, max-content);
   height: auto;
   margin-left: 15px;
+  color: white;
 
 }
 

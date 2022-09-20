@@ -1,0 +1,77 @@
+GifMaker_v0.8.1 
+------------------
+manager.php
+
+  The Html control display panel.
+   - The 'manager.php' that creates the HTML document.It checks whether it was already saved before loading
+     or not ( ' isEmpty.php' ).
+      -If yes, then the "<body>" tag "onload" event calls the "projectLoad()" JavaScript function.
+      -If not, it calls the "newGif()" JavaScript function in the '<body> tag 'onload' event.
+      A maximum of 5 images can be loaded by 'picsUpload.php' from the "GIFproject/images" directory.
+---------
+manager.js
+	It handles Html inputs and manages communications between the browser and the server.
+		When loading, it initializes the state variables:
+	var sectionNumber = -1; // variable not used in this version of the program
+	var load = 0; // Indicates whether the page was already saved before loading or not
+	var kepSorSam = 0;// Indicates how many image the Gif contains. (Number of layers.)
+	var picture1 = ""; // Data strings for each image.
+	var picture2 = "";
+	var picture3 = "";
+	var picture4 = "";
+	var picture5 = "";
+	var dataString = ""; // Data string of all image (Query-string)
+	All datas - of a maximum of 5 pictures - is stored in the 'picturesData[5][21]' array.
+	var pictImprove = "0"; // These 3 variables indicate the states of improvement.
+	var beforeImprove = "0";
+	var improveTurnOn = "0";
+	var firstLoad = "1";// Indicates that there is no image in the Gif yet.
+Functions:
+	function sectionShow()//functions not used in this version of the program.
+	function sectionHide()//functions not used in this version of the program.
+	function textImgSrc(in)//When an image is clicked, this function is called.
+	function picturesImprove()// Event handler for the 'improve' button.
+	function switchPict(pictureNum, projectLoad, kikapcsolas)//The event handler for image buttons that appears when the 'improve' button is clicked .
+	function projectData(save)//Puts the inputs of the panels into the 'picturesData[5][21]' array and creates a string of them.
+	function pictureSave()//function not used in this version of the program.
+	function saveProj()// The event handler of the "SAVE" button. Each image data string will be saved to different files named "'image number'pict.txt" by calling '"gifProject.php?" + dataString'  to the "htdocs/php_1/gifmaker/" directory.
+	function showGif2()//Event handler for the 'SHOW' button. It creates an animated gif by calling'"gifProject.php?"+dataString'.
+			And it saves it as "https://localhost/php_1/gifmaker/GIFproject/Gif/animation.gif"; then displays the animated Gif in the "canvas".
+	function fillCanvas()// Displays the appropriate images in the "canvas" at various events.
+		// According to the input data, it calls the '"range.php?" + dataString' with XMLHttpRequest() traffic.
+	function alertShow_Save() //Warning in case of incorrect inputs.
+	function sectionStShow()//'ShowStart' button event handler.
+		sectionEndShow()//'ShowEnd' button event handler.
+	function newGif()// Called at the document <body onload="newGif()"> event, if it's not saved already.
+	function projectLoad() // Called at document <body onload="projectLoad()"> event if it's already saved.
+--------
+manager.css
+  Styles the Html page.
+   The main block <div class="articles">// is grid and gives two columns of equal width.
+One column <div class="col1Articles"> with attributes like 'grid-auto-rows: minmax(min-content, max-content);'
+	this is where the main input panels are placed, which are 'style=" position: fixed;', (by inline style).
+The other column is <div class="col3Articles"> which are 'grid-auto-rows: minmax(min-content, max-content);'
+	this is where the 'canvas' and the uploaded maximum of 5 images are placed.
+	At the canvas, inline style: <div style="position: fixed;> 
+----------
+.PHPs
+	isEmpty.php //Check the "GIFproject/" directory. Returns "0" if it's already saved, "1" if not.
+	projectLoad.php // If a save has been made, it returns a string created from the data of the '.txt' files.
+	projectLoad0.php //Is is the same as projectLoad.php, except that it doesn't ends 'echo' command.
+	picsUpload.php // Uploads and displays a maximum 5 images from the "GIFproject/images" directory.
+	gifProject.php // According to the 'save' value of the received string:
+		value="0": run 'makeGif' function of 'imagickManager' class in 'gifMaker.php'.
+		value="1": saves project data into $_SERVER['DOCUMENT_ROOT'] . '/php_1/gifmaker/GIFproject/'directory, 'picture number' pict.txt files.
+		value="2": not used in this program.
+	range.php // unfolds the received Query string into a pair of key-value array and runs the function 'makeRangeShow($rangeDatArray)' of class 'imagickManager' in 'gifMaker.php'.
+	imgGifPlan.php // unfolds the received Query string into a pair of key-value arrays and returns this.
+	gifMaker.php // 'imagickManager{' class.
+		function makeRangeShow($pictRangeDatas){ // puts a picture - according the recieved parameters - afore a white background.
+		function canvasWhite() // calls the 'getPhpImg' function of 'phpToHtml.php' sending a white '.png' according to the size of the 'canvas'.
+		function getPictures($thePicture )// Returns an 'Imagick' object as a '.png' image according the recieved name.
+		function makeGif($pictureArray)// Builds the animated Gif from the received image data array.
+			// A layer sequence is generated by calling the function makeCopiedPNG($imgData2, $nullE). After that, the animated Gif will be saved
+			// to $_SERVER["DOCUMENT_ROOT"] . '/php_1/gifmaker/GIFproject/Gif/' directory as 'animation.gif'.
+	whiteBckgrFill.php // The picsUpload.php calls this to get the 'canvas' a white background.  
+
+---------

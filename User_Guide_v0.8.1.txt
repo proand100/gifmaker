@@ -1,0 +1,68 @@
+GifMaker_v0.8.1 
+----------
+User Guide:
+
+  A maximum of 5 image can be placed in the "htdocs/php_1/gifmaker/GIFproject/images/" directory. Maximum 400px wide, 220px high with ".png" extension.
+  When the page loads, these images appear on the right side of it. By clicking on an image, it appears in the "canvas".
+  The name, height and width of the image will then appear on the blue panel at left.
+  At the top of the blue panel of the "canvas", you must set the length (running time) of the animation  in seconds.
+   After that you have to set the number of pictures that are running during 1 second too. 
+ The next text field shows the number of frames that whole animated gif consists. 
+	On the dark panel to left, you can set the starting and the ending (last) image's parameters (position, opacity, brightness) of the animation.
+	 The start and end images can be viewed with the ShowStart, ShowEnd buttons.
+
+  If all these values ​​are set, the "Show" button can be used to create the animation. It takes 10-60 seconds, then it runs the animation in the "canvas".
+
+  You can click on one of the images again and set it's parameters in the same way(position, opacity, brightness).
+  	Next to the image title, the image number is displayed, meaning that this is the 2nd image in the animation. 
+  	This image appears above the first one as layer 2.
+   In this way, the animation can consist of a total of 5 images.
+
+   	By clicking on the "improve" button, a panel will appear containing buttons according to the numbers of the entered images and
+ 	the "Show", "Save" buttons and the adjustable images disappear.
+     By clicking on the button of an image entered so far, the corresponding image appears in the "canvas" and on the left panels with it's parameters.
+    These can be modified, the start and end images can be viewed using the ShowStart and ShowEnd buttons.
+   You can view the modified animation with the "Show" button and save it with the "SAVE" button.
+   After saving, you can continue editing the animation with the saved images and parameters after the page is reloaded.
+
+ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+
+Using the Xampp server, the location of the files: 
+ Put into 'c:\xampp\htdocs\php_1\gifmaker\' directory all '.php' files:
+ projectLoad.php
+projectLoad0.php
+ picsUpload.php
+ phpToHtml.php
+ manager.php
+ isEmpty.php
+imgGifPlan.php
+gifProject.php
+gifMaker.php
+whiteBckgrFill.php
+  the JavaScript file:
+manager.js
+  the CSS file:
+manager.css
+----------
+2 directory needs to be created:
+'c:\xampp\htdocs\php_1\gifmaker\GIFproject\Gif' (The location of the animated gif)
+'c:\xampp\htdocs\php_1\gifmaker\GIFproject\images' (Space for a maximum of 5 pictures)
+------------------------
+Type to the address bar of the browser: 'localhost/php_1/gifmaker/manager.php'
+(without quotes).
+--------------------------
+The program uses PHP's 'imagick' library, if it is not installed among the PHP extensions, then
+the 'imagick' extension must be installed.
+
+
+
+
+
+
+
+
+
+
+
+
+

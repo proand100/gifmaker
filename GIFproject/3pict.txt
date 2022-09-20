@@ -1,1 +1,0 @@
-kepSorszam=3&mainImg=zold.png&height=54&width=77&mod=0&tartam=&delay=&startFr=&endFr=&startX=40&startY=40&startOp=1&startLight=100&endX=50&endY=100&endOp=1&endLight=100&projLength=10&mainDelay=10&save=2

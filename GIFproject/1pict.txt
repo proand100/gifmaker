@@ -1,1 +1,0 @@
-kepSorszam=1&mainImg=circle.png&height=170&width=170&mod=0&tartam=&delay=&startFr=&endFr=&startX=0&startY=100&startOp=1&startLight=100&endX=300&endY=0&endOp=1&endLight=100&projLength=10&mainDelay=10&save=0

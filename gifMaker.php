@@ -66,6 +66,8 @@ return (base64_encode($im));
 
 
 
+
+
 function makeGif($pictureArray){
 /*  */$frames = $pictureArray[0]["projLength"] * $pictureArray[0]["mainDelay"];
 $frameArray =  array($frames);

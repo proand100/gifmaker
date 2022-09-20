@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -12,22 +13,26 @@
 </head>
 <?php require_once 'isEmpty.php';
 $isempty = isEmpty();
-if($isempty == "0"){echo '<body onload="projectLoad()">';}
+if($isempty == "0"){
+  
+  
+   echo '<body  onload="projectLoad()"';
+}
+
 else{echo '<body  onload="newGif()">';}
 ?>
 
 <div class="cikkek"> <!-- 1 -->
-    <div class="col1Cikkek"> <!-- 2 --> 
+    <div class="col1Cikkek" style="color: black;"> <!--   2 --> 
         <?php
         if($isempty == "1"){
-         echo ' <div id="loadGif" style=" position: fixed; width: 480px;" class="cikk_5">Create New Gif.';
+         echo ' <div id="loadGif" style=" position: fixed; width: 480px; color: black;" class="cikk_5">Create New Gif.';
         }// <!-- 3 --> 
         else{
             echo '<div  style="top: 100px;">' ;
-            require_once "projectLoad.php";  
+            require_once "projectLoad0.php";  
             echo  '</div>';
-          
-          echo ' <div id="loadGif" style=" position: fixed; width: 480px;" class="cikk_5">Loaded Gif.';
+            echo ' <div id="loadGif" style=" position: fixed; width: 480px; color: black;" class="cikk_5">Loaded Gif.';
           $lastPicIndex = count($pictureArray) - 1;
 //----/-----------------
        }// <!-- 3 --> 
@@ -69,26 +74,28 @@ else{echo '<body  onload="newGif()">';}
                   echo ' <input id="height" name="height" type="text" value="0">';
                   echo ' <label for="width">Width (px) :</label>';
                   echo ' <input id="width" name="width" type="text" value="0">';                
-                  echo ' <label for="alakitasMod">Alakitas :</label>';
-                  echo ' <select name="alakitasMod" id="mod">';                  
-                  echo ' <option value="0">Change</option>';
-                  echo ' <option value="1">Unchanged</option>';     
+                  echo ' <label for="alakitasMod" style="display: none;">Alakitas :</label>';
+                  echo ' <select name="alakitasMod" id="mod" style="display: none;">';                  
+                  echo ' <option value="0" style="display: none;">Change</option>';
+                  echo ' <option value="1" style="display: none;">Unchanged</option>';     
                 }
                 else{
                   echo ' <label for="height">Height (px) :</label>';
                   echo ' <input id="height" name="height" type="text"value="' . $pictureArray[$lastPicIndex]["height"] . '">';
                   echo ' <label for="width">Width (px) :</label>';
                   echo ' <input id="width" name="width" type="text" value="' . $pictureArray[$lastPicIndex]["width"] . '">';                
-                  echo ' <label for="alakitasMod">Alakitas :</label>';
-                  echo ' <select name="alakitasMod" id="mod">';  
+                  echo ' <label for="alakitasMod" style="display: none;">Alakitas :</label>';
+                  echo ' <select name="alakitasMod" id="mod" style="display: none;">';
+                  /*  
                   if($pictureArray[$lastPicIndex]["mod"] == "0"){
-                    echo ' <option value="0" selected>Change</option>';
-                    echo ' <option value="1">Unchanged</option>';
+                    echo ' <option value="0"style="display: none;" selected>Change</option>';
+                    echo ' <option value="1" style="display: none;">Unchanged</option>';
                   } 
                   else{
                     echo ' <option value="0">Change</option>';
                     echo ' <option value="1" selected>Unchanged</option>';
-                  }               
+                  } 
+                  */              
                   
                   
                 }
@@ -142,7 +149,7 @@ else{echo '<body  onload="newGif()">';}
                     <label for="startOp">Start opacity :</label>
 
                  
-                      <input id="startOp" class="tooltip" name="startOp" type="text" onmouseover="stOpTt()" onmouseout="stOpTtKi()" value="1">
+                      <input id="startOp" class="tooltip" style="background-color: rgb(208, 239, 150); " name="startOp" type="text" onmouseover="stOpTt()" onmouseout="stOpTtKi()" value="1">
  
                     
                     <label for="startLight">Start Light :</label>
@@ -161,7 +168,7 @@ else{echo '<body  onload="newGif()">';}
                     <label for="endLight>">End Light :</label>
                     <input id="endLight" name="endLight" type="text" onmouseover="stLiTt()" onmouseout="stLiTtKi()" value="100">
                     </div>
-                    </div>';
+                </div>';
                   }
                   else{
                     
@@ -195,7 +202,7 @@ else{echo '<body  onload="newGif()">';}
                     <input id="startY" style="background-color: rgb(239, 224, 150);"name="startY" type="text" value="' . $pictureArray[$lastPicIndex]["startY"] . '">
                    
                     <label for="startOp">Start opacity :</label>
-                    <input id="startOp" class="tooltip" name="startOp" type="text" onmouseover="stOpTt()" onmouseout="stOpTtKi()" value="' . $pictureArray[$lastPicIndex]["startOp"] . '">
+                    <input id="startOp" class="tooltip" style="background-color: rgb(208, 239, 150); " name="startOp" type="text" onmouseover="stOpTt()" onmouseout="stOpTtKi()" value="' . $pictureArray[$lastPicIndex]["startOp"] . '">
 
                    
                     

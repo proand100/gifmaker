@@ -49,7 +49,7 @@ $pictureArray[$i] = $OneImg->getPictureDatas($filesContent);
 }
 
 //return  $filesContent2;
-echo $filesContent2;
+//echo $filesContent2;
  //--------------
 
 

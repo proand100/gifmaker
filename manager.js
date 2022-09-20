@@ -84,6 +84,7 @@ function textImgSrc(be) { // Display all image from Gifproject/images folder
         kepSorSzam++;
         document.getElementById("kepSorszam").value = kepSorSzam;//+ ". picture";
         document.getElementById("felirat").innerHTML = ".picture";
+        document.getElementById("mod").value = "0";
 
     }
     if (load == 1) {
@@ -357,7 +358,7 @@ function showGif2() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-           // document.write(this.responseText);
+ 
             var imageURL = "https://localhost/php_1/gifmaker/GIFproject/Gif/animation.gif";
             document.getElementById("canvasIMG").src = imageURL;
 
@@ -366,8 +367,34 @@ function showGif2() {
             // document.write("showGif2(): Nem 4 es 200!");
         }
     };
+
+    showLoadText();
     xhttp.open("POST", "gifProject.php?" + dataString, false);
     xhttp.send();
+
+}
+
+function  showLoadText(){
+   // document.write("showLoadText(indexBe)");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+           var  imageURL = 'data:image/png;base64,' + this.responseText;
+           document.getElementById("canvasIMG").src = imageURL;
+
+        }
+        else {
+            // document.write("showGif2(): Nem 4 es 200!");
+        }
+    };
+
+    xhttp.open("POST", "pause.php" , false);
+    xhttp.send();
+
+
+
+
 
 }
 
@@ -564,17 +591,18 @@ function projectLoad() {
             }
             //----------------------- fill into the set panels:
             //document.write("check_1");
-            //document.write(picturesData[fileok.length - 2][0]);
+  
             switchPict(picturesData[fileok.length - 2][0], '1', '0');
         }
         else {
             // document.write("NEM  4 && this.status == 200");
         }
-        document.getElementById("mainFrameDb").value = document.getElementById("projLength").value * document.getElementById("mainDelay").value;
+       // document.getElementById("mainFrameDb").value = document.getElementById("projLength").value * document.getElementById("mainDelay").value;
+        document.getElementById("mainFrameDb").value =  picturesData["0"]["17"] * picturesData["0"]["18"];
     };
     xhttp.open("POST", "projectLoad.php", false);
     xhttp.send();
-    textImgSrc(picturesData[keyValues.length * 1][1]);
+   //textImgSrc(picturesData[keyValues.length * 1][1]);
 
 }
 function calcFrPerSec(){
