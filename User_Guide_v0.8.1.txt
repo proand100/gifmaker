@@ -1,4 +1,5 @@
 GifMaker_v0.8.1 
+Video tutorial: https://www.youtube.com/watch?v=o8hB_VCaVtc
 ----------
 User Guide:
 

@@ -9,7 +9,10 @@ image movement, brightness and transparency changes.
 The HTML page handles the operation of PHP and displays the 
 result of running the PHP code. (E.g. animated GIF.)
 
+Video tutorial: https://www.youtube.com/watch?v=o8hB_VCaVtc
+
 This part of the project is made under the 
 GNU General Public License v3.0.
+
 
 Further information: András Kosik ak@egyez.com
